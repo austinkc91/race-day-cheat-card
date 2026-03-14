@@ -25,20 +25,32 @@ Build a professional PDF cheat card that includes:
    - Color code by confidence (green = 5+ sources, yellow = 3-4, red = 1-2)
    - Mark scratches clearly
    - Highlight any stakes races with deeper analysis
+   - Include a BEST BETTING STRATEGY box below each race's entry table with:
+     * Primary bet recommendation (e.g., "$10 WIN on #4")
+     * Backup/exotic plays (e.g., "Key #4 over #2,#6 in Exacta")
+     * What to say at the betting window (exact phrasing)
 
-2. COMPLETE BETTING GUIDE
+2. TABLE KEY / LEGEND
+   - Right after the color code section, include a full key/legend explaining:
+     * Every column abbreviation (Rank, PP, Horse, Jockey, Trainer, ML, Sources, Confidence, etc.)
+     * What the color-coded rows mean (green = strong consensus, yellow = moderate, red = longshot/minimal backing)
+     * How the consensus scoring works (number of sources backing the horse out of total sources checked)
+     * Any symbols or abbreviations used throughout the card
+   - This should be on its own section so the reader can reference it quickly
+
+3. COMPLETE BETTING GUIDE
    - All bet types explained: Win, Place, Show, Across the Board, Exacta, Trifecta, Superfecta, Daily Double, Pick 3/4/5/6
    - Boxing vs Straight vs Keying vs Wheeling with cost formulas
    - Exact phrases to say at betting windows
    - Payout chart for common odds levels
 
-3. BUDGET STRATEGIES
+4. BUDGET STRATEGIES
    - $50 budget plan (conservative)
    - $100 budget plan (moderate)
    - $150+ budget plan (aggressive)
    - Allocate specific dollar amounts to specific races
 
-4. TRACK INFO & TIPS
+5. TRACK INFO & TIPS
    - Track bias data (inside/outside, speed/closer bias)
    - Weather and track conditions
    - Pro tips for the venue (parking, food, best viewing spots)
