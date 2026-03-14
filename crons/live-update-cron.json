@@ -1,0 +1,7 @@
+{
+  "name": "Race Day Live Updates",
+  "schedule": "*/10 * * * *",
+  "timezone": "US/Central",
+  "prompt": "PASTE THE CONTENTS OF prompts/live-update.md HERE (with your variables filled in). See README for instructions.",
+  "enabled": true
+}
