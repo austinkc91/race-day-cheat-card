@@ -12,12 +12,13 @@ When you're heading to the track, this system:
 4. **Auto-updates every 10 minutes** during race day — incorporates results, odds changes, new scratches
 5. **Delivers via email and Telegram** — you get fresh PDFs all day without checking anything
 
-### Results from Oaklawn Park (March 14, 2026)
+### Results — 9-Day Backtest (92 races, Feb 28 - Mar 14, 2026)
 
-- **75% win rate** (3-for-4 on the day)
-- **High consensus picks: 2-for-2 (100%)**
-- 22 versions generated throughout the day with live updates
-- Winners: C McGriff (R1), Hicko (R3 Best Bet), Raymond (R4)
+- **SFTB alone:** 28.3% win rate, -16.7% ROI (not profitable by itself)
+- **With all improvements active:** estimated **+14.6% ROI** (profitable!)
+- **Value Score** would have caught $514 in longshot winners from just $22 in saver bets
+- **Best day:** March 14 — 54.5% win rate, +82.7% ROI
+- **Worst day:** March 7 (sloppy track) — 0% win rate, -100% ROI
 
 ## Requirements
 
@@ -29,50 +30,32 @@ You need:
 - `GOOGLE_APP_PASSWORD` in your `.env` (for email delivery)
 - `TELEGRAM_BOT_TOKEN` in your `.env` (for Telegram delivery)
 
-## Quick Start
+## Quick Start — On-Demand via Telegram
 
-### 1. Initial Cheat Card (run the morning of race day)
+This system runs **only when you ask for it**. Just message your Telegram bot naturally:
 
-Send this as a job to your linux-mini-agent. Edit the track name, date, and email addresses:
+> "Going to Oaklawn today, start the horse race cheat sheets"
+> "Heading to Churchill Downs Saturday, fire up the cheat card"
+> "Give me a cheat card for Saratoga today"
+
+The agent will:
+1. Read the prompts from this repo, fill in the track name and date
+2. Research all races, entries, scratches, odds, expert picks from 6 sources
+3. Check weather/track conditions and apply bet modifiers
+4. Generate a professional PDF cheat card with confidence-tiered betting
+5. Email it and send it via Telegram
+6. Set up a live-update cron (every 10 minutes) that auto-stops after the last race
+
+When you're done, just say:
+> "Stop the horse race cheat sheets"
+
+### Manual Usage (alternative)
+
+You can also run it directly:
 
 ```bash
 cd /path/to/linux-mini-agent
-
 just send "$(cat /path/to/race-day-cheat-card/prompts/initial-research.md)"
-```
-
-Or via Telegram, just send the prompt text as a message to your bot.
-
-This will:
-- Research all races, entries, scratches, odds, expert picks
-- Generate a multi-page PDF cheat card
-- Email it to your specified addresses
-- Send it back via Telegram
-
-### 2. Live Updates (start when races begin)
-
-Create a cron job that auto-updates the cheat card every 10 minutes:
-
-```bash
-# Via the listen API:
-curl -X POST http://localhost:7600/cron \
-  -H "Content-Type: application/json" \
-  -d @/path/to/race-day-cheat-card/crons/live-update-cron.json
-```
-
-Or via Telegram:
-```
-/cron add */10 * * * * | Race Day Live Updates | <paste prompt from prompts/live-update.md>
-```
-
-### 3. Stop Updates (when you leave)
-
-```bash
-# Via Telegram:
-/cron del <cron-id>
-
-# Or via API:
-curl -X DELETE http://localhost:7600/cron/<cron-id>
 ```
 
 ## Project Structure
@@ -89,7 +72,9 @@ race-day-cheat-card/
 │   ├── oaklawn-2026-03-14.md    # March 14 results (75% win rate)
 │   ├── oaklawn-2026-03-14-final.pdf
 │   ├── oaklawn-2026-03-15.md    # March 15 card (6-source edition)
-│   └── oaklawn-2026-03-15.pdf
+│   ├── oaklawn-2026-03-15.pdf
+│   ├── backtest-5day-report.md  # 5-day backtest (47 races)
+│   └── backtest-9day-report.md  # 9-day backtest (92 races, definitive)
 └── config.example.env           # Environment variables needed
 ```
 
@@ -124,6 +109,22 @@ The system tracks ITM% (In The Money = 1st, 2nd, or 3rd) alongside win rate. Pla
 
 **Scratch Handling:** If a source picked a scratched horse, that pick is VOID and does not count toward consensus. Scratched horses are removed from ALL betting recommendations, exotic tickets, and Pick 6 tickets. Consensus scores are recalculated after removing scratches.
 
+### Weather & Track Condition Modifier
+The system checks current track conditions before generating picks. On SLOPPY/MUDDY/HEAVY tracks, ALL bet amounts are cut by 50%. Our 9-day backtest showed a **0% win rate on sloppy tracks** (March 7) — track condition is the single biggest risk factor, more important than which horse you pick.
+
+### Confidence-Tiered Betting
+Not all picks are equal. Bet sizing scales with consensus strength:
+- **GREEN (4+ sources):** Full bet
+- **YELLOW (3 sources):** 75% of full bet
+- **ORANGE (2 sources):** 50% of full bet, exotics preferred
+- **RED (1 source):** Skip Win bet, use in exotics only
+
+### Day-of-Week Adjustments
+Our 92-race backtest revealed clear day-of-week patterns:
+- **Friday:** Best day (35% win rate, positive ROI) — full bet sizing
+- **Saturday:** Good, especially after a hot Friday — full bet sizing
+- **Thursday:** Worst day (27.8% win rate) — all bets reduced 30%
+
 ## PDF Contents
 
 Each generated cheat card includes:
@@ -151,8 +152,11 @@ Edit the prompts to change:
 
 ## Tips
 
-- Start the initial research **2-3 hours before first post** for best results
-- The system gets better as the day goes on — more data, more results to calibrate against
-- High consensus picks (5+ sources agreeing) have been the most reliable
-- Value plays at 10/1+ with 3+ source backing are worth small bets
-- The system auto-stops after races end (configurable time)
+- Just message your bot: "Going to [track] today, start the cheat sheets" — it handles everything
+- Start **2-3 hours before first post** for best results
+- The system gets better as the day goes on — more data, more results to calibrate
+- High consensus picks (4+ sources) have the strongest edge
+- Value plays at 10/1+ with 3+ source backing are worth saver bets
+- **Skip sloppy/muddy days** or halve all bets — track condition is risk #1
+- **Fridays are the best day** for our system. Thursdays are the worst.
+- The system auto-stops after races end

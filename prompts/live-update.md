@@ -57,7 +57,20 @@ The PDF must include:
 - Payout chart for all odds levels
 - SAVER BET RULE: When the #1 pick is a heavy favorite (2/1 or shorter), ALWAYS include a $2-3 saver Win bet on the #2 consensus pick
 - PLACE/SHOW TRACKING: Include Place/Show recommendations for each race. Track ITM% (In The Money) alongside win rate. For completed races, show whether picks finished in the money even if they didn't win.
-- Budget strategies ($50, $100, $150+)
+- WEATHER & TRACK CONDITION MODIFIER:
+  * Search for current track condition: web_search: [TRACK] track condition today [DATE]
+  * If SLOPPY/MUDDY/HEAVY: Display prominent WARNING banner, cut ALL bet amounts by 50%
+  * Our backtest showed 0% win rate on sloppy tracks — this is the #1 risk factor
+  * Always display track condition prominently at top of the PDF
+- CONFIDENCE-TIERED BETTING:
+  * GREEN picks (4+ sources): Full bet
+  * YELLOW picks (3 sources): 75% of full bet
+  * ORANGE picks (2 sources): 50% of full bet, exotics preferred
+  * RED picks (1 source): Skip Win bet, use in exotics only as longshot
+- DAY-OF-WEEK MODIFIER:
+  * Friday = best day (full bets), Thursday = worst (reduce 30%), Sat/Sun = normal
+  * Display modifier at top of PDF
+- Budget strategies ($50, $100, $150+) — amounts should reflect track condition, day-of-week, and confidence-tier modifiers
 - Track bias data and pro tips
 - Version number and timestamp so the user can see it is fresh
 

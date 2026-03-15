@@ -61,13 +61,43 @@ Build a professional PDF cheat card that includes:
    - Track ITM% (In The Money = 1st, 2nd, or 3rd) as a metric alongside win rate
    - ITM% is a better measure of source quality than pure win rate — our March 14 backtest showed picks finishing 2nd/3rd frequently
 
-5. BUDGET STRATEGIES
+5. WEATHER & TRACK CONDITION MODIFIER
+   - BEFORE generating picks, search for current weather and track conditions at the venue
+   - web_search: [TRACK NAME] track condition today [DATE]
+   - web_search: [TRACK NAME] weather forecast today
+   - If track is listed as SLOPPY, MUDDY, or HEAVY:
+     * Display a prominent WARNING banner at the top of the PDF: "OFF TRACK — REDUCE ALL BETS BY 50%"
+     * Cut ALL recommended bet amounts in half across every budget tier
+     * Our 9-day backtest showed 0% win rate on sloppy tracks (March 7) — this is the #1 risk factor
+   - If track is GOOD or FAST, proceed with normal bet sizing
+   - Always display current track condition prominently at the top of the cheat card
+
+6. CONFIDENCE-TIERED BETTING
+   - Do NOT bet the same amount on every race. Scale bet size by consensus strength:
+     * GREEN picks (4+ sources): Full recommended bet (e.g., $10 Win)
+     * YELLOW picks (3 sources): 75% of full bet (e.g., $7-8 Win)
+     * ORANGE picks (2 sources): 50% of full bet (e.g., $5 Win) — exotics only preferred
+     * RED picks (1 source): Skip Win bet entirely, use only in exotic tickets as a longshot
+   - This tiered approach concentrates money on highest-confidence picks where our edge is strongest
+   - Display the tier and recommended bet amount clearly in each race's BEST BETTING STRATEGY box
+
+7. DAY-OF-WEEK & MOMENTUM ADJUSTMENTS
+   - Check what day of the week it is. Our 9-day backtest (92 races) showed clear patterns:
+     * FRIDAY: Best day (35% win rate, positive ROI) — use full bet sizing
+     * SATURDAY: Good, especially after a hot Friday — use full bet sizing
+     * SUNDAY: Average — use full bet sizing
+     * THURSDAY: Worst day (27.8% win rate) — REDUCE all bets by 30%
+   - Display the day-of-week modifier at the top of the PDF near track condition
+   - MOMENTUM: If the user mentions yesterday was a good/hot day, note "HOT STREAK — momentum suggests confidence" in the header
+
+8. BUDGET STRATEGIES
    - $50 budget plan (conservative)
    - $100 budget plan (moderate)
    - $150+ budget plan (aggressive)
    - Allocate specific dollar amounts to specific races
+   - IMPORTANT: All budget amounts should already reflect the track condition modifier (50% cut on off-tracks) and day-of-week modifier (30% cut on Thursdays) and confidence-tier scaling
 
-6. TRACK INFO & TIPS
+9. TRACK INFO & TIPS
    - Track bias data (inside/outside, speed/closer bias)
    - Weather and track conditions
    - Pro tips for the venue (parking, food, best viewing spots)
