@@ -48,11 +48,15 @@ The PDF must include:
 - Updated picks for UPCOMING races incorporating any new scratches, odds changes, track conditions
 - CRITICAL: NEVER recommend a bet on a scratched horse. If a source picked a horse that is now scratched, mark that pick as VOID and do NOT count it toward consensus. Remove scratched horses entirely from betting recommendations, consensus picks, and exotic bet tickets. Recalculate all consensus scores after removing scratches.
 - Multi-source consensus from all 6 sources (SFTB, RD, FD, UC, TRD, AC)
+   - LOCAL EXPERT RULE: If two or more sources are local track experts from the same track, count them as ONE combined "Local Expert" source to avoid inflating consensus artificially
+   - VALUE SCORE: For each horse, calculate Value Score = (consensus_count / total_sources) × current_odds. Display in a "Value" column. Flag any horse with Value Score >= 2.0 as a "VALUE PLAY" with a star. A 3/6 pick at 8/1 (Value: 4.0) is a better bet than a 4/6 pick at 6/5 (Value: 0.8).
    - Color code: GREEN = 4+ sources, YELLOW = 3 sources, ORANGE = 2 sources, RED = 1 source
 - All bet types explained (Win, Place, Show, Exacta, Trifecta, Superfecta, Daily Double, Pick 3/4/5/6)
 - Boxing vs Keying vs Wheeling with cost formulas
 - Exact phrases to say at betting windows
 - Payout chart for all odds levels
+- SAVER BET RULE: When the #1 pick is a heavy favorite (2/1 or shorter), ALWAYS include a $2-3 saver Win bet on the #2 consensus pick
+- PLACE/SHOW TRACKING: Include Place/Show recommendations for each race. Track ITM% (In The Money) alongside win rate. For completed races, show whether picks finished in the money even if they didn't win.
 - Budget strategies ($50, $100, $150+)
 - Track bias data and pro tips
 - Version number and timestamp so the user can see it is fresh

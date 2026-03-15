@@ -110,6 +110,18 @@ Each horse is scored by consensus count (out of 6):
 - **2 sources** = MODERATE (orange) — consider in exotics
 - **1 source** = LONGSHOT (red) — only at big odds
 
+### Value Score
+Each horse also gets a **Value Score** = (consensus_count / total_sources) × odds. This prevents the system from only picking obvious favorites. A 3/6 pick at 8/1 (Value: 4.0) is a better bet than a 4/6 pick at 6/5 (Value: 0.8). Horses with Value Score >= 2.0 are flagged as VALUE PLAYs.
+
+### Local Expert Rule
+If multiple sources are local experts from the same track (e.g., Nancy Holthus + Matt Dinerman at Oaklawn), they count as ONE combined "Local Expert" source. This prevents artificially inflated consensus from experts who tend to agree.
+
+### Saver Bet Rule
+When the #1 pick is a heavy favorite (2/1 or shorter), a $2-3 saver Win bet on the #2 consensus pick is always included. In our March 14 backtest, #2 picks won 2 races (R5 Miracle Worker at $10.60, R8 Goodall at $12.00) when the favorite lost.
+
+### Place/Show Tracking
+The system tracks ITM% (In The Money = 1st, 2nd, or 3rd) alongside win rate. Place/Show recommendations are included for each race. ITM% is a better measure of source quality — our March 14 backtest showed top picks finishing 2nd or 3rd frequently even when they didn't win.
+
 **Scratch Handling:** If a source picked a scratched horse, that pick is VOID and does not count toward consensus. Scratched horses are removed from ALL betting recommendations, exotic tickets, and Pick 6 tickets. Consensus scores are recalculated after removing scratches.
 
 ## PDF Contents

@@ -28,12 +28,15 @@ Build a professional PDF cheat card that includes:
      5. Today's Racing Digest — bias-aware analysis (since 1970)
      6. AllChalk AI — machine learning predictions
    - Score each horse by consensus: how many of the 6 sources pick them
+   - LOCAL EXPERT RULE: If two or more sources are local track experts from the same track (e.g., Nancy Holthus + Matt Dinerman at Oaklawn), count them as ONE combined "Local Expert" source. They tend to agree on picks and inflate consensus artificially. Always use independent national sources as separate counts.
+   - VALUE SCORE: For each horse, calculate a Value Score = (consensus_count / total_sources) × morning_line_odds. Display this in a "Value" column. A 3/6 pick at 8/1 (Value: 4.0) is a better bet than a 4/6 pick at 6/5 (Value: 0.8). Flag any horse with Value Score >= 2.0 as a "VALUE PLAY" with a star.
    - Color code by confidence: GREEN = 4+ sources, YELLOW = 3 sources, ORANGE = 2 sources, RED = 1 source
    - Mark scratches clearly with gray strikethrough and (SCR) label
    - CRITICAL: NEVER recommend a bet on a scratched horse. If a source picked a scratched horse, mark that source's pick as VOID and do NOT count it toward consensus. Remove scratched horses entirely from the BEST BETTING STRATEGY box, consensus picks, and any exotic bet tickets. Recalculate consensus scores after removing scratched horses.
    - Highlight any stakes races with deeper analysis
    - Include a BEST BETTING STRATEGY box below each race's entry table with:
      * Primary bet recommendation (e.g., "$10 WIN on #4") — ONLY on horses confirmed in entries
+     * SAVER BET RULE: When the #1 pick is a heavy favorite (morning line 2/1 or shorter), ALWAYS include a $2-3 saver Win bet on the #2 consensus pick. This protects against chalk upsets and caught 2 extra winners in our March 14 backtest.
      * Backup/exotic plays (e.g., "Key #4 over #2,#6 in Exacta") — ONLY with active horses
      * What to say at the betting window (exact phrasing)
 
@@ -51,13 +54,20 @@ Build a professional PDF cheat card that includes:
    - Exact phrases to say at betting windows
    - Payout chart for common odds levels
 
-4. BUDGET STRATEGIES
+4. PLACE/SHOW TRACKING
+   - For every race, include a PLACE/SHOW RECOMMENDATION alongside the Win bet
+   - When the #1 pick has odds of 3/1 or shorter, add a $2 Place bet recommendation
+   - When the #1 pick has odds of 5/1 or longer, add a $2 Show bet recommendation as insurance
+   - Track ITM% (In The Money = 1st, 2nd, or 3rd) as a metric alongside win rate
+   - ITM% is a better measure of source quality than pure win rate — our March 14 backtest showed picks finishing 2nd/3rd frequently
+
+5. BUDGET STRATEGIES
    - $50 budget plan (conservative)
    - $100 budget plan (moderate)
    - $150+ budget plan (aggressive)
    - Allocate specific dollar amounts to specific races
 
-5. TRACK INFO & TIPS
+6. TRACK INFO & TIPS
    - Track bias data (inside/outside, speed/closer bias)
    - Weather and track conditions
    - Pro tips for the venue (parking, food, best viewing spots)
