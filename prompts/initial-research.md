@@ -7,7 +7,6 @@
 #   - TRACK: Track name and location
 #   - DATE: Race date
 #   - EMAILS: Email addresses to send the PDF to
-#   - STAKES: Any featured stakes races to focus on
 
 I want you to do deep research today on the horse races at [TRACK NAME] [LOCATION] on [DATE].
 
@@ -19,7 +18,7 @@ I want to know:
 
 Build a professional PDF cheat card that includes:
 
-1. RACE-BY-RACE PICKS
+1. RACE-BY-RACE ANALYSIS
    - Pull picks from these 6 specific sources:
      1. SFTB (Sports From The Basement) — algorithmic speed ratings, workouts, past performances
      2. Racing Dudes — expert handicapping (78% ITM rate)
@@ -28,80 +27,72 @@ Build a professional PDF cheat card that includes:
      5. Today's Racing Digest — bias-aware analysis (since 1970)
      6. AllChalk AI — machine learning predictions
    - Score each horse by consensus: how many of the 6 sources pick them
-   - LOCAL EXPERT RULE: If two or more sources are local track experts from the same track (e.g., Nancy Holthus + Matt Dinerman at Oaklawn), count them as ONE combined "Local Expert" source. They tend to agree on picks and inflate consensus artificially. Always use independent national sources as separate counts.
-   - VALUE SCORE: For each horse, calculate a Value Score = (consensus_count / total_sources) × morning_line_odds. Display this in a "Value" column. A 3/6 pick at 8/1 (Value: 4.0) is a better bet than a 4/6 pick at 6/5 (Value: 0.8). Flag any horse with Value Score >= 2.0 as a "VALUE PLAY" with a star.
+   - LOCAL EXPERT RULE: If two or more sources are local track experts from the same track (e.g., Nancy Holthus + Matt Dinerman at Oaklawn), count them as ONE combined "Local Expert" source. They tend to agree on picks and inflate consensus artificially.
+   - VALUE SCORE: For each horse, calculate Value Score = (consensus_count / total_sources) x morning_line_odds. Flag any horse with Value Score >= 2.0 as a "VALUE PLAY".
    - Color code by confidence: GREEN = 4+ sources, YELLOW = 3 sources, ORANGE = 2 sources, RED = 1 source
-   - Mark scratches clearly with gray strikethrough and (SCR) label
-   - CRITICAL: NEVER recommend a bet on a scratched horse. If a source picked a scratched horse, mark that source's pick as VOID and do NOT count it toward consensus. Remove scratched horses entirely from the BEST BETTING STRATEGY box, consensus picks, and any exotic bet tickets. Recalculate consensus scores after removing scratched horses.
-   - Highlight any stakes races with deeper analysis
-   - Include a BEST BETTING STRATEGY box below each race's entry table with:
-     * Primary bet recommendation (e.g., "$10 WIN on #4") — ONLY on horses confirmed in entries
-     * SAVER BET RULE: When the #1 pick is a heavy favorite (morning line 2/1 or shorter), ALWAYS include a $2-3 saver Win bet on the #2 consensus pick. This protects against chalk upsets and caught 2 extra winners in our March 14 backtest.
-     * Backup/exotic plays (e.g., "Key #4 over #2,#6 in Exacta") — ONLY with active horses
-     * What to say at the betting window (exact phrasing)
+   - Mark scratches clearly with (SCR) label
+   - CRITICAL: NEVER recommend a bet on a scratched horse. Remove scratched horses entirely from picks and recalculate consensus.
 
-2. TABLE KEY / LEGEND
-   - Right after the color code section, include a full key/legend explaining:
-     * Every column abbreviation (Rank, PP, Horse, Jockey, Trainer, ML, Sources, Confidence, etc.)
-     * What the color-coded rows mean (green = strong consensus, yellow = moderate, red = longshot/minimal backing)
-     * How the consensus scoring works (number of sources backing the horse out of total sources checked)
-     * Any symbols or abbreviations used throughout the card
-   - This should be on its own section so the reader can reference it quickly
+2. TOP PLAYS ONLY (This is the most important section)
+   - ONLY recommend Win/Place bets on GREEN picks (4+ sources agree)
+   - If no GREEN picks exist, take the single strongest YELLOW pick as a lone play
+   - For GREEN picks: $10 Win + $5 Place
+   - SAVER BET: When a GREEN pick is a heavy favorite (2/1 or shorter), add a $3 saver Win bet on the next-best consensus pick in that race
+   - VALUE PLAY: If any horse has Value Score >= 3.0 (strong consensus at big odds), add a $3 Win saver on it regardless of tier
+   - SKIP everything else. No Win bets on ORANGE or RED picks. Period.
+   - Goal: 2-4 total Win bets for the entire card, not one per race
 
-3. COMPLETE BETTING GUIDE
-   - All bet types explained: Win, Place, Show, Across the Board, Exacta, Trifecta, Superfecta, Daily Double, Pick 3/4/5/6
-   - Boxing vs Straight vs Keying vs Wheeling with cost formulas
-   - Exact phrases to say at betting windows
-   - Payout chart for common odds levels
+3. EXOTIC BETS (The fun stuff)
+   Build these exotic plays using ONLY GREEN and strong YELLOW picks:
 
-4. PLACE/SHOW TRACKING
-   - For every race, include a PLACE/SHOW RECOMMENDATION alongside the Win bet
-   - When the #1 pick has odds of 3/1 or shorter, add a $2 Place bet recommendation
-   - When the #1 pick has odds of 5/1 or longer, add a $2 Show bet recommendation as insurance
-   - Track ITM% (In The Money = 1st, 2nd, or 3rd) as a metric alongside win rate
-   - ITM% is a better measure of source quality than pure win rate — our March 14 backtest showed picks finishing 2nd/3rd frequently
+   a) EXACTA PLAYS
+      - In any race with a GREEN pick, key that horse on top over the next 2-3 consensus picks
+      - Example: "$1 Exacta Key: #4 over #2, #6, #8" (cost: $3)
+      - Only in races where you have a strong opinion on the winner
 
-5. WEATHER & TRACK CONDITION MODIFIER
-   - BEFORE generating picks, search for current weather and track conditions at the venue
-   - web_search: [TRACK NAME] track condition today [DATE]
-   - web_search: [TRACK NAME] weather forecast today
-   - If track is listed as SLOPPY, MUDDY, or HEAVY:
-     * Display a prominent WARNING banner at the top of the PDF: "OFF TRACK — REDUCE ALL BETS BY 50%"
-     * Cut ALL recommended bet amounts in half across every budget tier
-     * Our 9-day backtest showed 0% win rate on sloppy tracks (March 7) — this is the #1 risk factor
-   - If track is GOOD or FAST, proceed with normal bet sizing
-   - Always display current track condition prominently at the top of the cheat card
+   b) TRIFECTA PLAYS
+      - In the best 1-2 races of the day (GREEN picks with clear separation), build a trifecta box or key
+      - Key the GREEN pick on top, box the next 3 picks underneath
+      - Example: "$0.50 Trifecta Key: #4 with #2, #6, #8" (cost: $3)
 
-6. CONFIDENCE-TIERED BETTING
-   - Do NOT bet the same amount on every race. Scale bet size by consensus strength:
-     * GREEN picks (4+ sources): Full recommended bet (e.g., $10 Win)
-     * YELLOW picks (3 sources): 75% of full bet (e.g., $7-8 Win)
-     * ORANGE picks (2 sources): 50% of full bet (e.g., $5 Win) — exotics only preferred
-     * RED picks (1 source): Skip Win bet entirely, use only in exotic tickets as a longshot
-   - This tiered approach concentrates money on highest-confidence picks where our edge is strongest
-   - Display the tier and recommended bet amount clearly in each race's BEST BETTING STRATEGY box
+   c) DAILY DOUBLE
+      - Find the best consecutive-race pair where both races have GREEN or strong YELLOW picks
+      - Key the top pick in each leg, spread to 2 horses in the weaker leg
+      - Example: "$2 Daily Double: R6 #4 with R7 #2, #5" (cost: $4)
 
-7. DAY-OF-WEEK & MOMENTUM ADJUSTMENTS
-   - Check what day of the week it is. Our 9-day backtest (92 races) showed clear patterns:
-     * FRIDAY: Best day (35% win rate, positive ROI) — use full bet sizing
-     * SATURDAY: Good, especially after a hot Friday — use full bet sizing
-     * SUNDAY: Average — use full bet sizing
-     * THURSDAY: Worst day (27.8% win rate) — REDUCE all bets by 30%
-   - Display the day-of-week modifier at the top of the PDF near track condition
-   - MOMENTUM: If the user mentions yesterday was a good/hot day, note "HOT STREAK — momentum suggests confidence" in the header
+   d) PICK 3 / PICK 4 (if card supports it)
+      - Build ONE Pick 3 using the strongest 3 consecutive races
+      - Single the GREEN picks, spread to 2-3 horses in weaker legs
+      - Keep total cost under $20
+      - Example: "$1 Pick 3: R6 #4 / R7 #2, #5 / R8 #3" (cost: $2)
 
-8. BUDGET STRATEGIES
-   - $50 budget plan (conservative)
-   - $100 budget plan (moderate)
-   - $150+ budget plan (aggressive)
-   - Allocate specific dollar amounts to specific races
-   - IMPORTANT: All budget amounts should already reflect the track condition modifier (50% cut on off-tracks) and day-of-week modifier (30% cut on Thursdays) and confidence-tier scaling
+   e) WHAT TO SAY AT THE WINDOW
+      - For every exotic bet, include the EXACT phrase to say at the betting window
+      - Example: "Give me a one-dollar exacta, number four on top over two, six, and eight in race five"
 
-9. TRACK INFO & TIPS
-   - Track bias data (inside/outside, speed/closer bias)
-   - Weather and track conditions
-   - Pro tips for the venue (parking, food, best viewing spots)
-   - Any trainer/jockey angles (hot barns, rider changes)
+4. WEATHER & TRACK CONDITION CHECK
+   - Search for current weather and track conditions at the venue
+   - If track is SLOPPY, MUDDY, or HEAVY:
+     * Display WARNING banner: "OFF TRACK — CUT ALL BETS IN HALF"
+     * Halve all recommended bet amounts
+     * Our backtest showed 0% win rate on sloppy tracks — this is the #1 risk factor
+   - Display current track condition prominently at the top
+
+5. DAY-OF-WEEK NOTE
+   - Thursday: Reduce all bets 30% (worst day in backtest, 27.8% win rate)
+   - Friday: Best day (35% win rate) — full sizing
+   - Saturday/Sunday: Normal sizing
+
+6. BUDGET PLANS (already reflecting all modifiers)
+   - $30 budget (tight — Win bets on GREEN picks only, one exacta)
+   - $50 budget (moderate — Win/Place on GREEN picks, exactas, one trifecta or daily double)
+   - $100 budget (full card — all recommended plays including Pick 3/4)
+   - Show exactly which bets to make at each budget level
+
+7. QUICK REFERENCE
+   - Table key / legend for abbreviations
+   - Track bias data (inside/outside, speed/closer)
+   - Track tips (parking, food, viewing spots)
 
 PDF FORMATTING:
 - Use Python reportlab library
@@ -109,6 +100,7 @@ PDF FORMATTING:
 - Font sizes: Title 18pt, Headers 14pt, Body 10pt
 - No text overlap, proper line spacing
 - Clean professional layout with color coding
+- TOP PLAYS and EXOTIC BETS sections should be the most prominent — these are what the user is betting from
 
 Save the PDF to /tmp/race_day_cheatcard.pdf
 
@@ -118,5 +110,3 @@ Send from vacypert@gmail.com.
 Subject: [TRACK NAME] Race Day Cheat Card - [DATE]
 
 Also attach /tmp/race_day_cheatcard.pdf to this job's attachments for Telegram delivery.
-
-Add any other information you think would be helpful for someone attending the races.
