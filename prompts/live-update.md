@@ -18,12 +18,24 @@ You are updating the [TRACK NAME] horse racing cheat card. Races run [FIRST POST
 AUTO-STOP CHECK: First, check the current time. If it is after [AUTO_STOP_TIME], just write a short summary saying "Races are over" and do NOT generate a new PDF.
 
 STEP 1: RESEARCH LATEST DATA
-Search for the LATEST information. Focus on what has CHANGED:
-1. web_search: [TRACK] results today [DATE]
-2. web_search: [TRACK] scratches today
-3. web_search: [TRACK] odds today [DATE]
-4. web_search: [TRACK] racing picks today expert
-5. web_search: [TRACK] [STAKES RACE 1] picks and [TRACK] [STAKES RACE 2] picks
+Search for the LATEST information from these 6 SPECIFIC SOURCES. Focus on what has CHANGED:
+1. web_search: [TRACK] SFTB picks today [DATE]
+2. web_search: [TRACK] Racing Dudes picks today [DATE]
+3. web_search: [TRACK] FanDuel Research picks today [DATE]
+4. web_search: [TRACK] Ultimate Capper Reggie Garrett picks today [DATE]
+5. web_search: [TRACK] Today's Racing Digest picks today [DATE]
+6. web_search: [TRACK] AllChalk AI picks today [DATE]
+7. web_search: [TRACK] results today [DATE]
+8. web_search: [TRACK] scratches today
+9. web_search: [TRACK] odds today [DATE]
+
+THE 6 SOURCES (use ALL of them, every update):
+1. SFTB (Sports From The Basement) — algorithmic speed ratings, workouts, past performances
+2. Racing Dudes — expert handicapping (78% ITM rate)
+3. FanDuel Research — data-driven win probabilities
+4. Ultimate Capper (Reggie Garrett) — free expert picks
+5. Today's Racing Digest — bias-aware analysis (since 1970)
+6. AllChalk AI — machine learning predictions
 
 STEP 2: READ PREVIOUS VERSION
 Read /tmp/race_day_cheatcard.pdf to see what the current version contains.
@@ -35,7 +47,8 @@ The PDF must include:
 - RACE RESULTS for any races already completed (winner, payouts, how our picks did)
 - Updated picks for UPCOMING races incorporating any new scratches, odds changes, track conditions
 - CRITICAL: NEVER recommend a bet on a scratched horse. If a source picked a horse that is now scratched, mark that pick as VOID and do NOT count it toward consensus. Remove scratched horses entirely from betting recommendations, consensus picks, and exotic bet tickets. Recalculate all consensus scores after removing scratches.
-- Multi-source consensus algorithm picks
+- Multi-source consensus from all 6 sources (SFTB, RD, FD, UC, TRD, AC)
+   - Color code: GREEN = 4+ sources, YELLOW = 3 sources, ORANGE = 2 sources, RED = 1 source
 - All bet types explained (Win, Place, Show, Exacta, Trifecta, Superfecta, Daily Double, Pick 3/4/5/6)
 - Boxing vs Keying vs Wheeling with cost formulas
 - Exact phrases to say at betting windows

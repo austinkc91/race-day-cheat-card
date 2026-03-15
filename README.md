@@ -6,8 +6,8 @@ AI-powered horse racing handicapping system that generates professional PDF chea
 
 When you're heading to the track, this system:
 
-1. **Researches** every race — entries, scratches, odds, expert picks from 5-8 independent sources
-2. **Builds a consensus algorithm** — scores each horse by how many sources back them (e.g., 6/8 = strong pick)
+1. **Researches** every race — entries, scratches, odds, expert picks from 6 specific independent sources
+2. **Builds a consensus algorithm** — scores each horse by how many of the 6 sources back them (e.g., 4/6 = BEST BET)
 3. **Generates a professional PDF** — color-coded picks, betting guide, budget strategies, payout charts
 4. **Auto-updates every 10 minutes** during race day — incorporates results, odds changes, new scratches
 5. **Delivers via email and Telegram** — you get fresh PDFs all day without checking anything
@@ -86,27 +86,31 @@ race-day-cheat-card/
 ├── crons/
 │   └── live-update-cron.json    # Cron job definition for live updates
 ├── examples/
-│   └── oaklawn-2026-03-14.md    # Example output from first use
+│   ├── oaklawn-2026-03-14.md    # March 14 results (75% win rate)
+│   ├── oaklawn-2026-03-14-final.pdf
+│   ├── oaklawn-2026-03-15.md    # March 15 card (6-source edition)
+│   └── oaklawn-2026-03-15.pdf
 └── config.example.env           # Environment variables needed
 ```
 
 ## How the Consensus Algorithm Works
 
-The system pulls picks from multiple independent handicapping sources:
+The system pulls picks from 6 specific independent handicapping sources:
 
-1. **Sports From The Basement (SFTB)** — algorithmic model
-2. **Racing Dudes** — 78% ITM rate
-3. **Ultimate Capper** — expert picks
-4. **FanDuel Research** — data-driven analysis
-5. **Today's Racing Digest** — traditional handicapping
-6. **Rick Lee (Arkansas Democrat-Gazette)** — local expert (track-specific)
-7. **Additional sources** as available for the specific track
+1. **SFTB (Sports From The Basement)** — algorithmic speed ratings, workouts, past performances
+2. **Racing Dudes** — expert handicapping (78% ITM rate)
+3. **FanDuel Research** — data-driven win probabilities
+4. **Ultimate Capper (Reggie Garrett)** — free expert picks
+5. **Today's Racing Digest** — bias-aware analysis (since 1970)
+6. **AllChalk AI** — machine learning predictions
 
-Each horse is scored by consensus count:
-- **6/8+ sources** = BEST BET (green) — highest confidence
-- **4-5/8 sources** = STRONG PLAY (yellow) — good value
-- **2-3/8 sources** = MODERATE (orange) — consider in exotics
-- **1/8 source** = LONGSHOT (red) — only at big odds
+Each horse is scored by consensus count (out of 6):
+- **4+ sources** = BEST BET (green) — highest confidence
+- **3 sources** = STRONG PLAY (yellow) — good value
+- **2 sources** = MODERATE (orange) — consider in exotics
+- **1 source** = LONGSHOT (red) — only at big odds
+
+**Scratch Handling:** If a source picked a scratched horse, that pick is VOID and does not count toward consensus. Scratched horses are removed from ALL betting recommendations, exotic tickets, and Pick 6 tickets. Consensus scores are recalculated after removing scratches.
 
 ## PDF Contents
 

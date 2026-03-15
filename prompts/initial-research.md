@@ -20,9 +20,15 @@ I want to know:
 Build a professional PDF cheat card that includes:
 
 1. RACE-BY-RACE PICKS
-   - Pull picks from at least 5 independent sources (Racing Dudes, SFTB algorithm, FanDuel Research, Today's Racing Digest, Ultimate Capper, and any local beat writers for this track)
-   - Score each horse by consensus: how many sources pick them
-   - Color code by confidence (green = 5+ sources, yellow = 3-4, red = 1-2)
+   - Pull picks from these 6 specific sources:
+     1. SFTB (Sports From The Basement) — algorithmic speed ratings, workouts, past performances
+     2. Racing Dudes — expert handicapping (78% ITM rate)
+     3. FanDuel Research — data-driven win probabilities
+     4. Ultimate Capper (Reggie Garrett) — free expert picks
+     5. Today's Racing Digest — bias-aware analysis (since 1970)
+     6. AllChalk AI — machine learning predictions
+   - Score each horse by consensus: how many of the 6 sources pick them
+   - Color code by confidence: GREEN = 4+ sources, YELLOW = 3 sources, ORANGE = 2 sources, RED = 1 source
    - Mark scratches clearly with gray strikethrough and (SCR) label
    - CRITICAL: NEVER recommend a bet on a scratched horse. If a source picked a scratched horse, mark that source's pick as VOID and do NOT count it toward consensus. Remove scratched horses entirely from the BEST BETTING STRATEGY box, consensus picks, and any exotic bet tickets. Recalculate consensus scores after removing scratched horses.
    - Highlight any stakes races with deeper analysis
