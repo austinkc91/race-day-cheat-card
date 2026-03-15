@@ -34,6 +34,7 @@ Create an improved version using Python with reportlab. Save to /tmp/race_day_ch
 The PDF must include:
 - RACE RESULTS for any races already completed (winner, payouts, how our picks did)
 - Updated picks for UPCOMING races incorporating any new scratches, odds changes, track conditions
+- CRITICAL: NEVER recommend a bet on a scratched horse. If a source picked a horse that is now scratched, mark that pick as VOID and do NOT count it toward consensus. Remove scratched horses entirely from betting recommendations, consensus picks, and exotic bet tickets. Recalculate all consensus scores after removing scratches.
 - Multi-source consensus algorithm picks
 - All bet types explained (Win, Place, Show, Exacta, Trifecta, Superfecta, Daily Double, Pick 3/4/5/6)
 - Boxing vs Keying vs Wheeling with cost formulas

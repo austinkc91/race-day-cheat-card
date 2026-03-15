@@ -23,11 +23,12 @@ Build a professional PDF cheat card that includes:
    - Pull picks from at least 5 independent sources (Racing Dudes, SFTB algorithm, FanDuel Research, Today's Racing Digest, Ultimate Capper, and any local beat writers for this track)
    - Score each horse by consensus: how many sources pick them
    - Color code by confidence (green = 5+ sources, yellow = 3-4, red = 1-2)
-   - Mark scratches clearly
+   - Mark scratches clearly with gray strikethrough and (SCR) label
+   - CRITICAL: NEVER recommend a bet on a scratched horse. If a source picked a scratched horse, mark that source's pick as VOID and do NOT count it toward consensus. Remove scratched horses entirely from the BEST BETTING STRATEGY box, consensus picks, and any exotic bet tickets. Recalculate consensus scores after removing scratched horses.
    - Highlight any stakes races with deeper analysis
    - Include a BEST BETTING STRATEGY box below each race's entry table with:
-     * Primary bet recommendation (e.g., "$10 WIN on #4")
-     * Backup/exotic plays (e.g., "Key #4 over #2,#6 in Exacta")
+     * Primary bet recommendation (e.g., "$10 WIN on #4") — ONLY on horses confirmed in entries
+     * Backup/exotic plays (e.g., "Key #4 over #2,#6 in Exacta") — ONLY with active horses
      * What to say at the betting window (exact phrasing)
 
 2. TABLE KEY / LEGEND
