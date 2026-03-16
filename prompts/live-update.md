@@ -95,8 +95,17 @@ IMPORTANT PDF FORMATTING:
 - Use reportlab with proper margins (72pt all sides)
 - Font sizes: Title 18pt, Headers 14pt, Body 10pt
 - NO text overlap. Use proper line spacing.
-- TOP PLAYS and EXOTIC BETS should be the most prominent sections
 - Clean professional layout with color coding
+
+CRITICAL LAYOUT RULE — BETS BELOW EACH RACE:
+- For EVERY race, immediately below the horse table, show a prominent "BETS FOR THIS RACE" box
+- This box should have a colored background (light green or light blue) so it stands out
+- List EVERY bet for that specific race: Win bet, Saver, Exacta box, Trifecta, Superfecta, Daily Double
+- Include "what to say at the window" phrase for each bet
+- If NO bets qualify, show "BETS: $1 Exacta Box only"
+- The user should look at ONE race and immediately see every bet to make
+- Do NOT put bets in a separate section — they MUST be directly below each race table
+- Budget plans and summary can still appear at the end
 
 STEP 4: EMAIL IT
 Email the PDF to [EMAIL]. Use SMTP with the app password from /home/austin/linux-mini-agent/.env (GOOGLE_APP_PASSWORD). Send from vacypert@gmail.com.

@@ -125,7 +125,22 @@ PDF FORMATTING:
 - Font sizes: Title 18pt, Headers 14pt, Body 10pt
 - No text overlap, proper line spacing
 - Clean professional layout with color coding
-- TOP PLAYS and EXOTIC BETS sections should be the most prominent — these are what the user is betting from
+
+CRITICAL LAYOUT RULE — BETS BELOW EACH RACE:
+- For EVERY race, immediately below the horse table, show a prominent "BETS FOR THIS RACE" box
+- This box should have a colored background (light green or light blue) so it stands out
+- List EVERY bet for that specific race:
+  * Win bet (if any horse qualifies at 5/1+ with consensus)
+  * Saver longshot (if any horse qualifies at 7/1+)
+  * Exacta box (which horses, cost)
+  * Trifecta box (if CLM with 10+ starters)
+  * Superfecta (if this is the big field race)
+  * Daily Double (if this race is part of a DD pair)
+  * "What to say at the window" phrase for each bet
+- If NO bets qualify for a race, show "BETS: $1 Exacta Box only" (since we box every race)
+- The user should be able to look at ONE race and immediately know every bet to make
+- Do NOT put bets in a separate section away from the race — they MUST be directly below each race table
+- Budget plans and summary sections can still appear at the end, but the per-race bets are the primary layout
 
 Save the PDF to /tmp/race_day_cheatcard.pdf
 
