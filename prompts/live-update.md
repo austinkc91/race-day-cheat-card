@@ -71,6 +71,17 @@ RACE RESULTS for completed races:
 - Track whether our picks hit WIN or missed
 - Note: NO place tracking since we don't bet Place
 
+P&L TRACKING TABLE (CRITICAL - must appear in EVERY update after Race 1 finishes):
+- Include a prominent table titled "TODAY'S P&L TRACKER" near the top of the PDF (after header, before race details)
+- Columns: Race | Bet Type | Horse | Amount Wagered | Result | Payout | Net +/-
+- One row per bet placed (Win, Saver, Exacta, Trifecta, Superfecta, Daily Double, Pick 3)
+- For completed races: fill in Result (WIN/LOSS), actual Payout, and Net +/-
+- For upcoming races: show planned bets with Result as "PENDING"
+- RUNNING TOTALS row at the bottom: Total Wagered | Total Returned | Net P&L | ROI %
+- Color code the Net P&L: GREEN if positive, RED if negative
+- This table MUST update every cycle as races complete. It is the first thing Austin looks at.
+- If no results are available yet, show all bets as PENDING with $0.00 P&L
+
 Updated picks for UPCOMING races:
 - Incorporate new scratches, odds changes, track conditions
 - CRITICAL: NEVER recommend a bet on a scratched horse. Remove entirely and recalculate consensus.
