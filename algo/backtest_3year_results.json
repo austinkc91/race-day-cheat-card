@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "real_data_days": 59,
+    "real_data_races": 528,
+    "simulations": 10000,
+    "simulated_days_per_run": 480,
+    "generated_at": "2026-03-15T22:44:15.091881"
+  },
+  "real_data_stats": {
+    "avg_win_payout": 12.85,
+    "non_chalk_pct": 78.0,
+    "big_winner_pct": 12.3,
+    "race_type_counts": {
+      "MSW": 51,
+      "ALW": 36,
+      "AOC": 48,
+      "MC": 82,
+      "STK": 24,
+      "CLM": 237,
+      "SA": 35,
+      "OTH": 4,
+      "GST": 5,
+      "HDC": 3,
+      "MOC": 3
+    }
+  },
+  "results_by_bet_size": {
+    "2": {
+      "combined_roi_mean": 508.28,
+      "combined_roi_median": 487.09,
+      "combined_profit_mean": 68364.61,
+      "combined_profit_median": 65533.16,
+      "combined_profit_5th": 46579.54,
+      "combined_profit_95th": 99268.51,
+      "profitable_probability": 100.0,
+      "avg_monthly_profit": 1899.02,
+      "avg_max_drawdown": 91.05,
+      "avg_win_rate": 25.73,
+      "avg_best_month": 14002.05,
+      "avg_worst_month": 739.92
+    },
+    "5": {
+      "combined_roi_mean": 464.75,
+      "combined_roi_median": 445.63,
+      "combined_profit_mean": 76314.02,
+      "combined_profit_median": 73155.6,
+      "combined_profit_5th": 54041.95,
+      "combined_profit_95th": 109246.86,
+      "profitable_probability": 100.0,
+      "avg_monthly_profit": 2119.83,
+      "avg_max_drawdown": 104.28,
+      "avg_win_rate": 25.72,
+      "avg_best_month": 14329.31,
+      "avg_worst_month": 931.46
+    },
+    "10": {
+      "combined_roi_mean": 418.06,
+      "combined_roi_median": 405.57,
+      "combined_profit_mean": 89310.54,
+      "combined_profit_median": 86614.72,
+      "combined_profit_5th": 66550.78,
+      "combined_profit_95th": 121903.2,
+      "profitable_probability": 100.0,
+      "avg_monthly_profit": 2480.85,
+      "avg_max_drawdown": 140.75,
+      "avg_win_rate": 25.71,
+      "avg_best_month": 14971.59,
+      "avg_worst_month": 1155.43
+    },
+    "20": {
+      "combined_roi_mean": 371.78,
+      "combined_roi_median": 363.83,
+      "combined_profit_mean": 116191.79,
+      "combined_profit_median": 113829.77,
+      "combined_profit_5th": 91220.56,
+      "combined_profit_95th": 150735.75,
+      "profitable_probability": 100.0,
+      "avg_monthly_profit": 3227.55,
+      "avg_max_drawdown": 230.17,
+      "avg_win_rate": 25.76,
+      "avg_best_month": 16519.7,
+      "avg_worst_month": 1502.8
+    },
+    "50": {
+      "combined_roi_mean": 321.32,
+      "combined_roi_median": 317.87,
+      "combined_profit_mean": 195747.22,
+      "combined_profit_median": 193520.36,
+      "combined_profit_5th": 159904.08,
+      "combined_profit_95th": 239055.02,
+      "profitable_probability": 100.0,
+      "avg_monthly_profit": 5437.42,
+      "avg_max_drawdown": 596.38,
+      "avg_win_rate": 25.74,
+      "avg_best_month": 21851.68,
+      "avg_worst_month": 2225.76
+    }
+  }
+}
