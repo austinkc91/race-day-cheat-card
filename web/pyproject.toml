@@ -1,0 +1,12 @@
+[project]
+name = "cheatcard-web"
+version = "1.0.0"
+description = "Race Day Cheat Card - Live Web Server"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.20.0",
+]
+
+[project.scripts]
+cheatcard-web = "server:main"

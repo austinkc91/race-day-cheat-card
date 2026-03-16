@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Race Day Cheat Card Data",
+  "description": "JSON schema for race day cheat card. Write this to /tmp/race_day_data.json. The web server at port 7700 auto-reads it every 30 seconds.",
+  "type": "object",
+  "required": ["track", "date", "races"],
+  "properties": {
+    "track": {
+      "type": "string",
+      "description": "Track name (e.g., 'Fair Grounds', 'Oaklawn Park')"
+    },
+    "location": {
+      "type": "string",
+      "description": "City, State (e.g., 'New Orleans, LA')"
+    },
+    "date": {
+      "type": "string",
+      "description": "Full date string (e.g., 'Monday, March 16, 2026')"
+    },
+    "first_post": {
+      "type": "string",
+      "description": "First post time (e.g., '12:45 PM CT')"
+    },
+    "weather": {
+      "type": "object",
+      "properties": {
+        "forecast": { "type": "string", "description": "Weather description (e.g., 'Sunny, 85F, Breezy NW 20mph gusts 35mph')" },
+        "track_dirt": { "type": "string", "description": "Dirt condition: FAST, GOOD, MUDDY, SLOPPY, HEAVY" },
+        "track_turf": { "type": "string", "description": "Turf condition: FIRM, GOOD, YIELDING, SOFT, HEAVY" },
+        "advisory": { "type": "string", "description": "Weather advisory if any (shown in red)" }
+      }
+    },
+    "day_modifier": {
+      "type": "string",
+      "description": "Day-of-week betting modifier (e.g., 'Monday = Normal sizing', 'Thursday = Reduce 30%')"
+    },
+    "sources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of expert sources used. Standard 6: SFTB, Racing Dudes, FanDuel Research, Ultimate Capper (Reggie Garrett), Today's Racing Digest, AllChalk AI"
+    },
+    "sources_note": {
+      "type": "string",
+      "description": "Optional note about sources (e.g., local expert rule applied)"
+    },
+    "strategy_quote": {
+      "type": "string",
+      "description": "One-sentence strategy summary. Default: 'Stop betting favorites, bet WIN only at 5/1+, use expert picks for exacta/trifecta boxes where their 51% board rate is an edge, and target claiming races with big fields.'"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version string (e.g., 'v1.0', 'v15.0 FINAL'). Increment on each update."
+    },
+    "scratches": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Scratched horses in format 'R2: Horse Name (#PP)'"
+    },
+    "races": {
+      "type": "array",
+      "description": "Array of race objects, one per race on the card",
+      "items": {
+        "type": "object",
+        "required": ["number", "horses"],
+        "properties": {
+          "number": { "type": ["integer", "string"], "description": "Race number (1, 2, 3...)" },
+          "time": { "type": "string", "description": "Post time (e.g., '12:45 PM')" },
+          "type": { "type": "string", "description": "Race type code: CLM, MCL, ALW, AOC, SOC, MOC, MSW, STK" },
+          "type_label": { "type": "string", "description": "Full label with targeting tag (e.g., 'Claiming [GOLDMINE]', 'Allowance [STANDARD]', 'Maiden Optional Claiming [SKIP]')" },
+          "distance": { "type": "string", "description": "Distance and surface (e.g., '6F Dirt', '1M Turf', '1 1/16M Dirt')" },
+          "purse": { "type": "string", "description": "Purse amount (e.g., '$18,000')" },
+          "starters": { "type": ["integer", "string"], "description": "Number of entries" },
+          "status": { "type": "string", "enum": ["PENDING", "LIVE", "COMPLETED", "AWAITING RESULTS"], "description": "Race status" },
+          "result": { "type": "string", "description": "Full result string when race is completed (e.g., '#2 Ice Cold Blonde WON ($5.20/$2.80/$2.10), #4 Kitten Gloves 2nd...')" },
+          "comment": { "type": "string", "description": "Analysis comment about the race result or setup" },
+          "horses": {
+            "type": "array",
+            "description": "All entered horses for this race",
+            "items": {
+              "type": "object",
+              "required": ["pp", "name"],
+              "properties": {
+                "pp": { "type": ["integer", "string"], "description": "Post position number" },
+                "name": { "type": "string", "description": "Horse name. Append '(WON)', '(2nd)', '(3rd)', '(4th)' after result. Append 'SCR' if scratched." },
+                "jockey": { "type": "string", "description": "Jockey name (e.g., 'J.L. Ortiz')" },
+                "trainer": { "type": "string", "description": "Trainer name (e.g., 'K. McPeek')" },
+                "ml": { "type": "string", "description": "Morning line odds (e.g., '5/1', '3/1>5/1' for drift, '6/5*' for favorite)" },
+                "picks": { "type": "string", "description": "Pick count (e.g., '3/6' meaning 3 of 6 sources). Optional - can be empty." },
+                "tier": { "type": "string", "enum": ["GREEN", "YELLOW", "ORANGE", "RED", ""], "description": "Confidence tier: GREEN=4+ sources, YELLOW=3, ORANGE=2, RED=1" },
+                "value": { "type": "string", "description": "Value score (e.g., '2.4 VP', '1.8'). VP = Value Play when >= 2.0 at 5/1+ odds." },
+                "bold": { "type": "boolean", "description": "True for top pick in the race (bold name)" }
+              }
+            }
+          },
+          "bets": {
+            "type": "array",
+            "description": "Recommended bets for this race",
+            "items": {
+              "type": "object",
+              "required": ["type", "detail", "cost"],
+              "properties": {
+                "type": { "type": "string", "description": "Bet type: WIN, SAVER, Exacta Box, Trifecta Box, Trifecta Key, Super Box, Daily Double, Pick 3" },
+                "detail": { "type": "string", "description": "Bet details (e.g., '#4 Kitten Gloves + #2 Ice Cold Blonde')" },
+                "cost": { "type": "string", "description": "Cost (e.g., '$2.00', '$3.00')" },
+                "say": { "type": "string", "description": "What to say at the betting window (e.g., '$1 Exacta Box, 4 and 2, Race 2')" },
+                "result": { "type": "string", "description": "Bet result after race: 'WIN! +$10.60', 'LOSS', 'LOSS (finish was 5-4-2)', 'PENDING'" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "pnl": {
+      "type": "array",
+      "description": "P&L tracking entries - one per bet placed",
+      "items": {
+        "type": "object",
+        "properties": {
+          "race": { "type": "string", "description": "Race identifier (e.g., 'R1', 'R2')" },
+          "bet_type": { "type": "string", "description": "Type of bet" },
+          "horse": { "type": "string", "description": "Horse(s) in the bet" },
+          "wagered": { "type": "number", "description": "Amount wagered" },
+          "result": { "type": "string", "description": "WIN, LOSS, or PENDING" },
+          "payout": { "type": "number", "description": "Amount returned (0 for losses)" },
+          "net": { "type": "number", "description": "Net profit/loss for this bet" }
+        }
+      }
+    },
+    "pnl_totals": {
+      "type": "object",
+      "properties": {
+        "wagered": { "type": "number" },
+        "returned": { "type": "number" },
+        "net": { "type": "number" },
+        "roi": { "type": "string", "description": "ROI percentage (e.g., '26%')" }
+      }
+    },
+    "budget_plans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "budget": { "type": "string" },
+          "straight": { "type": "string" },
+          "exacta": { "type": "string" },
+          "trifecta": { "type": "string" },
+          "superfecta": { "type": "string" },
+          "daily_double": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "race_type_targeting": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "strategy": { "type": "string" },
+          "upset_rate": { "type": "string" },
+          "avg_payout": { "type": "string" },
+          "todays_races": { "type": "string" }
+        }
+      }
+    }
+  }
+}
