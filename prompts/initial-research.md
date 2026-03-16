@@ -7,12 +7,16 @@
 #   - TRACK: Track name and location
 #   - DATE: Race date
 #   - EMAILS: Email addresses to send the PDF to
+#
+# STRATEGY: This prompt implements the All-In Betting Strategy from STRATEGY.md
+# (3-year validated, 528 races, 10,000 Monte Carlo sims, 508% ROI at $2 base)
 
 I want you to do deep research today on the horse races at [TRACK NAME] [LOCATION] on [DATE].
 
 I want to know:
 - The full schedule with race times and post times
 - All entries for every race (horse name, jockey, trainer, morning line odds)
+- Race types for every race (CLM, MSW, ALW, STK, MOC, etc.)
 - Current scratches
 - Which horses are supposed to do the best based on expert picks and handicapping analysis
 
@@ -33,66 +37,87 @@ Build a professional PDF cheat card that includes:
    - Mark scratches clearly with (SCR) label
    - CRITICAL: NEVER recommend a bet on a scratched horse. Remove scratched horses entirely from picks and recalculate consensus.
 
-2. TOP PLAYS ONLY (This is the most important section)
-   - ONLY recommend Win/Place bets on GREEN picks (4+ sources agree)
-   - If no GREEN picks exist, take the single strongest YELLOW pick as a lone play
-   - For GREEN picks: $10 Win + $5 Place
-   - SAVER BET: When a GREEN pick is a heavy favorite (2/1 or shorter), add a $3 saver Win bet on the next-best consensus pick in that race
-   - VALUE PLAY: If any horse has Value Score >= 3.0 (strong consensus at big odds), add a $3 Win saver on it regardless of tier
-   - SKIP everything else. No Win bets on ORANGE or RED picks. Period.
-   - Goal: 2-4 total Win bets for the entire card, not one per race
+2. RACE TYPE TARGETING (from 3-year backtest)
+   - CLM (Claiming) = GOLDMINE — 22.6% upset rate, avg 9.6 starters, biggest exotic payouts. PRIORITIZE these races for all bet types.
+   - MSW (Maiden Special Weight) = Great for longshot value — highest avg win payout ($17.38)
+   - ALW (Allowance) = Normal plays
+   - SKIP Stakes/MOC races — Too chalky, favorites win too often, low exotic value. Do NOT recommend Win bets in Stakes/MOC races. Exotics only if consensus is very strong.
+   - Label each race with its type prominently.
 
-3. EXOTIC BETS (The fun stuff)
-   Build these exotic plays using ONLY GREEN and strong YELLOW picks:
+3. TOP PLAYS — STRAIGHT BETS (Most important section)
+   CRITICAL RULES FROM BACKTEST (86% ROI, 70% profitable days):
+   - WIN BETS ONLY AT 5/1+ ODDS. Never bet chalk (favorites). Expert consensus picks have NEGATIVE ROI on win bets at short odds. 79% of all winners paid $5+ (non-chalk).
+   - Bet $3-5 per WIN play on GREEN picks (4+ sources) that are 5/1 or longer.
+   - If a GREEN pick is under 5/1 odds, DO NOT bet Win on it. Use it for exotics only.
+   - NO PLACE BETS. Place bets dilute ROI per the backtest. Skip them entirely.
+   - SAVER LONGSHOT: $2-3 on any horse at 7/1+ odds that has at least 2 sources (ORANGE+). You only need 10-15% hit rate to profit. This is where BIG payouts come from.
+   - VALUE PLAY: Value Score >= 2.0 at 5/1+ odds gets a $3-5 Win bet regardless of color tier.
+   - Goal: 2-4 total Win bets + 1-2 saver longshots for the ENTIRE card. NOT one bet per race.
+   - Daily straight bet budget: ~$12
 
-   a) EXACTA PLAYS
-      - In any race with a GREEN pick, key that horse on top over the next 2-3 consensus picks
-      - Example: "$1 Exacta Key: #4 over #2, #6, #8" (cost: $3)
-      - Only in races where you have a strong opinion on the winner
+4. EXOTIC BETS (174% ROI from backtest — this is where the real money is)
+   Build using GREEN and strong YELLOW picks:
 
-   b) TRIFECTA PLAYS
-      - In the best 1-2 races of the day (GREEN picks with clear separation), build a trifecta box or key
-      - Key the GREEN pick on top, box the next 3 picks underneath
-      - Example: "$0.50 Trifecta Key: #4 with #2, #6, #8" (cost: $3)
+   a) TIER 1: $1 EXACTA BOX — EVERY RACE
+      - Box our expert pick + a value horse = $2/race
+      - Our picks finish top 2 about 38% of the time = huge edge
+      - Expected: 2-3 hits/month at $50-80 each
 
-   c) DAILY DOUBLE
-      - Find the best consecutive-race pair where both races have GREEN or strong YELLOW picks
-      - Key the top pick in each leg, spread to 2 horses in the weaker leg
+   b) TIER 2: $0.50 TRIFECTA BOX — BEST CLM RACES ONLY
+      - Box 3 horses in CLM races with 10+ starters = $3 total
+      - Target claiming races — biggest upset rate AND biggest exotic payouts
+      - Expected: ~1 hit/month at $200-500
+
+   c) TIER 3: $0.10 SUPERFECTA BOX — ONE BIG FIELD RACE
+      - Box 4 horses in the biggest field of the day = $2.40 total
+      - Pure lottery ticket — payouts $1,000-5,000+
+      - Expected: 1 hit every 2-3 months
+
+   d) TIER 4: PICK 3 — SATURDAYS ONLY
+      - $4 for 8 combos across 3 strongest consecutive races
+      - Saturday big cards only (highest purses, most data)
+      - Single the GREEN picks, spread 2-3 horses in weaker legs
+      - Skip Pick 3 on weekdays
+      - Expected: occasional $500-1,000+ bombs
+
+   e) DAILY DOUBLE
+      - Best consecutive-race pair where both have GREEN or strong YELLOW
+      - Key top pick in each leg, spread to 2 horses in weaker leg
       - Example: "$2 Daily Double: R6 #4 with R7 #2, #5" (cost: $4)
 
-   d) PICK 3 / PICK 4 (if card supports it)
-      - Build ONE Pick 3 using the strongest 3 consecutive races
-      - Single the GREEN picks, spread to 2-3 horses in weaker legs
-      - Keep total cost under $20
-      - Example: "$1 Pick 3: R6 #4 / R7 #2, #5 / R8 #3" (cost: $2)
+   f) WHAT TO SAY AT THE WINDOW
+      - For EVERY bet, include the EXACT phrase to say at the window
+      - Example: "Give me a one-dollar exacta box, numbers four and six in race five"
 
-   e) WHAT TO SAY AT THE WINDOW
-      - For every exotic bet, include the EXACT phrase to say at the betting window
-      - Example: "Give me a one-dollar exacta, number four on top over two, six, and eight in race five"
+   Daily exotic budget: ~$11
 
-4. WEATHER & TRACK CONDITION CHECK
+5. WEATHER & TRACK CONDITION CHECK
    - Search for current weather and track conditions at the venue
    - If track is SLOPPY, MUDDY, or HEAVY:
      * Display WARNING banner: "OFF TRACK — CUT ALL BETS IN HALF"
      * Halve all recommended bet amounts
-     * Our backtest showed 0% win rate on sloppy tracks — this is the #1 risk factor
+     * Our backtest showed sloppy track days are unpredictable — cut exposure by 50%
    - Display current track condition prominently at the top
 
-5. DAY-OF-WEEK NOTE
+6. DAY-OF-WEEK NOTE
    - Thursday: Reduce all bets 30% (worst day in backtest, 27.8% win rate)
    - Friday: Best day (35% win rate) — full sizing
    - Saturday/Sunday: Normal sizing
+   - Monday-Wednesday: Normal sizing
 
-6. BUDGET PLANS (already reflecting all modifiers)
-   - $30 budget (tight — Win bets on GREEN picks only, one exacta)
-   - $50 budget (moderate — Win/Place on GREEN picks, exactas, one trifecta or daily double)
-   - $100 budget (full card — all recommended plays including Pick 3/4)
+7. BUDGET PLANS (reflecting all modifiers above)
+   - $23 budget (backtested optimal — ~$12 straight + ~$11 exotic)
+   - $30 budget (slight increase on exotics)
+   - $50 budget (double straight bets, add extra trifecta)
    - Show exactly which bets to make at each budget level
+   - REMEMBER: No place bets at any budget level. Win only at 5/1+.
 
-7. QUICK REFERENCE
+8. QUICK REFERENCE
    - Table key / legend for abbreviations
+   - Race type guide (CLM = goldmine, MSW = longshot value, SKIP Stakes/MOC)
    - Track bias data (inside/outside, speed/closer)
    - Track tips (parking, food, viewing spots)
+   - ONE-SENTENCE STRATEGY: "Stop betting favorites, bet WIN only at 5/1+, use expert picks for exacta/trifecta boxes where their 51% board rate is an edge, and target claiming races with big fields."
 
 PDF FORMATTING:
 - Use Python reportlab library

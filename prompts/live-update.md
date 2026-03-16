@@ -10,6 +10,9 @@
 #   - AUTO_STOP: Time to stop updating (usually 30 min after last race)
 #   - EMAIL: Email address for delivery
 #   - PDF_PATH: Where to save the PDF (default: /tmp/race_day_cheatcard.pdf)
+#
+# STRATEGY: This prompt implements the All-In Betting Strategy from STRATEGY.md
+# (3-year validated, 528 races, 10,000 Monte Carlo sims, 508% ROI at $2 base)
 
 RACE DAY CHEAT CARD SELF-IMPROVEMENT LOOP
 
@@ -37,24 +40,36 @@ Create an improved version using Python with reportlab. Save to /tmp/race_day_ch
 
 The PDF must include:
 
-TOP PLAYS ONLY (most important section):
-- ONLY recommend Win/Place bets on GREEN picks (4+ sources)
-- If no GREEN picks exist, take the single strongest YELLOW as a lone play
-- GREEN picks: $10 Win + $5 Place
-- SAVER BET: When GREEN pick is heavy favorite (2/1 or shorter), add $3 saver Win on next-best consensus pick
-- VALUE PLAY: If any horse has Value Score >= 3.0, add $3 Win saver regardless of tier
-- SKIP ORANGE and RED for Win bets. Goal: 2-4 total Win bets for the card.
+RACE TYPE TARGETING (from 3-year backtest):
+- Label every race with its type (CLM, MSW, ALW, STK, MOC)
+- CLM (Claiming) = GOLDMINE — prioritize for all bet types
+- MSW = Great for longshot value
+- SKIP Stakes/MOC for straight bets — too chalky, favorites win too often
 
-EXOTIC BETS (using GREEN and strong YELLOW picks only):
-- EXACTA: Key GREEN pick on top over next 2-3 consensus picks ($1 exacta key)
-- TRIFECTA: In best 1-2 races, key GREEN pick over next 3 ($0.50 trifecta key)
-- DAILY DOUBLE: Best consecutive-race pair with strong picks
-- PICK 3/4: ONE pick 3 using strongest consecutive races, single the GREEN picks, spread weaker legs, keep under $20
-- Include EXACT phrases to say at the betting window for every exotic
+TOP PLAYS — STRAIGHT BETS (most important section):
+CRITICAL BACKTESTED RULES (86% ROI):
+- WIN BETS ONLY AT 5/1+ ODDS. Never bet chalk/favorites — negative ROI per backtest.
+- Bet $3-5 per WIN play on GREEN picks (4+ sources) that are 5/1 or longer.
+- If a GREEN pick is under 5/1 odds, DO NOT bet Win. Use for exotics only.
+- NO PLACE BETS. They dilute ROI. Skip entirely.
+- SAVER LONGSHOT: $2-3 on any horse at 7/1+ odds with at least 2 sources (ORANGE+).
+- VALUE PLAY: Value Score >= 2.0 at 5/1+ odds gets $3-5 Win bet regardless of tier.
+- Goal: 2-4 Win bets + 1-2 saver longshots for the ENTIRE card.
+- Daily straight bet budget: ~$12
+
+EXOTIC BETS (174% ROI — where the real money is):
+- TIER 1: $1 EXACTA BOX every race (expert pick + value horse = $2/race)
+- TIER 2: $0.50 TRIFECTA BOX in best CLM races with 10+ starters ($3 total)
+- TIER 3: $0.10 SUPERFECTA BOX in one big field race ($2.40 total)
+- TIER 4: PICK 3 on SATURDAYS ONLY ($4 for 8 combos) — skip on weekdays
+- DAILY DOUBLE: Best consecutive pair with strong picks
+- Include EXACT phrases to say at the betting window for EVERY bet
+- Daily exotic budget: ~$11
 
 RACE RESULTS for completed races:
 - Winner, payouts, how our picks did
-- Track whether our picks hit WIN, PLACE, SHOW, or missed entirely
+- Track whether our picks hit WIN or missed
+- Note: NO place tracking since we don't bet Place
 
 Updated picks for UPCOMING races:
 - Incorporate new scratches, odds changes, track conditions
@@ -63,6 +78,7 @@ Updated picks for UPCOMING races:
 - LOCAL EXPERT RULE: Local experts from same track count as ONE source
 - VALUE SCORE: (consensus/total_sources) x current_odds. Flag >= 2.0 as VALUE PLAY
 - Color code: GREEN = 4+, YELLOW = 3, ORANGE = 2, RED = 1
+- RE-CHECK ODDS: If a GREEN pick has drifted below 5/1, move it to exotics-only. If an ORANGE+ horse has drifted to 7/1+, consider as saver longshot.
 
 MODIFIERS (apply to all bets):
 - WEATHER: If SLOPPY/MUDDY/HEAVY, cut ALL bets 50%. Display WARNING banner.
@@ -70,7 +86,8 @@ MODIFIERS (apply to all bets):
 - Display track condition and day modifier at top of PDF
 
 BUDGET PLANS (reflecting all modifiers):
-- $30 budget (tight), $50 budget (moderate), $100 budget (full card)
+- $23 budget (backtested optimal), $30 budget, $50 budget
+- NO place bets at any budget level
 
 Version number and timestamp so the user can see it is fresh.
 
