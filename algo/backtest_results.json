@@ -1,0 +1,62 @@
+{
+  "total_races": 146,
+  "total_days": 15,
+  "avg_payout": 12.360273972602739,
+  "non_chalk_pct": 79.45205479452055,
+  "sftb_roi": -24.44444444444445,
+  "value_winners_pct": 58.21917808219178,
+  "avg_value_payout": 17.665882352941175,
+  "combined_roi": 37.18034297707806,
+  "top_payouts": [
+    [
+      "She's My Last Call",
+      100.6,
+      "2026-03-01 Oaklawn (Sun)"
+    ],
+    [
+      "Miwoman",
+      78.8,
+      "2026-03-13 Oaklawn (Fri)"
+    ],
+    [
+      "Delacina",
+      60.2,
+      "2026-03-13 Oaklawn (Fri)"
+    ],
+    [
+      "Strollsmischief",
+      54.6,
+      "2026-03-07 Oaklawn SLOPPY (Sat)"
+    ],
+    [
+      "Konteekee",
+      47.8,
+      "2026-03-07 Oaklawn SLOPPY (Sat)"
+    ],
+    [
+      "Lady Dreamer",
+      47.6,
+      "2026-02-21 Oaklawn (Sat)"
+    ],
+    [
+      "Laura Branigan",
+      36.6,
+      "2026-03-08 Oaklawn (Sun)"
+    ],
+    [
+      "Empath",
+      36.4,
+      "2026-03-14 Oaklawn (Sat)"
+    ],
+    [
+      "Gee No Hollander",
+      32.0,
+      "2026-02-20 Oaklawn (Fri)"
+    ],
+    [
+      "Jolly Jolene",
+      30.6,
+      "2026-03-05 Oaklawn (Thu)"
+    ]
+  ]
+}

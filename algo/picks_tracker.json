@@ -1,0 +1,50 @@
+[
+  {
+    "track": "Fair Grounds",
+    "date": "2026-03-16",
+    "race": 1,
+    "horse": "Hannah Boo",
+    "odds": "7/2",
+    "bet_type": "WIN",
+    "algo_score": 33.3,
+    "value_score": 1.1666666666666665,
+    "consensus": 2,
+    "result": "PENDING"
+  },
+  {
+    "track": "Fair Grounds",
+    "date": "2026-03-16",
+    "race": 1,
+    "horse": "Stella Guitar",
+    "odds": "4/1",
+    "bet_type": "PLACE",
+    "algo_score": 25.5,
+    "value_score": 1.0,
+    "consensus": 1,
+    "result": "PENDING"
+  },
+  {
+    "track": "Fair Grounds",
+    "date": "2026-03-16",
+    "race": 2,
+    "horse": "Kitten Gloves",
+    "odds": "4/1",
+    "bet_type": "PLACE",
+    "algo_score": 28.7,
+    "value_score": 1.3333333333333333,
+    "consensus": 2,
+    "result": "PENDING"
+  },
+  {
+    "track": "Fair Grounds",
+    "date": "2026-03-16",
+    "race": 3,
+    "horse": "Not Falling Back",
+    "odds": "12/1",
+    "bet_type": "WIN",
+    "algo_score": 32.1,
+    "value_score": 2.0,
+    "consensus": 1,
+    "result": "PENDING"
+  }
+]

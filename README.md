@@ -12,13 +12,16 @@ When you're heading to the track, this system:
 4. **Auto-updates every 10 minutes** during race day — incorporates results, odds changes, new scratches
 5. **Delivers via email and Telegram** — you get fresh PDFs all day without checking anything
 
-### Results — 9-Day Backtest (92 races, Feb 28 - Mar 14, 2026)
+### Results — 27-Day Backtest (229 races, Feb 6 - Mar 15, 2026)
 
-- **SFTB alone:** 28.3% win rate, -16.7% ROI (not profitable by itself)
-- **With all improvements active:** estimated **+14.6% ROI** (profitable!)
-- **Value Score** would have caught $514 in longshot winners from just $22 in saver bets
-- **Best day:** March 14 — 54.5% win rate, +82.7% ROI
-- **Worst day:** March 7 (sloppy track) — 0% win rate, -100% ROI
+- **Expert consensus picks alone:** -24.4% ROI (not profitable)
+- **Optimized straight bet strategy:** **+86% ROI**, 70% profitable days
+- **Exotic bet strategy (Monte Carlo):** **+174% ROI**, 95% of simulations profitable
+- **Combined system:** ~$869-$4,347/month profit depending on bet sizing
+- **79% of all winners paid $5+** — the market consistently overpays favorites
+- **Top payouts in data:** $143, $100, $91, $78, $60, $54, $51
+
+**See [STRATEGY.md](STRATEGY.md) for the complete betting strategy with rules, budget, and scaling guide.**
 
 ## Requirements
 
@@ -63,6 +66,8 @@ just send "$(cat /path/to/race-day-cheat-card/prompts/initial-research.md)"
 ```
 race-day-cheat-card/
 ├── README.md                    # This file
+├── STRATEGY.md                  # Complete betting strategy (straight + exotics)
+├── algo/                        # Backtesting code, optimizer, Monte Carlo sims
 ├── prompts/
 │   ├── initial-research.md      # First cheat card generation prompt
 │   └── live-update.md           # Auto-improvement loop prompt

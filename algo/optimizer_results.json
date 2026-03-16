@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "total_races": 229,
+    "total_days": 27,
+    "iterations": 1262,
+    "date_range": "Feb 6 - Mar 15, 2026",
+    "tracks": [
+      "Oaklawn Park",
+      "Fair Grounds"
+    ],
+    "timestamp": "2026-03-15T19:42:52.154930"
+  },
+  "market_stats": {
+    "avg_payout": 12.9,
+    "median_payout": 9.0,
+    "pct_over_5": 78.6,
+    "pct_over_10": 40.2,
+    "pct_over_20": 13.1,
+    "max_payout": 143.4
+  },
+  "best_strategy": {
+    "params": {
+      "win_min_payout": 5.640217966003519,
+      "win_max_payout": 200.0,
+      "place_enabled": false,
+      "place_bet_amount": 2.0,
+      "place_itm_rate": 0.49749520023565935,
+      "win_bet_amount": 3.0,
+      "win_min_odds_ratio": 2.779138257190456,
+      "win_max_odds_ratio": 30.0,
+      "saver_enabled": true,
+      "saver_bet_amount": 3.0,
+      "saver_min_odds_ratio": 5.326338373372756,
+      "saver_hit_rate": 0.09632723765069834,
+      "bet_clm": true,
+      "bet_mc": true,
+      "bet_alw": true,
+      "bet_aoc": true,
+      "bet_stk": true,
+      "bet_msw": true,
+      "bet_other": true,
+      "min_field_size": 5,
+      "max_field_size": 16,
+      "big_field_bonus": 1.0,
+      "sloppy_multiplier": 0.5191854220630168,
+      "win_selection_rate": 0.4551738402692996,
+      "saver_selection_rate": 0.3,
+      "value_pick_accuracy": 0.24044542011103992
+    },
+    "result": {
+      "total_wagered": 224.86,
+      "total_returned": 421.74,
+      "net_profit": 196.88,
+      "roi": 88.08,
+      "bets_placed": 77.13,
+      "win_hits": 14.6,
+      "place_cashes": 0.0,
+      "saver_hits": 1.87,
+      "biggest_win": 93.5,
+      "num_days": 27.0,
+      "profitable_days": 11.0,
+      "profitable_day_pct": 40.71,
+      "avg_daily_net": 7.29,
+      "avg_bet_per_day": 2.87,
+      "daily_budget": 8.33,
+      "min_roi": 27.97,
+      "max_roi": 182.74,
+      "roi_std": 45.72
+    }
+  },
+  "top_10": [
+    {
+      "rank": 1,
+      "roi": 86.2,
+      "net_profit": 451.41,
+      "daily_budget": 19.39,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    },
+    {
+      "rank": 2,
+      "roi": 85.7,
+      "net_profit": 454.2,
+      "daily_budget": 19.62,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    },
+    {
+      "rank": 3,
+      "roi": 85.41,
+      "net_profit": 447.17,
+      "daily_budget": 19.39,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    },
+    {
+      "rank": 4,
+      "roi": 85.2,
+      "net_profit": 456.99,
+      "daily_budget": 19.85,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    },
+    {
+      "rank": 5,
+      "roi": 84.91,
+      "net_profit": 449.96,
+      "daily_budget": 19.62,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    },
+    {
+      "rank": 6,
+      "roi": 84.47,
+      "net_profit": 461.17,
+      "daily_budget": 20.19,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    },
+    {
+      "rank": 7,
+      "roi": 84.42,
+      "net_profit": 452.75,
+      "daily_budget": 19.85,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    },
+    {
+      "rank": 8,
+      "roi": 83.71,
+      "net_profit": 456.93,
+      "daily_budget": 20.19,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    },
+    {
+      "rank": 9,
+      "roi": 81.99,
+      "net_profit": 429.13,
+      "daily_budget": 19.39,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    },
+    {
+      "rank": 10,
+      "roi": 81.99,
+      "net_profit": 429.13,
+      "daily_budget": 19.39,
+      "key_params": {
+        "accuracy": 0.28,
+        "win_min_odds": 5.0,
+        "win_min_pay": 4.0,
+        "saver_odds": 7.0
+      }
+    }
+  ]
+}
