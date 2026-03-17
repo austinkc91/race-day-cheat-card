@@ -51,6 +51,11 @@ LISTEN_URL = os.environ.get("LISTEN_URL", "http://localhost:7600")
 AUTH_USER = os.environ.get("CHEATCARD_USER", "AKC")
 AUTH_PASS = os.environ.get("CHEATCARD_PASS", "TX")
 
+# OTB live schedule API
+OTB_API_URL = "https://ojlbo7v5hb.execute-api.us-west-2.amazonaws.com/current_races/v2"
+OTB_CACHE_FILE = DATA_DIR / "_otb_schedule.json"
+OTB_CACHE_TTL = 300  # Refresh every 5 minutes
+
 # Known tracks with metadata
 TRACKS = {
     "fair-grounds": {"name": "Fair Grounds", "location": "New Orleans, LA", "code": "FG"},
@@ -72,6 +77,95 @@ TRACKS = {
     "remington": {"name": "Remington Park", "location": "Oklahoma City, OK", "code": "RP"},
     "parx": {"name": "Parx Racing", "location": "Bensalem, PA", "code": "PRX"},
 }
+
+# Map OTB API track names → our slugs (lowercase matching)
+OTB_NAME_MAP = {}
+for _slug, _info in TRACKS.items():
+    # Map by full name and by code
+    OTB_NAME_MAP[_info["name"].lower()] = _slug
+    OTB_NAME_MAP[_info["code"].lower()] = _slug
+# Manual overrides for OTB naming quirks
+OTB_NAME_MAP.update({
+    "fair grounds": "fair-grounds",
+    "oaklawn park": "oaklawn",
+    "gulfstream park": "gulfstream",
+    "santa anita": "santa-anita",
+    "santa anita park": "santa-anita",
+    "churchill downs": "churchill-downs",
+    "del mar": "del-mar",
+    "tampa bay downs": "tampa-bay",
+    "tampa bay": "tampa-bay",
+    "turfway park": "turfway",
+    "laurel park": "laurel",
+    "sam houston": "sam-houston",
+    "sam houston race park": "sam-houston",
+    "lone star park": "lone-star",
+    "lone star": "lone-star",
+    "remington park": "remington",
+    "parx racing": "parx",
+    "parx": "parx",
+    "belmont park": "belmont",
+    "belmont at the big a": "belmont",
+    "belmont at aqueduct": "belmont",
+    "pimlico race course": "pimlico",
+})
+
+
+def _match_otb_track(otb_name: str) -> Optional[str]:
+    """Try to match an OTB track name to one of our track slugs."""
+    name_lower = otb_name.lower().strip()
+    # Exact match
+    if name_lower in OTB_NAME_MAP:
+        return OTB_NAME_MAP[name_lower]
+    # Substring match — check if any of our track names appear in the OTB name
+    for slug, info in TRACKS.items():
+        track_name_lower = info["name"].lower()
+        if track_name_lower in name_lower or name_lower in track_name_lower:
+            return slug
+    return None
+
+
+async def fetch_otb_schedule() -> dict:
+    """Fetch today's live racing schedule from OTB API with caching."""
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Check cache
+    if OTB_CACHE_FILE.exists():
+        try:
+            with open(OTB_CACHE_FILE) as f:
+                cached = json.load(f)
+            cached_at = cached.get("_cached_at", 0)
+            if (datetime.now().timestamp() - cached_at) < OTB_CACHE_TTL:
+                return cached.get("schedule", {})
+        except (json.JSONDecodeError, IOError):
+            pass
+
+    # Fetch fresh data
+    schedule = {}
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.get(OTB_API_URL)
+            if resp.status_code == 200:
+                data = resp.json()
+                tracks_list = data.get("todaysraces", {}).get("tracks", [])
+                for t in tracks_list:
+                    otb_name = t.get("name", "")
+                    slug = _match_otb_track(otb_name)
+                    if slug:
+                        schedule[slug] = {
+                            "otb_name": otb_name,
+                            "first_post": t.get("time", ""),
+                            "current_race": t.get("currentRace", ""),
+                            "mtp": t.get("mtp", ""),
+                            "results_url": t.get("resultsUrl", ""),
+                            "program_date": t.get("programDate", ""),
+                        }
+                # Cache it
+                with open(OTB_CACHE_FILE, "w") as f:
+                    json.dump({"_cached_at": datetime.now().timestamp(), "schedule": schedule}, f, indent=2)
+    except Exception:
+        pass  # Return empty on failure
+    return schedule
 
 
 def verify_auth(credentials: HTTPBasicCredentials = Depends(security)):
@@ -269,6 +363,8 @@ async def list_tracks(user: str = Depends(verify_auth)):
     """List all available tracks with their status."""
     result = []
     schedules = load_schedules()
+    # Fetch live OTB schedule
+    otb_schedule = await fetch_otb_schedule()
     # Check which tracks have active crons
     active_crons = {}
     try:
@@ -304,6 +400,7 @@ async def list_tracks(user: str = Depends(verify_auth)):
         cron_info = active_crons.get(slug, {})
         sched = schedules.get(slug, {})
         all_done = is_track_finished(slug) if has_data else False
+        otb = otb_schedule.get(slug, {})
 
         result.append({
             "slug": slug,
@@ -318,6 +415,11 @@ async def list_tracks(user: str = Depends(verify_auth)):
             "cron_id": cron_info.get("cron_id"),
             "scheduled_start": sched.get("start_time") if not sched.get("started") else None,
             "all_races_complete": all_done,
+            "racing_today": bool(otb),
+            "first_post": otb.get("first_post", ""),
+            "current_race": otb.get("current_race", ""),
+            "mtp": otb.get("mtp", ""),
+            "results_url": otb.get("results_url", ""),
         })
 
     return JSONResponse(content=result)
@@ -494,6 +596,19 @@ async def cancel_schedule(track_slug: str, user: str = Depends(verify_auth)):
 async def list_schedules(user: str = Depends(verify_auth)):
     """List all scheduled track starts."""
     return JSONResponse(content=load_schedules())
+
+
+@app.get("/api/live-schedule")
+async def live_schedule(user: str = Depends(verify_auth)):
+    """Get today's live racing schedule from OTB."""
+    # Force refresh by clearing cache
+    if OTB_CACHE_FILE.exists():
+        OTB_CACHE_FILE.unlink()
+    schedule = await fetch_otb_schedule()
+    return JSONResponse(content={
+        "racing_today": len(schedule),
+        "tracks": schedule,
+    })
 
 
 @app.get("/api/health")

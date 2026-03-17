@@ -131,6 +131,8 @@
   }
   .badge-scheduled { background: #F3E5F5; color: #7B1FA2; }
   .badge-finished { background: #E8F5E9; color: var(--green-dark); }
+  .badge-today { background: #FF6F00; color: white; animation: pulse 2s infinite; }
+  .race-info { font-size: 11px; color: #FF6F00; font-weight: 600; margin-left: 6px; }
 
   .toast {
     position: fixed;
@@ -221,9 +223,10 @@ function renderTracks(data) {
     return;
   }
 
-  // Sort: active first, then has data, then alphabetical
+  // Sort: active first, then racing today, then has data, then alphabetical
   data.sort((a, b) => {
     if (a.cron_enabled !== b.cron_enabled) return b.cron_enabled - a.cron_enabled;
+    if (a.racing_today !== b.racing_today) return b.racing_today - a.racing_today;
     if (a.has_data !== b.has_data) return b.has_data - a.has_data;
     return a.name.localeCompare(b.name);
   });
@@ -232,6 +235,15 @@ function renderTracks(data) {
   for (const t of data) {
     let statusBadge = '';
     let statusText = '';
+    let todayBadge = '';
+    if (t.racing_today) {
+      let raceInfo = t.first_post ? `Post: ${t.first_post}` : '';
+      if (t.current_race && t.mtp !== '') {
+        const mtp = parseInt(t.mtp);
+        raceInfo += ` | R${t.current_race}` + (mtp > 0 ? ` (${mtp}min to post)` : ' (running)');
+      }
+      todayBadge = `<span class="badge badge-today">RACING TODAY</span>` + (raceInfo ? `<span class="race-info">${raceInfo}</span>` : '');
+    }
     if (t.all_races_complete && !t.cron_enabled) {
       statusBadge = '<span class="badge badge-finished">FINAL</span>';
       statusText = t.last_update ? `Completed: ${t.last_update}` : '';
@@ -245,7 +257,7 @@ function renderTracks(data) {
     } else if (t.has_data) {
       statusBadge = '<span class="badge badge-live">DATA AVAILABLE</span>';
       statusText = `Last update: ${t.last_update || 'unknown'} ${t.version ? '(' + t.version + ')' : ''}`;
-    } else {
+    } else if (!t.racing_today) {
       statusBadge = '<span class="badge badge-idle">NO DATA</span>';
     }
 
@@ -269,6 +281,7 @@ function renderTracks(data) {
         <div class="track-info">
           <div class="track-name">${t.name} <span style="color:#999;font-size:12px">(${t.code})</span></div>
           <div class="track-loc">${t.location}</div>
+          ${todayBadge ? `<div class="track-status" style="margin-bottom:2px">${todayBadge}</div>` : ''}
           <div class="track-status">${statusBadge} <span style="font-size:12px;color:#999;margin-left:4px">${statusText}</span></div>
         </div>
         <div class="track-actions">
