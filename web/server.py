@@ -34,6 +34,8 @@ import uvicorn
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Start background tasks on startup."""
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    load_verified_cache()
     task = asyncio.create_task(background_scheduler())
     yield
     task.cancel()
@@ -60,27 +62,51 @@ OTB_CACHE_TTL = 300  # Refresh every 5 minutes
 # { "track_slug": { "race_num": <int>, "triggered_at": <timestamp> } }
 PRE_RACE_TRIGGERS = {}
 
-# Known tracks with metadata
+# Known tracks with metadata + typical race days (0=Mon, 1=Tue, ..., 6=Sun)
+# Race days sourced from 2025-2026 meet schedules. "season" = active months (1-12).
+# These are defaults — the verification system cross-checks with live data sources.
 TRACKS = {
-    "fair-grounds": {"name": "Fair Grounds", "location": "New Orleans, LA", "code": "FG"},
-    "oaklawn": {"name": "Oaklawn Park", "location": "Hot Springs, AR", "code": "OP"},
-    "gulfstream": {"name": "Gulfstream Park", "location": "Hallandale Beach, FL", "code": "GP"},
-    "santa-anita": {"name": "Santa Anita Park", "location": "Arcadia, CA", "code": "SA"},
-    "aqueduct": {"name": "Aqueduct", "location": "Ozone Park, NY", "code": "AQU"},
-    "churchill-downs": {"name": "Churchill Downs", "location": "Louisville, KY", "code": "CD"},
-    "keeneland": {"name": "Keeneland", "location": "Lexington, KY", "code": "KEE"},
-    "belmont": {"name": "Belmont Park", "location": "Elmont, NY", "code": "BEL"},
-    "del-mar": {"name": "Del Mar", "location": "Del Mar, CA", "code": "DMR"},
-    "saratoga": {"name": "Saratoga", "location": "Saratoga Springs, NY", "code": "SAR"},
-    "pimlico": {"name": "Pimlico", "location": "Baltimore, MD", "code": "PIM"},
-    "tampa-bay": {"name": "Tampa Bay Downs", "location": "Tampa, FL", "code": "TAM"},
-    "turfway": {"name": "Turfway Park", "location": "Florence, KY", "code": "TP"},
-    "laurel": {"name": "Laurel Park", "location": "Laurel, MD", "code": "LRL"},
-    "sam-houston": {"name": "Sam Houston Race Park", "location": "Houston, TX", "code": "HOU"},
-    "lone-star": {"name": "Lone Star Park", "location": "Grand Prairie, TX", "code": "LS"},
-    "remington": {"name": "Remington Park", "location": "Oklahoma City, OK", "code": "RP"},
-    "parx": {"name": "Parx Racing", "location": "Bensalem, PA", "code": "PRX"},
+    "fair-grounds": {"name": "Fair Grounds", "location": "New Orleans, LA", "code": "FG",
+                     "race_days": [3, 4, 5, 6], "season": [11, 12, 1, 2, 3]},        # Thu-Sun, Nov-Mar
+    "oaklawn": {"name": "Oaklawn Park", "location": "Hot Springs, AR", "code": "OP",
+                "race_days": [4, 5, 6], "season": [1, 2, 3, 4, 5]},                   # Fri-Sun, Jan-May
+    "gulfstream": {"name": "Gulfstream Park", "location": "Hallandale Beach, FL", "code": "GP",
+                   "race_days": [0, 2, 3, 4, 5, 6], "season": list(range(1, 13))},    # Most days, year-round
+    "santa-anita": {"name": "Santa Anita Park", "location": "Arcadia, CA", "code": "SA",
+                    "race_days": [3, 4, 5, 6], "season": [12, 1, 2, 3, 4, 5, 6]},     # Thu-Sun, Dec-Jun
+    "aqueduct": {"name": "Aqueduct", "location": "Ozone Park, NY", "code": "AQU",
+                 "race_days": [3, 4, 5, 6], "season": [11, 12, 1, 2, 3, 4]},          # Thu-Sun, Nov-Apr
+    "churchill-downs": {"name": "Churchill Downs", "location": "Louisville, KY", "code": "CD",
+                        "race_days": [2, 3, 4, 5, 6], "season": [4, 5, 6, 9, 10, 11]},# Wed-Sun, spring/fall
+    "keeneland": {"name": "Keeneland", "location": "Lexington, KY", "code": "KEE",
+                  "race_days": [2, 3, 4, 5, 6], "season": [4, 10]},                   # Wed-Sun, Apr & Oct
+    "belmont": {"name": "Belmont Park", "location": "Elmont, NY", "code": "BEL",
+                "race_days": [3, 4, 5, 6], "season": [5, 6, 7, 9, 10]},               # Thu-Sun, May-Jul & Sep-Oct
+    "del-mar": {"name": "Del Mar", "location": "Del Mar, CA", "code": "DMR",
+                "race_days": [3, 4, 5, 6], "season": [7, 8, 11]},                     # Thu-Sun, Jul-Aug & Nov
+    "saratoga": {"name": "Saratoga", "location": "Saratoga Springs, NY", "code": "SAR",
+                 "race_days": [0, 2, 3, 4, 5, 6], "season": [7, 8, 9]},               # Most days, Jul-Sep
+    "pimlico": {"name": "Pimlico", "location": "Baltimore, MD", "code": "PIM",
+                "race_days": [4, 5, 6], "season": [4, 5]},                            # Fri-Sun, Apr-May (Preakness meet)
+    "tampa-bay": {"name": "Tampa Bay Downs", "location": "Tampa, FL", "code": "TAM",
+                  "race_days": [2, 3, 4, 5, 6], "season": [11, 12, 1, 2, 3, 4, 5]},  # Wed-Sun, Nov-May
+    "turfway": {"name": "Turfway Park", "location": "Florence, KY", "code": "TP",
+                "race_days": [3, 4, 5, 6], "season": [12, 1, 2, 3]},                  # Thu-Sun, Dec-Mar
+    "laurel": {"name": "Laurel Park", "location": "Laurel, MD", "code": "LRL",
+               "race_days": [4, 5, 6], "season": [1, 2, 3, 10, 11, 12]},             # Fri-Sun, winter meets
+    "sam-houston": {"name": "Sam Houston Race Park", "location": "Houston, TX", "code": "HOU",
+                    "race_days": [4, 5, 6], "season": [1, 2, 3, 4]},                  # Fri-Sun, Jan-Apr
+    "lone-star": {"name": "Lone Star Park", "location": "Grand Prairie, TX", "code": "LS",
+                  "race_days": [3, 4, 5, 6], "season": [4, 5, 6, 7]},                 # Thu-Sun, Apr-Jul
+    "remington": {"name": "Remington Park", "location": "Oklahoma City, OK", "code": "RP",
+                  "race_days": [3, 4, 5, 6], "season": [8, 9, 10, 11, 12]},           # Thu-Sun, Aug-Dec
+    "parx": {"name": "Parx Racing", "location": "Bensalem, PA", "code": "PRX",
+             "race_days": [0, 1, 2, 3, 4], "season": list(range(1, 13))},             # Mon-Fri, year-round
 }
+
+# Verification status cache: { "slug": {"verified": bool, "checked_at": timestamp, "source": str} }
+SCHEDULE_VERIFIED = {}
+VERIFY_CACHE_FILE = DATA_DIR / "_schedule_verified.json"
 
 # Map OTB API track names → our slugs (lowercase matching)
 OTB_NAME_MAP = {}
@@ -113,6 +139,122 @@ OTB_NAME_MAP.update({
     "belmont at aqueduct": "belmont",
     "pimlico race course": "pimlico",
 })
+
+
+def is_typical_race_day(track_slug: str) -> bool:
+    """Check if today is a typical race day for this track based on known schedules."""
+    info = TRACKS.get(track_slug, {})
+    race_days = info.get("race_days", [])
+    season = info.get("season", [])
+    now = datetime.now()
+    today_dow = now.weekday()  # 0=Mon ... 6=Sun
+    today_month = now.month
+    return today_dow in race_days and today_month in season
+
+
+def load_verified_cache() -> dict:
+    """Load schedule verification cache from disk."""
+    global SCHEDULE_VERIFIED
+    if VERIFY_CACHE_FILE.exists():
+        try:
+            with open(VERIFY_CACHE_FILE) as f:
+                cached = json.load(f)
+            # Only use cache from today
+            today_str = datetime.now().strftime("%Y-%m-%d")
+            if cached.get("_date") == today_str:
+                SCHEDULE_VERIFIED = cached.get("tracks", {})
+                return SCHEDULE_VERIFIED
+        except (json.JSONDecodeError, IOError):
+            pass
+    SCHEDULE_VERIFIED = {}
+    return SCHEDULE_VERIFIED
+
+
+def save_verified_cache():
+    """Save schedule verification cache to disk."""
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "_date": datetime.now().strftime("%Y-%m-%d"),
+        "tracks": SCHEDULE_VERIFIED,
+    }
+    with open(VERIFY_CACHE_FILE, "w") as f:
+        json.dump(payload, f, indent=2)
+
+
+def get_schedule_confidence(track_slug: str, otb_schedule: dict) -> dict:
+    """
+    Determine confidence level for whether a track is racing today.
+    Returns: {"level": "high"|"medium"|"low"|"none", "reasons": [...], "racing_likely": bool}
+    """
+    reasons = []
+    score = 0  # -2 to +3 scale
+
+    # Layer 1: Known schedule
+    typical = is_typical_race_day(track_slug)
+    if typical:
+        score += 1
+        reasons.append("Typical race day per known schedule")
+    else:
+        score -= 1
+        reasons.append("NOT a typical race day per known schedule")
+
+    # Layer 2: OTB API shows track
+    otb = otb_schedule.get(track_slug, {})
+    if otb:
+        mtp = 0
+        try:
+            mtp = int(otb.get("mtp", 0))
+        except (ValueError, TypeError):
+            pass
+        current_race = 0
+        try:
+            current_race = int(otb.get("current_race", 0))
+        except (ValueError, TypeError):
+            pass
+
+        if mtp > 0 and mtp < 200:
+            score += 2
+            reasons.append(f"OTB shows active racing (MTP: {mtp} min, Race {current_race})")
+        elif mtp == 0 and current_race > 0:
+            score += 1
+            reasons.append(f"OTB shows track listed (Race {current_race}, MTP 0 — may have finished)")
+        elif mtp >= 200:
+            score += 0  # MTP 255 is suspicious — often means "not started" or simulcast placeholder
+            reasons.append(f"OTB lists track but MTP={mtp} (may be simulcast/placeholder)")
+        else:
+            reasons.append("OTB lists track with no clear race data")
+    else:
+        if typical:
+            score -= 1
+            reasons.append("NOT on OTB schedule (unusual for a typical race day)")
+
+    # Layer 3: Manual verification override
+    verified = SCHEDULE_VERIFIED.get(track_slug)
+    if verified:
+        if verified.get("verified"):
+            score += 2
+            reasons.append(f"Verified by {verified.get('source', 'manual check')}")
+        elif verified.get("verified") is False:
+            score -= 2
+            reasons.append(f"Verified NO racing by {verified.get('source', 'manual check')}")
+
+    # Convert score to confidence
+    if score >= 3:
+        level = "high"
+    elif score >= 1:
+        level = "medium"
+    elif score >= 0:
+        level = "low"
+    else:
+        level = "none"
+
+    return {
+        "level": level,
+        "score": score,
+        "reasons": reasons,
+        "racing_likely": score >= 1,
+        "typical_race_day": typical,
+    }
 
 
 def _match_otb_track(otb_name: str) -> Optional[str]:
@@ -283,6 +425,10 @@ async def background_scheduler():
                 for slug, otb in otb_schedule.items():
                     if slug not in TRACKS:
                         continue
+                    # Skip auto-trigger for tracks not on their typical race day
+                    # (avoids wasting API calls on simulcast-only OTB listings)
+                    if not is_typical_race_day(slug):
+                        continue
                     try:
                         mtp = int(otb.get("mtp", 99))
                         current_race = int(otb.get("current_race", 0))
@@ -342,16 +488,43 @@ def build_cron_prompt(track_slug: str, track_info: dict) -> str:
     track_code = track_info["code"]
     location = track_info["location"]
     data_path = str(get_data_path(track_slug))
+    race_days = track_info.get("race_days", [])
+    day_names = [["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][d] for d in race_days]
+
+    today_str = datetime.now().strftime("%A, %B %d, %Y")
+    typical = is_typical_race_day(track_slug)
+    schedule_note = ""
+    if not typical:
+        schedule_note = f"""
+*** SCHEDULE WARNING: Today ({today_str}) is NOT a typical race day for {track_name}.
+    {track_name} normally runs on: {', '.join(day_names)}.
+    Pay EXTRA attention in Step 1 — if you cannot find entries, write a dark-day status and STOP. ***
+"""
 
     return f"""You are the Race Day Cheat Card AI for {track_name} ({track_code}) in {location}.
-
+Today's date is {today_str}.
+{track_name} typical race days: {', '.join(day_names)}.
+{schedule_note}
 Your job: Research today's races at {track_name} and update the live cheat card data file.
 
-STEP 1: Check the current data file at {data_path}
+** STEP 1 — VERIFY ENTRIES EXIST (DO THIS FIRST!) **
+Before doing ANY research, confirm {track_name} actually has live racing today:
+- web_search: '{track_name} entries {today_str}'
+- web_search: '{track_code} entries today'
+- web_search: 'Horse Racing Nation entries today'
+- Look for ACTUAL horse entries (horse names, jockeys, post times) — not just a schedule listing
+- If you find entries with specific horses: proceed to Step 2
+- If NO entries found after checking 3+ sources: write a dark-day JSON to {data_path} with this format:
+  {{"track": "{track_name}", "location": "{location}", "date": "{today_str}",
+   "status": "DARK", "message": "No live racing today at {track_name}. Next race day: [check schedule].",
+   "race_days": "{', '.join(day_names)}", "races": [], "version": "v1.0"}}
+  Then STOP — do not continue to Step 2.
+
+STEP 2: Check the current data file at {data_path}
 - If it exists, read it to see what version we're on and what's already been researched
 - If it doesn't exist, start fresh
 
-STEP 2: Research today's card at {track_name}
+STEP 3: Research today's card at {track_name}
 - web_search: '{track_name} entries today {track_code}'
 - web_search: '{track_name} picks today expert'
 - web_search: '{track_name} weather {location} today'
@@ -360,7 +533,7 @@ STEP 2: Research today's card at {track_name}
 - Check all 6 expert sources: SFTB, Racing Dudes, FanDuel Research, Ultimate Capper, Today's Racing Digest, AllChalk
 - Look for scratches, track conditions, odds changes
 
-STEP 3: Apply the betting strategy
+STEP 4: Apply the betting strategy
 - WIN bets only at 5/1+ odds
 - Consensus tier system: GREEN (4+ sources), YELLOW (3), ORANGE (2), RED (1)
 - Race type targeting: CLM = GOLDMINE, MCL = longshot value, MOC = SKIP, STK = SKIP
@@ -370,7 +543,7 @@ STEP 3: Apply the betting strategy
 - Halve bets on sloppy/muddy tracks
 - No place bets
 
-STEP 4: Write the data file
+STEP 5: Write the data file
 - Follow the JSON schema at ~/race-day-cheat-card/web/schema.json EXACTLY
 - Write to: {data_path}
 - Make sure the directory exists first: mkdir -p {str(DATA_DIR)}
@@ -380,7 +553,7 @@ STEP 4: Write the data file
 - IMPORTANT: Do NOT modify bets/picks for races with status "COMPLETED" — preserve their results exactly
 - For PENDING races, update with the LATEST odds, scratches, and picks so the user gets the freshest data before betting closes
 
-STEP 5: Report what changed
+STEP 6: Report what changed
 - Summarize what's new in this update (new races researched, results updated, scratches, etc.)
 - Keep the summary SHORT for Telegram
 
@@ -447,6 +620,9 @@ async def list_tracks(user: str = Depends(verify_auth)):
         all_done = is_track_finished(slug) if has_data else False
         otb = otb_schedule.get(slug, {})
 
+        # Schedule confidence check
+        confidence = get_schedule_confidence(slug, otb_schedule)
+
         result.append({
             "slug": slug,
             "name": info["name"],
@@ -466,6 +642,13 @@ async def list_tracks(user: str = Depends(verify_auth)):
             "current_race": otb.get("current_race", ""),
             "mtp": otb.get("mtp", ""),
             "results_url": otb.get("results_url", ""),
+            # Schedule verification
+            "schedule_confidence": confidence["level"],
+            "racing_likely": confidence["racing_likely"],
+            "typical_race_day": confidence["typical_race_day"],
+            "schedule_reasons": confidence["reasons"],
+            "race_days": [["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][d] for d in info.get("race_days", [])],
+            "season_months": info.get("season", []),
         })
 
     return JSONResponse(content=result)
@@ -531,13 +714,31 @@ async def get_data(track_slug: str, user: str = Depends(verify_auth)):
 
 
 @app.post("/api/start/{track_slug}")
-async def start_research(track_slug: str, user: str = Depends(verify_auth)):
+async def start_research(track_slug: str, request: Request, user: str = Depends(verify_auth)):
     """Start race day research for a track. Runs first scan immediately, then auto-scans 15 min before each race."""
     if track_slug not in TRACKS:
         return JSONResponse(content={"error": "Track not found"}, status_code=404)
 
     track_info = TRACKS[track_slug]
     cron_name = f"Cheat Card: {track_info['name']}"
+
+    # Schedule confidence check — warn on low confidence unless force=true
+    otb_schedule = await fetch_otb_schedule()
+    confidence = get_schedule_confidence(track_slug, otb_schedule)
+    body = {}
+    try:
+        body = await request.json()
+    except Exception:
+        pass
+    force = body.get("force", False)
+
+    if confidence["level"] == "none" and not force:
+        return JSONResponse(content={
+            "error": f"{track_info['name']} is unlikely to have live racing today",
+            "schedule_confidence": confidence["level"],
+            "reasons": confidence["reasons"],
+            "hint": "Send force=true to start anyway, or verify the schedule first",
+        }, status_code=409)
 
     # Ensure data dir exists
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -558,10 +759,14 @@ async def start_research(track_slug: str, user: str = Depends(verify_auth)):
                             )
                         # Trigger it now
                         await client.post(f"{LISTEN_URL}/cron/{c['id']}/trigger")
+                        msg = f"Restarted research for {track_info['name']} — auto-updates 15 min before each race"
+                        if confidence["level"] in ("low", "none"):
+                            msg += f" (WARNING: schedule confidence is {confidence['level']})"
                         return JSONResponse(content={
                             "status": "started",
-                            "message": f"Restarted research for {track_info['name']} — auto-updates 15 min before each race",
+                            "message": msg,
                             "cron_id": c["id"],
+                            "schedule_confidence": confidence["level"],
                         })
 
             # Create new cron — baseline once daily at 6am, real updates come from
@@ -773,6 +978,56 @@ async def live_schedule(user: str = Depends(verify_auth)):
     return JSONResponse(content={
         "racing_today": len(schedule),
         "tracks": schedule,
+    })
+
+
+@app.get("/api/todays-races")
+async def todays_races(user: str = Depends(verify_auth)):
+    """Get today's racing schedule with confidence levels for all tracks."""
+    otb_schedule = await fetch_otb_schedule()
+    load_verified_cache()
+    results = {}
+    for slug, info in TRACKS.items():
+        conf = get_schedule_confidence(slug, otb_schedule)
+        otb = otb_schedule.get(slug, {})
+        results[slug] = {
+            "name": info["name"],
+            "location": info["location"],
+            "code": info["code"],
+            "confidence": conf["level"],
+            "racing_likely": conf["racing_likely"],
+            "typical_race_day": conf["typical_race_day"],
+            "reasons": conf["reasons"],
+            "race_days": [["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][d] for d in info.get("race_days", [])],
+            "on_otb": bool(otb),
+            "first_post": otb.get("first_post", ""),
+            "mtp": otb.get("mtp", ""),
+        }
+    # Sort: high confidence first, then medium, then low
+    order = {"high": 0, "medium": 1, "low": 2, "none": 3}
+    sorted_results = dict(sorted(results.items(), key=lambda x: order.get(x[1]["confidence"], 3)))
+    return JSONResponse(content=sorted_results)
+
+
+@app.post("/api/verify/{track_slug}")
+async def verify_track(track_slug: str, request: Request, user: str = Depends(verify_auth)):
+    """Manually verify or deny that a track is racing today."""
+    if track_slug not in TRACKS:
+        return JSONResponse(content={"error": "Track not found"}, status_code=404)
+    body = await request.json()
+    racing = body.get("racing", True)
+    source = body.get("source", "manual")
+    SCHEDULE_VERIFIED[track_slug] = {
+        "verified": racing,
+        "checked_at": datetime.now().timestamp(),
+        "source": source,
+    }
+    save_verified_cache()
+    return JSONResponse(content={
+        "status": "verified",
+        "track": TRACKS[track_slug]["name"],
+        "racing": racing,
+        "source": source,
     })
 
 

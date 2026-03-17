@@ -134,7 +134,21 @@
   .badge-scheduled { background: #F3E5F5; color: #7B1FA2; }
   .badge-finished { background: #E8F5E9; color: var(--green-dark); }
   .badge-today { background: #FF6F00; color: white; animation: pulse 2s infinite; }
+  .badge-dark { background: #ffebee; color: #c62828; }
+  .badge-unverified { background: #fff8e1; color: #f57f17; }
   .race-info { font-size: 11px; color: #FF6F00; font-weight: 600; margin-left: 6px; }
+  .schedule-detail { font-size: 10px; color: #999; margin-top: 2px; }
+  .confidence-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .conf-high { background: var(--green); }
+  .conf-medium { background: var(--yellow); }
+  .conf-low { background: #FF9800; }
+  .conf-none { background: var(--red); }
 
   .toast {
     position: fixed;
@@ -225,11 +239,16 @@ function renderTracks(data) {
     return;
   }
 
-  // Sort: active first, then racing today, then has data, then alphabetical
+  // Sort: active first, then racing today, then likely racing, then has data, then alphabetical
+  const confOrder = {high: 0, medium: 1, low: 2, none: 3};
   data.sort((a, b) => {
     if (a.cron_enabled !== b.cron_enabled) return b.cron_enabled - a.cron_enabled;
     if (a.racing_today !== b.racing_today) return b.racing_today - a.racing_today;
+    if (a.racing_likely !== b.racing_likely) return b.racing_likely - a.racing_likely;
     if (a.has_data !== b.has_data) return b.has_data - a.has_data;
+    const ca = confOrder[a.schedule_confidence] || 3;
+    const cb = confOrder[b.schedule_confidence] || 3;
+    if (ca !== cb) return ca - cb;
     return a.name.localeCompare(b.name);
   });
 
@@ -238,16 +257,24 @@ function renderTracks(data) {
     let statusBadge = '';
     let statusText = '';
     let todayBadge = '';
+    const conf = t.schedule_confidence || 'none';
+    const confDot = `<span class="confidence-dot conf-${conf}" title="Schedule confidence: ${conf}"></span>`;
     if (t.racing_today) {
       let raceInfo = t.first_post ? `Post: ${t.first_post}` : '';
       if (t.current_race && t.mtp !== '') {
         const mtp = parseInt(t.mtp);
         raceInfo += ` | R${t.current_race}` + (mtp > 0 ? ` (${mtp}min to post)` : ' (running)');
       }
-      todayBadge = `<span class="badge badge-today">RACING TODAY</span>` + (raceInfo ? `<span class="race-info">${raceInfo}</span>` : '');
+      todayBadge = `${confDot}<span class="badge badge-today">RACING TODAY</span>` + (raceInfo ? `<span class="race-info">${raceInfo}</span>` : '');
     } else if (t.raced_today) {
-      todayBadge = `<span class="badge badge-finished">RACED TODAY</span>`;
+      todayBadge = `${confDot}<span class="badge badge-finished">RACED TODAY</span>`;
+    } else if (t.typical_race_day) {
+      todayBadge = `${confDot}<span class="badge badge-unverified">EXPECTED TODAY</span>`;
+    } else if (!t.typical_race_day && !t.cron_enabled) {
+      todayBadge = `${confDot}<span class="badge badge-dark">DARK DAY</span>`;
     }
+    // Show race days under track name
+    const raceDaysStr = t.race_days ? t.race_days.join(', ') : '';
     if (t.all_races_complete && !t.cron_enabled) {
       statusBadge = '<span class="badge badge-finished">FINAL</span>';
       statusText = t.last_update ? `Completed: ${t.last_update}` : '';
@@ -288,6 +315,7 @@ function renderTracks(data) {
         <div class="track-info">
           <div class="track-name">${t.name} <span style="color:#999;font-size:12px">(${t.code})</span></div>
           <div class="track-loc">${t.location}</div>
+          ${raceDaysStr ? `<div class="schedule-detail">Races: ${raceDaysStr}</div>` : ''}
           ${todayBadge ? `<div class="track-status" style="margin-bottom:2px">${todayBadge}</div>` : ''}
           <div class="track-status">${statusBadge} <span style="font-size:12px;color:#999;margin-left:4px">${statusText}</span></div>
         </div>
@@ -320,16 +348,26 @@ async function fetchTracks() {
   }
 }
 
-async function startTrack(slug) {
+async function startTrack(slug, force = false) {
   const track = tracks.find(t => t.slug === slug);
   showToast(`Starting research for ${track ? track.name : slug}...`);
 
   try {
-    const resp = await fetch(`/api/start/${slug}`, { method: 'POST' });
+    const resp = await fetch(`/api/start/${slug}`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ force })
+    });
     const data = await resp.json();
     if (resp.ok) {
-      showToast(data.message, 4000);
+      showToast(data.message + (data.schedule_confidence === 'low' ? ' (low schedule confidence)' : ''), 4000);
       setTimeout(fetchTracks, 2000);
+    } else if (resp.status === 409 && !force) {
+      // Schedule confidence too low — ask user to confirm
+      const reasons = (data.reasons || []).join(', ');
+      if (confirm(`${data.error}\n\nReasons: ${reasons}\n\nStart anyway?`)) {
+        startTrack(slug, true);
+      }
     } else {
       showToast(`Error: ${data.error}`, 5000);
     }
