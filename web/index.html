@@ -6,923 +6,396 @@
 <title>Race Day Cheat Card</title>
 <style>
   :root {
-    --blue-header: #1565C0;
+    --blue: #1565C0;
     --blue-light: #E3F2FD;
-    --blue-table: #1E88E5;
-    --green-bg: #E8F5E9;
-    --green-border: #4CAF50;
+    --green: #4CAF50;
     --green-dark: #2E7D32;
     --red: #F44336;
-    --gray-light: #F5F5F5;
-    --gray-med: #9E9E9E;
-    --tier-green: #4CAF50;
-    --tier-yellow: #FFC107;
-    --tier-orange: #FF9800;
-    --tier-red: #F44336;
+    --gray: #9E9E9E;
+    --yellow: #FFC107;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background: #f0f2f5;
     color: #333;
-    line-height: 1.4;
-    padding: 0;
+    line-height: 1.5;
   }
+  .container { max-width: 700px; margin: 0 auto; padding: 16px; }
 
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 16px;
-  }
-
-  /* Auto-refresh indicator */
-  .refresh-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--green-border);
-    z-index: 1000;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 30s linear;
-  }
-  .refresh-bar.active { transform: scaleX(1); }
-
-  .status-dot {
-    position: fixed;
-    top: 8px;
-    right: 12px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--green-border);
-    z-index: 1001;
-    box-shadow: 0 0 4px rgba(76,175,80,0.5);
-  }
-  .status-dot.error { background: var(--red); box-shadow: 0 0 4px rgba(244,67,54,0.5); }
-  .status-dot.loading { background: var(--tier-yellow); animation: pulse 1s infinite; }
-  @keyframes pulse { 50% { opacity: 0.4; } }
-
-  /* Header */
-  .card-header {
+  .header {
     background: white;
     border-radius: 12px;
-    padding: 20px 24px;
-    margin-bottom: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-align: center;
   }
+  .header h1 { font-size: 24px; color: var(--blue); margin-bottom: 4px; }
+  .header .sub { font-size: 14px; color: #666; }
 
-  .card-header h1 {
-    font-size: 24px;
-    color: var(--blue-header);
-    margin-bottom: 4px;
-  }
-
-  .card-header .subtitle {
-    font-size: 14px;
-    color: #555;
-  }
-
-  /* Weather box */
-  .weather-box {
-    background: var(--blue-light);
-    border: 1px solid var(--blue-header);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin: 12px 0;
-    font-size: 14px;
-  }
-  .weather-box b { color: #333; }
-  .weather-box .advisory { color: var(--red); font-weight: bold; }
-
-  /* Strategy quote */
-  .strategy-quote {
-    font-style: italic;
-    color: #555;
-    font-size: 13px;
-    margin: 8px 0;
-    padding: 8px 16px;
-    border-left: 3px solid var(--blue-header);
-    background: #fafafa;
-    border-radius: 0 6px 6px 0;
-  }
-
-  /* Sources & scratches */
-  .info-line {
-    font-size: 13px;
-    margin: 6px 0;
-    color: #555;
-  }
-  .info-line b { color: #333; }
-  .scratches { color: var(--red); }
-
-  /* Highlights banner */
-  .highlights-banner {
+  .search-box {
     background: white;
-    border: 2px solid var(--green-border);
     border-radius: 10px;
-    padding: 14px 20px;
-    margin-bottom: 12px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
-
-  .highlights-banner .hit-line {
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--green-dark);
-    text-align: center;
-  }
-
-  .highlights-banner .lessons {
-    font-size: 13px;
-    font-style: italic;
-    color: #555;
-    margin-top: 8px;
-    text-align: center;
-  }
-
-  /* Section cards */
-  .section-card {
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    overflow: hidden;
-  }
-
-  .section-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--blue-header);
-    padding: 14px 20px 8px;
-  }
-
-  /* P&L Table */
-  .pnl-table {
+  .search-box input {
     width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 15px;
+    outline: none;
   }
+  .search-box input:focus { border-color: var(--blue); }
 
-  .pnl-table thead th {
-    background: var(--blue-header);
-    color: white;
-    padding: 8px 6px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 11px;
-    position: sticky;
-    top: 0;
-  }
-  .pnl-table thead th:nth-child(n+4) { text-align: right; }
+  .track-list { list-style: none; }
 
-  .pnl-table tbody td {
-    padding: 6px;
-    border-bottom: 1px solid #eee;
-  }
-  .pnl-table tbody td:nth-child(n+4) { text-align: right; }
-
-  .pnl-table tbody tr:nth-child(even) { background: var(--gray-light); }
-  .pnl-table tbody tr:hover { background: #e8eaf6; }
-
-  .pnl-table .result-win { color: var(--green-dark); font-weight: bold; }
-  .pnl-table .result-loss { color: var(--red); }
-  .pnl-table .result-pending { color: var(--tier-yellow); font-weight: bold; }
-
-  .pnl-table .net-positive { color: var(--green-dark); font-weight: bold; }
-  .pnl-table .net-negative { color: var(--red); }
-
-  .pnl-totals {
-    background: var(--blue-light) !important;
-    font-weight: bold;
-  }
-  .pnl-totals td { border-top: 2px solid var(--blue-header) !important; }
-
-  /* Race card */
-  .race-card {
+  .track-item {
     background: white;
-    border-radius: 12px;
-    margin-bottom: 14px;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    overflow: hidden;
-  }
-
-  .race-header {
-    background: var(--blue-header);
-    color: white;
-    padding: 10px 16px;
-    font-size: 14px;
-    font-weight: 600;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 8px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
   }
-  .race-header .race-num { font-size: 16px; }
-  .race-header .race-meta { font-size: 12px; opacity: 0.9; }
-  .race-status {
+  .track-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+
+  .track-info { flex: 1; min-width: 180px; }
+  .track-name { font-size: 16px; font-weight: 600; color: #333; }
+  .track-loc { font-size: 13px; color: #777; }
+  .track-status { font-size: 12px; margin-top: 4px; }
+
+  .track-actions { display: flex; gap: 8px; align-items: center; }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
     font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 10px;
     font-weight: 600;
     text-transform: uppercase;
   }
-  .race-status.completed { background: var(--green-dark); }
-  .race-status.pending { background: var(--tier-yellow); color: #333; }
-  .race-status.live { background: var(--red); animation: pulse 1.5s infinite; }
+  .badge-live { background: #e8f5e9; color: var(--green-dark); }
+  .badge-active { background: #fff3e0; color: #e65100; animation: pulse 2s infinite; }
+  .badge-idle { background: #f5f5f5; color: var(--gray); }
 
-  .race-result {
-    background: #f1f8e9;
-    padding: 10px 16px;
-    font-size: 12px;
-    border-bottom: 1px solid #ddd;
-    color: #333;
-  }
-  .race-result b { color: var(--green-dark); }
+  @keyframes pulse { 50% { opacity: 0.6; } }
 
-  /* Horse table */
-  .horse-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
-
-  .horse-table thead th {
-    background: var(--blue-table);
-    color: white;
-    padding: 6px 8px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 11px;
-  }
-
-  .horse-table tbody td {
-    padding: 5px 8px;
-    border-bottom: 1px solid #eee;
-    vertical-align: middle;
-  }
-
-  .horse-table tbody tr:nth-child(even) { background: var(--gray-light); }
-
-  .horse-name { font-weight: 500; }
-  .horse-name.bold { font-weight: 700; }
-  .horse-name.scratched {
-    text-decoration: line-through;
-    color: var(--gray-med);
-    font-style: italic;
-  }
-  .horse-name.scratched::after {
-    content: " SCR";
-    text-decoration: none;
-    font-size: 10px;
-    color: var(--red);
-  }
-
-  .tier-badge {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 700;
-    color: white;
-    text-align: center;
-    min-width: 55px;
-  }
-  .tier-GREEN { background: var(--tier-green); }
-  .tier-YELLOW { background: var(--tier-yellow); color: #333; }
-  .tier-ORANGE { background: var(--tier-orange); }
-  .tier-RED { background: var(--tier-red); }
-
-  .value-score { font-weight: 600; font-size: 11px; }
-
-  .race-comment {
+  .btn {
+    border: none;
+    border-radius: 8px;
     padding: 8px 16px;
-    font-size: 12px;
-    font-style: italic;
-    color: #555;
-    border-top: 1px solid #eee;
-  }
-
-  /* Bet box */
-  .bet-box {
-    background: var(--green-bg);
-    border: 2px solid var(--green-border);
-    margin: 0;
-    padding: 10px 16px;
-  }
-
-  .bet-box-title {
-    font-weight: bold;
     font-size: 13px;
-    margin-bottom: 6px;
-    color: var(--green-dark);
-  }
-
-  .bet-line {
-    font-size: 12px;
-    margin: 3px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .bet-line .bet-detail { flex: 1; min-width: 200px; }
-  .bet-line .bet-cost { font-weight: bold; white-space: nowrap; }
-  .bet-line .bet-result {
-    font-weight: bold;
-    white-space: nowrap;
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-size: 11px;
-  }
-  .bet-result.win { background: var(--green-border); color: white; }
-  .bet-result.loss { background: #ffcdd2; color: var(--red); }
-  .bet-result.pending { background: #fff9c4; color: #f57f17; }
-
-  .bet-say {
-    font-size: 11px;
-    color: #666;
-    font-style: italic;
-    margin-left: 16px;
-    margin-top: 2px;
-  }
-
-  /* Reference tables */
-  .ref-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-    margin-bottom: 0;
-  }
-
-  .ref-table thead th {
-    background: var(--blue-header);
-    color: white;
-    padding: 8px 10px;
-    text-align: left;
     font-weight: 600;
-    font-size: 11px;
+    cursor: pointer;
+    transition: opacity 0.2s;
   }
+  .btn:hover { opacity: 0.85; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-start { background: var(--green); color: white; }
+  .btn-stop { background: var(--red); color: white; }
+  .btn-view { background: var(--blue); color: white; }
+  .btn-schedule { background: #7B1FA2; color: white; }
+  .btn-cancel { background: var(--gray); color: white; font-size: 11px; padding: 4px 10px; }
 
-  .ref-table tbody td {
-    padding: 6px 10px;
-    border-bottom: 1px solid #eee;
-  }
-  .ref-table tbody tr:nth-child(even) { background: var(--gray-light); }
-
-  /* Quick reference */
-  .quick-ref {
-    padding: 14px 20px;
-    font-size: 12px;
-  }
-  .quick-ref p { margin: 4px 0; }
-  .quick-ref b { color: #333; }
-
-  /* Footer */
-  .card-footer {
-    text-align: center;
-    padding: 16px;
-    font-size: 11px;
-    color: var(--gray-med);
-    border-top: 1px solid #eee;
-    margin-top: 8px;
-  }
-
-  /* Loading / Error states */
-  .loading-screen {
+  .schedule-row {
+    width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 60vh;
-    color: #666;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
   }
-  .loading-screen .spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #e0e0e0;
-    border-top-color: var(--blue-header);
+  .schedule-row input[type="datetime-local"] {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+    flex: 1;
+    min-width: 180px;
+  }
+  .schedule-info {
+    font-size: 11px;
+    color: #7B1FA2;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .badge-scheduled { background: #F3E5F5; color: #7B1FA2; }
+  .badge-finished { background: #E8F5E9; color: var(--green-dark); }
+
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .toast.show { display: block; animation: fadeIn 0.3s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateX(-50%) translateY(10px); } }
+
+  .loading { text-align: center; padding: 40px; color: #666; }
+  .spinner {
+    width: 30px; height: 30px;
+    border: 3px solid #e0e0e0;
+    border-top-color: var(--blue);
     border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin-bottom: 16px;
+    animation: spin 0.7s linear infinite;
+    margin: 0 auto 12px;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  .error-screen {
+  .footer {
     text-align: center;
-    padding: 60px 20px;
-    color: var(--red);
-  }
-
-  /* Mobile tweaks */
-  @media (max-width: 600px) {
-    .container { padding: 8px; }
-    .card-header h1 { font-size: 20px; }
-    .horse-table { font-size: 11px; }
-    .horse-table thead th, .horse-table tbody td { padding: 4px 4px; }
-    .pnl-table { font-size: 11px; }
-    .race-header { font-size: 13px; }
-    .bet-line { font-size: 11px; }
-    /* Hide trainer column on mobile */
-    .horse-table .col-trainer { display: none; }
-  }
-
-  /* Print styles */
-  @media print {
-    body { background: white; }
-    .refresh-bar, .status-dot { display: none; }
-    .container { max-width: 100%; padding: 0; }
-    .section-card, .race-card, .card-header, .highlights-banner {
-      box-shadow: none;
-      break-inside: avoid;
-    }
+    padding: 16px;
+    font-size: 12px;
+    color: var(--gray);
   }
 </style>
 </head>
 <body>
 
-<div class="refresh-bar" id="refreshBar"></div>
-<div class="status-dot loading" id="statusDot" title="Loading..."></div>
+<div class="container">
+  <div class="header">
+    <h1>Race Day Cheat Card</h1>
+    <div class="sub">Select a track to view or start live research</div>
+  </div>
 
-<div class="container" id="app">
-  <div class="loading-screen">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search tracks..." oninput="filterTracks()">
+  </div>
+
+  <div id="trackList" class="loading">
     <div class="spinner"></div>
-    <div>Loading cheat card...</div>
+    <div>Loading tracks...</div>
+  </div>
+
+  <div class="footer">
+    Auto-refreshes every 30 seconds
   </div>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script>
-const REFRESH_INTERVAL = 30000; // 30 seconds
-let lastDataHash = '';
+let tracks = [];
 
-function escapeHtml(str) {
-  if (!str) return '';
-  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function showToast(msg, duration = 3000) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
 }
 
-function hashData(data) {
-  return JSON.stringify(data).length + '_' + (data.version || '') + '_' + (data._server_time || '');
+function filterTracks() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const items = document.querySelectorAll('.track-item');
+  items.forEach(item => {
+    const name = item.dataset.name.toLowerCase();
+    const loc = item.dataset.location.toLowerCase();
+    item.style.display = (name.includes(q) || loc.includes(q)) ? '' : 'none';
+  });
 }
 
-function tierClass(tier) {
-  return tier ? `tier-${tier.toUpperCase()}` : '';
-}
+function renderTracks(data) {
+  tracks = data;
+  const container = document.getElementById('trackList');
 
-function resultClass(result) {
-  if (!result) return 'pending';
-  const r = result.toUpperCase();
-  if (r.includes('WIN')) return 'win';
-  if (r.includes('LOSS')) return 'loss';
-  if (r.includes('PENDING')) return 'pending';
-  return '';
-}
-
-function netClass(net) {
-  if (net > 0) return 'net-positive';
-  if (net < 0) return 'net-negative';
-  return '';
-}
-
-function fmtMoney(val, showSign) {
-  if (val === null || val === undefined) return '-';
-  const n = Number(val);
-  if (isNaN(n)) return String(val);
-  if (showSign) return (n >= 0 ? '+' : '') + '$' + Math.abs(n).toFixed(2);
-  return '$' + n.toFixed(2);
-}
-
-function renderHeader(d) {
-  const track = d.track || 'Race Day';
-  const loc = d.location || '';
-  const date = d.date || '';
-  const fp = d.first_post || '';
-  const parts = [loc, date, fp ? `First Post: ${fp}` : ''].filter(Boolean);
-
-  return `
-    <div class="card-header">
-      <h1>${escapeHtml(track)} &mdash; Cheat Card</h1>
-      <div class="subtitle">${escapeHtml(parts.join(' | '))}</div>
-    </div>
-  `;
-}
-
-function renderWeather(d) {
-  const w = d.weather;
-  if (!w) return '';
-  let html = `<div class="weather-box">`;
-  html += `<b>Weather:</b> ${escapeHtml(w.forecast || 'N/A')}<br>`;
-  const conds = [];
-  if (w.track_dirt) conds.push(`Dirt: <b>${escapeHtml(w.track_dirt)}</b>`);
-  if (w.track_turf) conds.push(`Turf: <b>${escapeHtml(w.track_turf)}</b>`);
-  if (conds.length) html += `<b>Track:</b> ${conds.join(' | ')}<br>`;
-  if (w.advisory) html += `<span class="advisory">Advisory: ${escapeHtml(w.advisory)}</span>`;
-  html += `</div>`;
-  return html;
-}
-
-function renderInfoBlock(d) {
-  let html = '';
-
-  if (d.strategy_quote) {
-    html += `<div class="strategy-quote">"${escapeHtml(d.strategy_quote)}"</div>`;
+  if (!data.length) {
+    container.innerHTML = '<div class="loading">No tracks available</div>';
+    return;
   }
 
-  if (d.sources && d.sources.length) {
-    html += `<div class="info-line"><b>Sources:</b> ${escapeHtml(d.sources.join(', '))}</div>`;
-  }
-  if (d.sources_note) {
-    html += `<div class="info-line" style="font-size:12px;color:#999;font-style:italic">${escapeHtml(d.sources_note)}</div>`;
-  }
-  if (d.scratches && d.scratches.length) {
-    html += `<div class="info-line scratches"><b>Scratches:</b> ${escapeHtml(d.scratches.join(' | '))}</div>`;
-  }
-
-  return html;
-}
-
-function renderHighlights(d) {
-  // Build highlight from P&L data
-  const pnl = d.pnl || [];
-  const totals = d.pnl_totals || {};
-  const wins = pnl.filter(p => {
-    const r = (p.result || '').toUpperCase();
-    return r.includes('WIN');
+  // Sort: active first, then has data, then alphabetical
+  data.sort((a, b) => {
+    if (a.cron_enabled !== b.cron_enabled) return b.cron_enabled - a.cron_enabled;
+    if (a.has_data !== b.has_data) return b.has_data - a.has_data;
+    return a.name.localeCompare(b.name);
   });
 
-  if (wins.length === 0 && !totals.net) return '';
-
-  const hitParts = wins.map(w => {
-    const net = w.net || 0;
-    return `${w.race} ${w.bet_type} ${net > 0 ? '+$' + net.toFixed(2) : ''}`;
-  });
-
-  // Find lessons from race comments
-  const lessons = (d.races || [])
-    .filter(r => r.comment)
-    .slice(-3)
-    .map(r => r.comment);
-
-  let lessonsText = '';
-  // Check for overall lessons in data
-  const completedRaces = (d.races || []).filter(r => r.status === 'COMPLETED');
-  const pendingRaces = (d.races || []).filter(r => r.status !== 'COMPLETED');
-
-  // Build dynamic lessons
-  const turfUpsets = completedRaces.filter(r => {
-    const dist = (r.distance || '').toLowerCase();
-    return dist.includes('turf') && r.comment && r.comment.toLowerCase().includes('upset');
-  });
-  const dirtWins = wins.filter(w => {
-    const race = (d.races || []).find(r => `R${r.number}` === w.race || `${r.number}` === w.race.replace('R',''));
-    return race && !(race.distance || '').toLowerCase().includes('turf');
-  });
-
-  const lessonParts = [];
-  if (dirtWins.length > 0) lessonParts.push(`Dirt consensus = money (${dirtWins.length} hit${dirtWins.length > 1 ? 's' : ''})`);
-  if (turfUpsets.length > 0) lessonParts.push(`Turf in wind = chaos (${turfUpsets.length} upset${turfUpsets.length > 1 ? 's' : ''})`);
-  if (pendingRaces.length > 0) lessonParts.push(`${pendingRaces.length} race${pendingRaces.length > 1 ? 's' : ''} still live`);
-
-  return `
-    <div class="highlights-banner">
-      <div class="hit-line">
-        ${hitParts.join(' | ')}
-        ${totals.net !== undefined ? ` | NET P&L: ${totals.net >= 0 ? '+' : ''}$${Math.abs(totals.net).toFixed(2)}` : ''}
-        ${totals.roi ? ` (${totals.roi} ROI)` : ''}
-      </div>
-      ${lessonParts.length ? `<div class="lessons">${escapeHtml(lessonParts.join('. '))}.</div>` : ''}
-    </div>
-  `;
-}
-
-function renderPnl(d) {
-  const pnl = d.pnl || [];
-  const totals = d.pnl_totals || {};
-  if (!pnl.length) return '';
-
-  let rows = '';
-  for (const p of pnl) {
-    const rc = resultClass(p.result);
-    const nc = netClass(p.net);
-    rows += `<tr>
-      <td>${escapeHtml(p.race)}</td>
-      <td>${escapeHtml(p.bet_type)}</td>
-      <td>${escapeHtml(p.horse)}</td>
-      <td>${fmtMoney(p.wagered)}</td>
-      <td class="result-${rc}">${escapeHtml(p.result || 'PENDING')}</td>
-      <td>${p.payout ? fmtMoney(p.payout) : '-'}</td>
-      <td class="${nc}">${p.net !== undefined && p.net !== null ? fmtMoney(p.net, true) : '-'}</td>
-    </tr>`;
-  }
-
-  const totalNet = totals.net || 0;
-  rows += `<tr class="pnl-totals">
-    <td colspan="3"><b>TOTAL</b></td>
-    <td>${fmtMoney(totals.wagered)}</td>
-    <td>${totals.roi ? `ROI: ${totals.roi}` : ''}</td>
-    <td>${fmtMoney(totals.returned)}</td>
-    <td class="${netClass(totalNet)}">${fmtMoney(totalNet, true)}</td>
-  </tr>`;
-
-  return `
-    <div class="section-card">
-      <div class="section-title">TODAY'S P&L TRACKER</div>
-      <div style="overflow-x:auto">
-        <table class="pnl-table">
-          <thead><tr>
-            <th>Race</th><th>Bet Type</th><th>Horse(s)</th>
-            <th>Wagered</th><th>Result</th><th>Payout</th><th>Net +/-</th>
-          </tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>
-    </div>
-  `;
-}
-
-function renderRace(race, scratches) {
-  const num = race.number || '?';
-  const time = race.time || '';
-  const typeLabel = race.type_label || race.type || '';
-  const distance = race.distance || '';
-  const purse = race.purse || '';
-  const starters = race.starters || '';
-  const horses = race.horses || [];
-  const bets = race.bets || [];
-  const result = race.result || '';
-  const comment = race.comment || '';
-  const status = race.status || 'PENDING';
-
-  // Build scratched horse set for this race
-  const raceScratches = new Set();
-  for (const s of (scratches || [])) {
-    if (s.startsWith(`R${num}:`)) {
-      let name = s.split(':')[1].trim();
-      if (name.includes('(')) name = name.substring(0, name.indexOf('(')).trim();
-      raceScratches.add(name.toUpperCase());
+  let html = '<ul class="track-list">';
+  for (const t of data) {
+    let statusBadge = '';
+    let statusText = '';
+    if (t.all_races_complete && !t.cron_enabled) {
+      statusBadge = '<span class="badge badge-finished">FINAL</span>';
+      statusText = t.last_update ? `Completed: ${t.last_update}` : '';
+    } else if (t.cron_enabled) {
+      statusBadge = '<span class="badge badge-active">LIVE UPDATES</span>';
+      statusText = t.last_update ? `Updated: ${t.last_update}` : 'Starting...';
+    } else if (t.scheduled_start) {
+      const sd = new Date(t.scheduled_start);
+      statusBadge = '<span class="badge badge-scheduled">SCHEDULED</span>';
+      statusText = `Starts: ${sd.toLocaleString([], {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'})}`;
+    } else if (t.has_data) {
+      statusBadge = '<span class="badge badge-live">DATA AVAILABLE</span>';
+      statusText = `Last update: ${t.last_update || 'unknown'} ${t.version ? '(' + t.version + ')' : ''}`;
+    } else {
+      statusBadge = '<span class="badge badge-idle">NO DATA</span>';
     }
-  }
 
-  // Race header
-  const metaParts = [time, typeLabel, distance, purse, starters ? `${starters} starters` : ''].filter(Boolean);
-  const statusClass = status === 'COMPLETED' ? 'completed' : (status === 'LIVE' ? 'live' : 'pending');
-
-  let html = `<div class="race-card">`;
-  html += `<div class="race-header">
-    <div>
-      <span class="race-num">Race ${num}</span>
-      <span class="race-meta"> &mdash; ${escapeHtml(metaParts.join(' &mdash; '))}</span>
-    </div>
-    <span class="race-status ${statusClass}">${escapeHtml(status)}</span>
-  </div>`;
-
-  // Result banner
-  if (result) {
-    html += `<div class="race-result"><b>RESULT:</b> ${escapeHtml(result)}</div>`;
-  }
-
-  // Horse table
-  html += `<div style="overflow-x:auto"><table class="horse-table"><thead><tr>
-    <th>PP</th><th>Horse</th><th>Jockey</th><th class="col-trainer">Trainer</th>
-    <th>ML</th><th>Tier</th><th>Val</th>
-  </tr></thead><tbody>`;
-
-  for (const h of horses) {
-    const name = h.name || '';
-    const isScratched = raceScratches.has(name.toUpperCase()) || name.includes('SCR');
-    const nameClass = isScratched ? 'horse-name scratched' : (h.bold ? 'horse-name bold' : 'horse-name');
-    const tier = (h.tier || '').toUpperCase();
-    const tierBadge = tier ? `<span class="tier-badge ${tierClass(tier)}">${tier}</span>` : '';
-
-    html += `<tr${isScratched ? ' style="opacity:0.5"' : ''}>
-      <td>${h.pp || ''}</td>
-      <td class="${nameClass}">${escapeHtml(name.replace(' SCR', ''))}</td>
-      <td>${escapeHtml(h.jockey || '')}</td>
-      <td class="col-trainer">${escapeHtml(h.trainer || '')}</td>
-      <td>${escapeHtml(h.ml || '')}</td>
-      <td>${tierBadge}</td>
-      <td class="value-score">${escapeHtml(h.value || '')}</td>
-    </tr>`;
-  }
-  html += `</tbody></table></div>`;
-
-  // Comment
-  if (comment) {
-    html += `<div class="race-comment">${escapeHtml(comment)}</div>`;
-  }
-
-  // Bet box
-  if (bets.length) {
-    const betStatus = status === 'COMPLETED' ? 'COMPLETED' : 'PENDING';
-    html += `<div class="bet-box">`;
-    html += `<div class="bet-box-title">BETS FOR RACE ${num} (${betStatus})</div>`;
-    for (const b of bets) {
-      const rc = resultClass(b.result);
-      const resultText = b.result || 'PENDING';
-      html += `<div class="bet-line">
-        <span class="bet-detail"><b>${escapeHtml(b.type || '')}:</b> ${escapeHtml(b.detail || '')}</span>
-        <span class="bet-cost">${escapeHtml(b.cost || '')}</span>
-        <span class="bet-result ${rc}">${escapeHtml(resultText)}</span>
-      </div>`;
-      if (b.say) {
-        html += `<div class="bet-say">Say: "${escapeHtml(b.say)}"</div>`;
-      }
+    let actionBtns = '';
+    if (t.cron_enabled) {
+      actionBtns = `<button class="btn btn-stop" onclick="event.stopPropagation(); stopTrack('${t.slug}')">Stop</button>`;
+    } else if (t.scheduled_start) {
+      actionBtns = `<button class="btn btn-cancel" onclick="event.stopPropagation(); cancelSchedule('${t.slug}')">Cancel</button>`;
+    } else {
+      actionBtns = `<button class="btn btn-start" onclick="event.stopPropagation(); startTrack('${t.slug}')">Start</button>
+        <button class="btn btn-schedule" onclick="event.stopPropagation(); toggleSchedule('${t.slug}')" title="Schedule start">&#128339;</button>`;
     }
-    html += `</div>`;
+
+    const viewBtn = t.has_data
+      ? `<button class="btn btn-view" onclick="event.stopPropagation(); window.location.href='/track/${t.slug}'">View</button>`
+      : '';
+
+    html += `
+      <li class="track-item" data-name="${t.name}" data-location="${t.location}"
+          onclick="${t.has_data ? `window.location.href='/track/${t.slug}'` : ''}">
+        <div class="track-info">
+          <div class="track-name">${t.name} <span style="color:#999;font-size:12px">(${t.code})</span></div>
+          <div class="track-loc">${t.location}</div>
+          <div class="track-status">${statusBadge} <span style="font-size:12px;color:#999;margin-left:4px">${statusText}</span></div>
+        </div>
+        <div class="track-actions">
+          ${viewBtn}
+          ${actionBtns}
+        </div>
+        <div class="schedule-row" id="sched-${t.slug}" style="display:none">
+          <input type="datetime-local" id="schedtime-${t.slug}" onclick="event.stopPropagation()">
+          <button class="btn btn-schedule" onclick="event.stopPropagation(); submitSchedule('${t.slug}')" style="font-size:12px;padding:6px 12px">Set</button>
+        </div>
+      </li>`;
   }
-
-  html += `</div>`;
-  return html;
+  html += '</ul>';
+  container.innerHTML = html;
 }
 
-function renderBudgetPlans(d) {
-  const plans = d.budget_plans || [];
-  if (!plans.length) return '';
-
-  let rows = '';
-  for (const p of plans) {
-    rows += `<tr>
-      <td>${escapeHtml(p.budget || '')}</td>
-      <td>${escapeHtml(p.straight || '')}</td>
-      <td>${escapeHtml(p.exacta || '')}</td>
-      <td>${escapeHtml(p.trifecta || '')}</td>
-      <td>${escapeHtml(p.superfecta || '')}</td>
-      <td>${escapeHtml(p.daily_double || '')}</td>
-      <td>${escapeHtml(p.notes || '')}</td>
-    </tr>`;
+async function fetchTracks() {
+  try {
+    const resp = await fetch('/api/tracks');
+    if (resp.status === 401) {
+      // Browser will show auth dialog
+      return;
+    }
+    const data = await resp.json();
+    renderTracks(data);
+  } catch (e) {
+    document.getElementById('trackList').innerHTML =
+      `<div class="loading" style="color:#F44336">Error loading tracks: ${e.message}</div>`;
   }
-
-  return `
-    <div class="section-card">
-      <div class="section-title">BUDGET PLANS</div>
-      <div style="overflow-x:auto">
-        <table class="ref-table">
-          <thead><tr>
-            <th>Budget</th><th>Straight</th><th>Exacta</th><th>Trifecta</th>
-            <th>Superfecta</th><th>Daily Dbl</th><th>Notes</th>
-          </tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>
-    </div>
-  `;
 }
 
-function renderRaceTypeTargeting(d) {
-  const targeting = d.race_type_targeting || [];
-  if (!targeting.length) return '';
-
-  let rows = '';
-  for (const t of targeting) {
-    rows += `<tr>
-      <td><b>${escapeHtml(t.type || '')}</b></td>
-      <td>${escapeHtml(t.strategy || '')}</td>
-      <td>${escapeHtml(t.upset_rate || '')}</td>
-      <td>${escapeHtml(t.avg_payout || '')}</td>
-      <td>${escapeHtml(t.todays_races || '')}</td>
-    </tr>`;
-  }
-
-  return `
-    <div class="section-card">
-      <div class="section-title">RACE TYPE TARGETING</div>
-      <div style="overflow-x:auto">
-        <table class="ref-table">
-          <thead><tr>
-            <th>Type</th><th>Strategy</th><th>Upset Rate</th><th>Avg Payout</th><th>Today's Races</th>
-          </tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>
-    </div>
-  `;
-}
-
-function renderQuickReference(d) {
-  const dayMod = d.day_modifier || '';
-  return `
-    <div class="section-card">
-      <div class="section-title">QUICK REFERENCE</div>
-      <div class="quick-ref">
-        <p><b>Race Types:</b> CLM=Claiming, MCL=Maiden Claiming, ALW=Allowance, AOC=Allowance Optional Claiming, SOC=Starter Optional Claiming, MOC=Maiden Optional Claiming</p>
-        <p><b>Tiers:</b> <span class="tier-badge tier-GREEN">GREEN</span> Strong Play (4+ sources), <span class="tier-badge tier-YELLOW">YELLOW</span> Good Value (3 sources), <span class="tier-badge tier-ORANGE">ORANGE</span> Moderate (2 sources), <span class="tier-badge tier-RED">RED</span> Risky (1 source)</p>
-        <p><b>VP</b> = Value Play (Value Score >= 2.0 at 5/1+ odds)</p>
-        <p><b>Betting Rule:</b> WIN bets only at 5/1 or higher. NO PLACE BETS.</p>
-        ${dayMod ? `<p><b>Day Modifier:</b> ${escapeHtml(dayMod)}</p>` : ''}
-      </div>
-    </div>
-  `;
-}
-
-function renderFooter(d) {
-  const version = d.version || '';
-  const serverTime = d._server_time || '';
-  const parts = [version, serverTime ? `Last updated: ${serverTime}` : ''].filter(Boolean);
-  return `
-    <div class="card-footer">
-      ${escapeHtml(parts.join(' | '))}
-      <br>Auto-refreshes every 30 seconds
-    </div>
-  `;
-}
-
-function render(data) {
-  const scratches = data.scratches || [];
-  const races = data.races || [];
-
-  let html = '';
-  html += renderHeader(data);
-
-  // Weather + info in a card
-  html += `<div class="section-card" style="padding: 14px 20px">`;
-  html += renderWeather(data);
-  html += renderInfoBlock(data);
-  html += `</div>`;
-
-  // Highlights banner
-  html += renderHighlights(data);
-
-  // P&L
-  html += renderPnl(data);
-
-  // Races
-  for (const race of races) {
-    html += renderRace(race, scratches);
-  }
-
-  // Reference sections
-  html += renderBudgetPlans(data);
-  html += renderRaceTypeTargeting(data);
-  html += renderQuickReference(data);
-
-  // Footer
-  html += renderFooter(data);
-
-  return html;
-}
-
-async function fetchAndRender() {
-  const dot = document.getElementById('statusDot');
-  const bar = document.getElementById('refreshBar');
+async function startTrack(slug) {
+  const track = tracks.find(t => t.slug === slug);
+  showToast(`Starting research for ${track ? track.name : slug}...`);
 
   try {
-    dot.className = 'status-dot loading';
-    dot.title = 'Updating...';
-
-    const resp = await fetch('/api/data');
-    if (!resp.ok) {
-      const err = await resp.json();
-      throw new Error(err.error || `HTTP ${resp.status}`);
-    }
-
+    const resp = await fetch(`/api/start/${slug}`, { method: 'POST' });
     const data = await resp.json();
-    const newHash = hashData(data);
-
-    if (newHash !== lastDataHash) {
-      document.getElementById('app').innerHTML = render(data);
-      lastDataHash = newHash;
-      document.title = `${data.track || 'Race Day'} Cheat Card`;
+    if (resp.ok) {
+      showToast(data.message, 4000);
+      setTimeout(fetchTracks, 2000);
+    } else {
+      showToast(`Error: ${data.error}`, 5000);
     }
+  } catch (e) {
+    showToast(`Failed: ${e.message}`, 5000);
+  }
+}
 
-    dot.className = 'status-dot';
-    dot.title = `Live - ${data._server_time || ''}`;
+async function stopTrack(slug) {
+  const track = tracks.find(t => t.slug === slug);
+  showToast(`Stopping ${track ? track.name : slug}...`);
 
-    // Reset refresh bar animation
-    bar.classList.remove('active');
-    void bar.offsetWidth; // force reflow
-    bar.classList.add('active');
-
-  } catch (err) {
-    const dot = document.getElementById('statusDot');
-    dot.className = 'status-dot error';
-    dot.title = `Error: ${err.message}`;
-
-    if (!lastDataHash) {
-      document.getElementById('app').innerHTML = `
-        <div class="error-screen">
-          <h2>No Race Data Available</h2>
-          <p style="margin-top:12px;color:#666">
-            ${escapeHtml(err.message)}<br><br>
-            The cheat card will appear here once race data is generated.<br>
-            Checking again in 30 seconds...
-          </p>
-        </div>
-      `;
+  try {
+    const resp = await fetch(`/api/stop/${slug}`, { method: 'POST' });
+    const data = await resp.json();
+    if (resp.ok) {
+      showToast(data.message, 4000);
+      setTimeout(fetchTracks, 2000);
+    } else {
+      showToast(`Error: ${data.error}`, 5000);
     }
+  } catch (e) {
+    showToast(`Failed: ${e.message}`, 5000);
+  }
+}
+
+function toggleSchedule(slug) {
+  const row = document.getElementById(`sched-${slug}`);
+  if (!row) return;
+  const showing = row.style.display !== 'none';
+  row.style.display = showing ? 'none' : 'flex';
+  if (!showing) {
+    // Default to tomorrow at noon
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(12, 0, 0, 0);
+    const inp = document.getElementById(`schedtime-${slug}`);
+    if (inp) inp.value = tomorrow.toISOString().slice(0, 16);
+  }
+}
+
+async function submitSchedule(slug) {
+  const inp = document.getElementById(`schedtime-${slug}`);
+  if (!inp || !inp.value) { showToast('Pick a date and time first'); return; }
+
+  const track = tracks.find(t => t.slug === slug);
+  showToast(`Scheduling ${track ? track.name : slug}...`);
+
+  try {
+    const resp = await fetch(`/api/schedule/${slug}`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ start_time: inp.value })
+    });
+    const data = await resp.json();
+    if (resp.ok) {
+      showToast(data.message, 4000);
+      setTimeout(fetchTracks, 1000);
+    } else {
+      showToast(`Error: ${data.error}`, 5000);
+    }
+  } catch (e) {
+    showToast(`Failed: ${e.message}`, 5000);
+  }
+}
+
+async function cancelSchedule(slug) {
+  const track = tracks.find(t => t.slug === slug);
+  showToast(`Cancelling schedule for ${track ? track.name : slug}...`);
+
+  try {
+    const resp = await fetch(`/api/schedule/${slug}`, { method: 'DELETE' });
+    if (resp.ok) {
+      showToast('Schedule cancelled', 3000);
+      setTimeout(fetchTracks, 1000);
+    }
+  } catch (e) {
+    showToast(`Failed: ${e.message}`, 5000);
   }
 }
 
 // Initial load
-fetchAndRender();
+fetchTracks();
 
-// Auto-refresh
-setInterval(fetchAndRender, REFRESH_INTERVAL);
+// Refresh track list every 30 seconds
+setInterval(fetchTracks, 30000);
 </script>
 </body>
 </html>
