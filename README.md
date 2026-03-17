@@ -1,6 +1,6 @@
 # Race Day Cheat Card
 
-AI-powered horse racing handicapping system that generates professional PDF cheat cards with multi-source consensus picks, live updates during race day, and automatic email/Telegram delivery.
+AI-powered horse racing handicapping system with a **live web dashboard**, multi-track support, scheduled starts, and automatic updates. Also generates professional PDF cheat cards with multi-source consensus picks and email/Telegram delivery.
 
 ## What It Does
 
@@ -8,9 +8,11 @@ When you're heading to the track, this system:
 
 1. **Researches** every race — entries, scratches, odds, expert picks from 6 specific independent sources
 2. **Builds a consensus algorithm** — scores each horse by how many of the 6 sources back them (e.g., 4/6 = BEST BET)
-3. **Generates a professional PDF** — color-coded picks, betting guide, budget strategies, payout charts
+3. **Live web dashboard** — password-protected, pick a track, start/stop research, view live cheat cards from your phone
 4. **Auto-updates every 10 minutes** during race day — incorporates results, odds changes, new scratches
-5. **Delivers via email and Telegram** — you get fresh PDFs all day without checking anything
+5. **Auto-stops** when all races are complete and P&L is final — no wasted API calls
+6. **Scheduled starts** — set a future date/time for research to begin automatically
+7. **PDF generation** — professional color-coded cheat cards delivered via email and Telegram
 
 ### Results — 27-Day Backtest (229 races, Feb 6 - Mar 15, 2026)
 
@@ -33,9 +35,35 @@ You need:
 - `GOOGLE_APP_PASSWORD` in your `.env` (for email delivery)
 - `TELEGRAM_BOT_TOKEN` in your `.env` (for Telegram delivery)
 
+## Live Web Dashboard
+
+The cheat card runs as a password-protected web app accessible from any device.
+
+**URL:** `https://your-host:8443` (served via Tailscale Funnel)
+
+### Features
+
+- **Authentication** — username/password required to access (set via `CHEATCARD_USER` / `CHEATCARD_PASS` env vars)
+- **18 tracks** — Oaklawn Park, Churchill Downs, Santa Anita, Saratoga, Parx Racing, and more
+- **Track search** — filter tracks by name
+- **Start/Stop** — tap Start on any track to kick off research (creates a 10-min auto-update cron via Listen server)
+- **Scheduled Start** — set a future date/time; research auto-starts at that time (purple SCHEDULED badge)
+- **Auto-Stop** — when all races at a track are COMPLETED and every bet has a final result, the system automatically disables the cron (green FINAL badge)
+- **Live view** — tap View to see the live cheat card for any track; auto-refreshes every 30 seconds
+- **P&L tracking** — running totals per track, auto-finalized when racing ends
+
+### Running the Web Server
+
+```bash
+cd web
+uv run python server.py --port 7700
+```
+
+Or via systemd (auto-starts on boot with Tailscale Funnel on port 8443).
+
 ## Quick Start — On-Demand via Telegram
 
-This system runs **only when you ask for it**. Just message your Telegram bot naturally:
+You can also control the system via Telegram. Just message your bot naturally:
 
 > "Going to Oaklawn today, start the horse race cheat sheets"
 > "Heading to Churchill Downs Saturday, fire up the cheat card"
@@ -67,6 +95,13 @@ just send "$(cat /path/to/race-day-cheat-card/prompts/initial-research.md)"
 race-day-cheat-card/
 ├── README.md                    # This file
 ├── STRATEGY.md                  # Complete betting strategy (straight + exotics)
+├── generate_pdf.py              # PDF cheat card generator
+├── web/
+│   ├── server.py                # FastAPI web server (auth, tracks, cron management)
+│   ├── index.html               # Track selection dashboard
+│   ├── card.html                # Live cheat card view per track
+│   ├── schema.json              # Track database (18 tracks)
+│   └── pyproject.toml           # Python dependencies for web app
 ├── algo/                        # Backtesting code, optimizer, Monte Carlo sims
 ├── prompts/
 │   ├── initial-research.md      # First cheat card generation prompt
