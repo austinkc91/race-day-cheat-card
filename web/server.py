@@ -635,15 +635,18 @@ async def refresh_research(track_slug: str, user: str = Depends(verify_auth)):
 
 @app.post("/api/stop/{track_slug}")
 async def stop_research(track_slug: str, user: str = Depends(verify_auth)):
-    """Stop race day research for a track (disables the cron)."""
+    """Stop race day research for a track (disables the cron AND kills running jobs)."""
     if track_slug not in TRACKS:
         return JSONResponse(content={"error": "Track not found"}, status_code=404)
 
     track_info = TRACKS[track_slug]
     cron_name = f"Cheat Card: {track_info['name']}"
+    killed_jobs = []
 
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
+            # 1. Disable the cron to prevent future triggers
+            cron_id = None
             resp = await client.get(f"{LISTEN_URL}/crons")
             if resp.status_code == 200:
                 crons = resp.json().get("crons", [])
@@ -653,11 +656,34 @@ async def stop_research(track_slug: str, user: str = Depends(verify_auth)):
                             f"{LISTEN_URL}/cron/{c['id']}",
                             json={"enabled": False},
                         )
-                        return JSONResponse(content={
-                            "status": "stopped",
-                            "message": f"Stopped research for {track_info['name']}",
-                            "cron_id": c["id"],
-                        })
+                        cron_id = c["id"]
+                        break
+
+            # 2. Kill any currently running jobs for this track
+            jobs_resp = await client.get(f"{LISTEN_URL}/jobs")
+            if jobs_resp.status_code == 200:
+                import yaml as _yaml
+                jobs_data = _yaml.safe_load(jobs_resp.text)
+                for job in (jobs_data or {}).get("jobs", []):
+                    if job.get("status") == "running":
+                        prompt = job.get("prompt", "")
+                        if track_info["name"].lower() in prompt.lower() or track_slug in prompt.lower():
+                            try:
+                                await client.delete(f"{LISTEN_URL}/job/{job['id']}")
+                                killed_jobs.append(job["id"])
+                            except Exception:
+                                pass
+
+            if cron_id or killed_jobs:
+                msg = f"Stopped research for {track_info['name']}"
+                if killed_jobs:
+                    msg += f" and cancelled {len(killed_jobs)} running scan(s)"
+                return JSONResponse(content={
+                    "status": "stopped",
+                    "message": msg,
+                    "cron_id": cron_id,
+                    "killed_jobs": killed_jobs,
+                })
 
             return JSONResponse(content={
                 "status": "not_found",
