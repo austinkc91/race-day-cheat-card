@@ -486,6 +486,12 @@ async def get_data(track_slug: str, user: str = Depends(verify_auth)):
 
     data["_server_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S CT")
 
+    # Add last-refreshed timestamp (when the data file was last written by a scan)
+    data_path = get_data_path(track_slug)
+    if data_path.exists():
+        mtime = data_path.stat().st_mtime
+        data["_last_refreshed"] = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d %I:%M:%S %p CT")
+
     # Merge live OTB data so frontend can show MTP countdown and lock races
     otb_schedule = await fetch_otb_schedule()
     otb = otb_schedule.get(track_slug, {})

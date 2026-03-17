@@ -108,6 +108,11 @@
   }
   .card-header h1 { font-size: 24px; color: var(--blue-header); margin-bottom: 4px; }
   .card-header .subtitle { font-size: 14px; color: #555; }
+  .card-header .last-refreshed {
+    font-size: 13px; color: #888; margin-top: 6px;
+    padding: 4px 10px; background: #f0f4f8; border-radius: 6px;
+    display: inline-block; font-weight: 500;
+  }
 
   /* Weather box */
   .weather-box {
@@ -416,10 +421,12 @@ function renderHeader(d) {
   const date = d.date || '';
   const fp = d.first_post || '';
   const parts = [loc, date, fp ? `First Post: ${fp}` : ''].filter(Boolean);
+  const lastRefreshed = d._last_refreshed || '';
   return `
     <div class="card-header">
       <h1>${escapeHtml(track)} &mdash; Cheat Card</h1>
       <div class="subtitle">${escapeHtml(parts.join(' | '))}</div>
+      ${lastRefreshed ? `<div class="last-refreshed">Last Refreshed: ${escapeHtml(lastRefreshed)}</div>` : ''}
     </div>
   `;
 }
