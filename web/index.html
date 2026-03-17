@@ -66,6 +66,7 @@
     gap: 8px;
     cursor: pointer;
     transition: box-shadow 0.2s;
+    min-height: 120px;
   }
   .track-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 
@@ -272,7 +273,7 @@ function renderTracks(data) {
     } else if (t.scheduled_start) {
       actionBtns = `<button class="btn btn-cancel" onclick="event.stopPropagation(); cancelSchedule('${t.slug}')">Cancel</button>`;
     } else {
-      actionBtns = `${t.has_data ? refreshBtn : ''}
+      actionBtns = `${refreshBtn}
         <button class="btn btn-start" onclick="event.stopPropagation(); startTrack('${t.slug}')">Start</button>
         <button class="btn btn-schedule" onclick="event.stopPropagation(); toggleSchedule('${t.slug}')" title="Schedule start">&#128339;</button>`;
     }
