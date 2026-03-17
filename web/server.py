@@ -273,7 +273,7 @@ async def background_scheduler():
             if changed:
                 save_schedules(schedules)
 
-            # --- Pre-race auto-refresh: trigger research when MTP <= 5 ---
+            # --- Pre-race auto-refresh: trigger research when MTP <= 15 ---
             try:
                 otb_schedule = await fetch_otb_schedule()
                 async with httpx.AsyncClient(timeout=5.0) as client:
@@ -289,8 +289,8 @@ async def background_scheduler():
                     except (ValueError, TypeError):
                         continue
 
-                    # Trigger when MTP is between 1-5 minutes (approaching post)
-                    if 1 <= mtp <= 5:
+                    # Trigger when MTP is between 1-15 minutes (15 min before each race)
+                    if 1 <= mtp <= 15:
                         prev = PRE_RACE_TRIGGERS.get(slug, {})
                         already_triggered = (
                             prev.get("race_num") == current_race
@@ -526,7 +526,7 @@ async def get_data(track_slug: str, user: str = Depends(verify_auth)):
 
 @app.post("/api/start/{track_slug}")
 async def start_research(track_slug: str, user: str = Depends(verify_auth)):
-    """Start race day research for a track (creates a 10-minute cron)."""
+    """Start race day research for a track. Runs first scan immediately, then auto-scans 15 min before each race."""
     if track_slug not in TRACKS:
         return JSONResponse(content={"error": "Track not found"}, status_code=404)
 
@@ -554,17 +554,18 @@ async def start_research(track_slug: str, user: str = Depends(verify_auth)):
                         await client.post(f"{LISTEN_URL}/cron/{c['id']}/trigger")
                         return JSONResponse(content={
                             "status": "started",
-                            "message": f"Restarted existing cron for {track_info['name']}",
+                            "message": f"Restarted research for {track_info['name']} — auto-updates 15 min before each race",
                             "cron_id": c["id"],
                         })
 
-            # Create new cron (every 10 minutes)
+            # Create new cron — baseline once daily at 6am, real updates come from
+            # the MTP-based pre-race trigger (15 min before each race post time)
             prompt = build_cron_prompt(track_slug, track_info)
             resp = await client.post(
                 f"{LISTEN_URL}/cron",
                 json={
                     "name": cron_name,
-                    "schedule": "*/10 * * * *",
+                    "schedule": "0 6 * * *",
                     "prompt": prompt,
                     "timezone": "US/Central",
                 },
@@ -574,13 +575,13 @@ async def start_research(track_slug: str, user: str = Depends(verify_auth)):
                 cron_data = resp.json()
                 cron_id = cron_data.get("id") or cron_data.get("cron", {}).get("id")
 
-                # Trigger it immediately
+                # Trigger it immediately for the first scan
                 if cron_id:
                     await client.post(f"{LISTEN_URL}/cron/{cron_id}/trigger")
 
                 return JSONResponse(content={
                     "status": "started",
-                    "message": f"Started research for {track_info['name']} (updates every 10 min)",
+                    "message": f"Started research for {track_info['name']} — auto-updates 15 min before each race",
                     "cron_id": cron_id,
                 })
             else:
@@ -588,6 +589,43 @@ async def start_research(track_slug: str, user: str = Depends(verify_auth)):
                     content={"error": f"Failed to create cron: {resp.text}"},
                     status_code=500,
                 )
+    except Exception as e:
+        return JSONResponse(
+            content={"error": f"Could not reach Listen server: {str(e)}"},
+            status_code=500,
+        )
+
+
+@app.post("/api/refresh/{track_slug}")
+async def refresh_research(track_slug: str, user: str = Depends(verify_auth)):
+    """Manually trigger a fresh research scan for a track."""
+    if track_slug not in TRACKS:
+        return JSONResponse(content={"error": "Track not found"}, status_code=404)
+
+    track_info = TRACKS[track_slug]
+    cron_name = f"Cheat Card: {track_info['name']}"
+
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.get(f"{LISTEN_URL}/crons")
+            if resp.status_code == 200:
+                crons = resp.json().get("crons", [])
+                for c in crons:
+                    if c.get("name") == cron_name:
+                        if not c.get("enabled", False):
+                            return JSONResponse(content={
+                                "error": f"Research for {track_info['name']} is not active. Hit Start first.",
+                            }, status_code=400)
+                        await client.post(f"{LISTEN_URL}/cron/{c['id']}/trigger")
+                        return JSONResponse(content={
+                            "status": "refreshing",
+                            "message": f"Manual refresh triggered for {track_info['name']}",
+                            "cron_id": c["id"],
+                        })
+
+            return JSONResponse(content={
+                "error": f"No research cron found for {track_info['name']}. Hit Start first.",
+            }, status_code=400)
     except Exception as e:
         return JSONResponse(
             content={"error": f"Could not reach Listen server: {str(e)}"},

@@ -47,6 +47,27 @@
   }
   .back-link:hover { text-decoration: underline; }
 
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .refresh-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #FF9800;
+    color: white;
+    transition: opacity 0.2s;
+  }
+  .refresh-btn:hover { opacity: 0.85; }
+  .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .refresh-btn.refreshing { animation: pulse 1s infinite; }
+
   /* Auto-refresh indicator */
   .refresh-bar {
     position: fixed;
@@ -333,7 +354,10 @@
 <div class="status-dot loading" id="statusDot" title="Loading..."></div>
 
 <div class="container">
-  <a href="/" class="back-link">&larr; All Tracks</a>
+  <div class="top-bar">
+    <a href="/" class="back-link">&larr; All Tracks</a>
+    <button class="refresh-btn" id="refreshBtn" onclick="manualRefresh()" title="Trigger a fresh research scan now">Refresh Picks</button>
+  </div>
   <div id="app">
     <div class="loading-screen">
       <div class="spinner"></div>
@@ -704,6 +728,40 @@ function adjustRefreshRate() {
 async function fetchAndRenderWithAdaptive() {
   await fetchAndRender();
   adjustRefreshRate();
+}
+
+async function manualRefresh() {
+  const btn = document.getElementById('refreshBtn');
+  btn.disabled = true;
+  btn.textContent = 'Refreshing...';
+  btn.classList.add('refreshing');
+  try {
+    const resp = await fetch(`/api/refresh/${TRACK_SLUG}`, { method: 'POST' });
+    const data = await resp.json();
+    if (resp.ok) {
+      btn.textContent = 'Scan Started!';
+      // Re-enable after 30s to avoid spamming
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = 'Refresh Picks';
+        btn.classList.remove('refreshing');
+      }, 30000);
+    } else {
+      btn.textContent = data.error || 'Error';
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = 'Refresh Picks';
+        btn.classList.remove('refreshing');
+      }, 5000);
+    }
+  } catch (e) {
+    btn.textContent = 'Failed';
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Refresh Picks';
+      btn.classList.remove('refreshing');
+    }, 5000);
+  }
 }
 
 fetchAndRenderWithAdaptive();
