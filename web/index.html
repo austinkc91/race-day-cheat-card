@@ -265,13 +265,15 @@ function renderTracks(data) {
     }
 
     let actionBtns = '';
+    const refreshBtn = `<button class="btn btn-refresh" onclick="event.stopPropagation(); refreshTrack('${t.slug}')" title="Refresh picks now">&#x21bb; Refresh</button>`;
     if (t.cron_enabled) {
-      actionBtns = `<button class="btn btn-refresh" onclick="event.stopPropagation(); refreshTrack('${t.slug}')" title="Refresh picks now">&#x21bb; Refresh</button>
+      actionBtns = `${refreshBtn}
         <button class="btn btn-stop" onclick="event.stopPropagation(); stopTrack('${t.slug}')">Stop</button>`;
     } else if (t.scheduled_start) {
       actionBtns = `<button class="btn btn-cancel" onclick="event.stopPropagation(); cancelSchedule('${t.slug}')">Cancel</button>`;
     } else {
-      actionBtns = `<button class="btn btn-start" onclick="event.stopPropagation(); startTrack('${t.slug}')">Start</button>
+      actionBtns = `${t.has_data ? refreshBtn : ''}
+        <button class="btn btn-start" onclick="event.stopPropagation(); startTrack('${t.slug}')">Start</button>
         <button class="btn btn-schedule" onclick="event.stopPropagation(); toggleSchedule('${t.slug}')" title="Schedule start">&#128339;</button>`;
     }
 

@@ -613,25 +613,38 @@ async def refresh_research(track_slug: str, user: str = Depends(verify_auth)):
 
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
+            # Try to trigger via existing cron first
             resp = await client.get(f"{LISTEN_URL}/crons")
             if resp.status_code == 200:
                 crons = resp.json().get("crons", [])
                 for c in crons:
                     if c.get("name") == cron_name:
-                        if not c.get("enabled", False):
+                        if c.get("enabled", False):
+                            await client.post(f"{LISTEN_URL}/cron/{c['id']}/trigger")
                             return JSONResponse(content={
-                                "error": f"Research for {track_info['name']} is not active. Hit Start first.",
-                            }, status_code=400)
-                        await client.post(f"{LISTEN_URL}/cron/{c['id']}/trigger")
-                        return JSONResponse(content={
-                            "status": "refreshing",
-                            "message": f"Manual refresh triggered for {track_info['name']}",
-                            "cron_id": c["id"],
-                        })
+                                "status": "refreshing",
+                                "message": f"Manual refresh triggered for {track_info['name']}",
+                                "cron_id": c["id"],
+                            })
 
-            return JSONResponse(content={
-                "error": f"No research cron found for {track_info['name']}. Hit Start first.",
-            }, status_code=400)
+            # No active cron — submit a one-off job directly
+            prompt = build_cron_prompt(track_slug, track_info)
+            resp = await client.post(
+                f"{LISTEN_URL}/job",
+                json={"prompt": prompt},
+            )
+            if resp.status_code == 200:
+                job_data = resp.json()
+                return JSONResponse(content={
+                    "status": "refreshing",
+                    "message": f"One-off refresh started for {track_info['name']}",
+                    "job_id": job_data.get("id"),
+                })
+            else:
+                return JSONResponse(
+                    content={"error": f"Failed to start refresh job: {resp.text}"},
+                    status_code=500,
+                )
     except Exception as e:
         return JSONResponse(
             content={"error": f"Could not reach Listen server: {str(e)}"},
