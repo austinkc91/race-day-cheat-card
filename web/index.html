@@ -243,6 +243,8 @@ function renderTracks(data) {
         raceInfo += ` | R${t.current_race}` + (mtp > 0 ? ` (${mtp}min to post)` : ' (running)');
       }
       todayBadge = `<span class="badge badge-today">RACING TODAY</span>` + (raceInfo ? `<span class="race-info">${raceInfo}</span>` : '');
+    } else if (t.raced_today) {
+      todayBadge = `<span class="badge badge-finished">RACED TODAY</span>`;
     }
     if (t.all_races_complete && !t.cron_enabled) {
       statusBadge = '<span class="badge badge-finished">FINAL</span>';

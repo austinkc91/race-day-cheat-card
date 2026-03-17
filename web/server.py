@@ -114,14 +114,15 @@ OTB_NAME_MAP.update({
 def _match_otb_track(otb_name: str) -> Optional[str]:
     """Try to match an OTB track name to one of our track slugs."""
     name_lower = otb_name.lower().strip()
-    # Exact match
+    # Skip non-thoroughbred racing (harness, greyhound, etc.)
+    skip_keywords = ["harness", "greyhound", "(aus)", "(uk)", "(fr)", "(tur)",
+                     "(ita)", "(ig)", "(nor)", "(swe)", "(arg)", "japan",
+                     "eve (uk)", "australia"]
+    if any(kw in name_lower for kw in skip_keywords):
+        return None
+    # Exact match only — no loose substring matching
     if name_lower in OTB_NAME_MAP:
         return OTB_NAME_MAP[name_lower]
-    # Substring match — check if any of our track names appear in the OTB name
-    for slug, info in TRACKS.items():
-        track_name_lower = info["name"].lower()
-        if track_name_lower in name_lower or name_lower in track_name_lower:
-            return slug
     return None
 
 
@@ -415,7 +416,8 @@ async def list_tracks(user: str = Depends(verify_auth)):
             "cron_id": cron_info.get("cron_id"),
             "scheduled_start": sched.get("start_time") if not sched.get("started") else None,
             "all_races_complete": all_done,
-            "racing_today": bool(otb),
+            "racing_today": bool(otb) and otb.get("mtp", "0") != "0",
+            "raced_today": bool(otb) and otb.get("mtp", "0") == "0",
             "first_post": otb.get("first_post", ""),
             "current_race": otb.get("current_race", ""),
             "mtp": otb.get("mtp", ""),
