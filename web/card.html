@@ -193,6 +193,27 @@
   .race-status.completed { background: var(--green-dark); }
   .race-status.pending { background: var(--tier-yellow); color: #333; }
   .race-status.live { background: var(--red); animation: pulse 1.5s infinite; }
+  .race-status.locked { background: #616161; }
+
+  /* MTP countdown badge */
+  .mtp-badge {
+    display: inline-block; padding: 2px 10px; border-radius: 10px;
+    font-size: 12px; font-weight: 700; margin-left: 8px;
+  }
+  .mtp-badge.approaching { background: #FF6F00; color: white; animation: pulse 1.5s infinite; }
+  .mtp-badge.soon { background: var(--red); color: white; animation: pulse 0.8s infinite; }
+  .mtp-badge.upcoming { background: #455A64; color: white; }
+
+  /* Lock overlay for past races */
+  .race-card.locked-race { opacity: 0.7; }
+  .race-card.locked-race .bet-box { border-color: #9E9E9E; background: #f5f5f5; }
+
+  /* Live update indicator */
+  .live-banner {
+    background: #FFF3E0; border: 1px solid #FF9800; border-radius: 8px;
+    padding: 8px 16px; margin-bottom: 12px; font-size: 13px; text-align: center;
+  }
+  .live-banner b { color: #E65100; }
 
   .race-result {
     background: #f1f8e9; padding: 10px 16px; font-size: 12px;
@@ -322,9 +343,14 @@
 </div>
 
 <script>
-const REFRESH_INTERVAL = 30000;
+const REFRESH_NORMAL = 30000;    // 30s when no race approaching
+const REFRESH_APPROACHING = 15000; // 15s when MTP <= 10
+const REFRESH_IMMINENT = 10000;   // 10s when MTP <= 3
 const TRACK_SLUG = window.location.pathname.split('/track/')[1] || '';
 let lastDataHash = '';
+let currentRefreshInterval = REFRESH_NORMAL;
+let refreshTimer = null;
+let liveData = null;  // { current_race, mtp }
 
 function escapeHtml(str) {
   if (!str) return '';
@@ -466,6 +492,7 @@ function renderRace(race, scratches) {
   const result = race.result || '';
   const comment = race.comment || '';
   const status = race.status || 'PENDING';
+  const isLocked = race._locked === true;
   const raceScratches = new Set();
   for (const s of (scratches || [])) {
     if (s.startsWith(`R${num}:`)) {
@@ -475,10 +502,37 @@ function renderRace(race, scratches) {
     }
   }
   const metaParts = [race.time, race.type_label || race.type, race.distance, race.purse, race.starters ? `${race.starters} starters` : ''].filter(Boolean);
-  const statusClass = status === 'COMPLETED' ? 'completed' : (status === 'LIVE' ? 'live' : 'pending');
-  let html = `<div class="race-card"><div class="race-header">
-    <div><span class="race-num">Race ${num}</span><span class="race-meta"> &mdash; ${escapeHtml(metaParts.join(' &mdash; '))}</span></div>
-    <span class="race-status ${statusClass}">${escapeHtml(status)}</span>
+
+  // Determine status class with lock support
+  let statusClass, statusLabel;
+  if (status === 'COMPLETED') {
+    statusClass = 'completed'; statusLabel = 'COMPLETED';
+  } else if (status === 'LIVE') {
+    statusClass = 'live'; statusLabel = 'LIVE';
+  } else if (isLocked) {
+    statusClass = 'locked'; statusLabel = 'LOCKED';
+  } else {
+    statusClass = 'pending'; statusLabel = 'PENDING';
+  }
+
+  // MTP badge for current and upcoming races
+  let mtpBadge = '';
+  if (liveData && !isLocked && status !== 'COMPLETED') {
+    const raceNum = parseInt(num) || 0;
+    const curRace = liveData.current_race || 0;
+    const mtp = liveData.mtp || 0;
+    if (raceNum === curRace && mtp > 0) {
+      const mtpClass = mtp <= 3 ? 'soon' : (mtp <= 10 ? 'approaching' : 'upcoming');
+      mtpBadge = `<span class="mtp-badge ${mtpClass}">${mtp} min to post</span>`;
+    } else if (raceNum === curRace + 1) {
+      mtpBadge = `<span class="mtp-badge upcoming">Next race</span>`;
+    }
+  }
+
+  const lockedClass = isLocked && status !== 'COMPLETED' ? ' locked-race' : '';
+  let html = `<div class="race-card${lockedClass}"><div class="race-header">
+    <div><span class="race-num">Race ${num}</span>${mtpBadge}<span class="race-meta"> &mdash; ${escapeHtml(metaParts.join(' &mdash; '))}</span></div>
+    <span class="race-status ${statusClass}">${statusLabel}</span>
   </div>`;
   if (result) html += `<div class="race-result"><b>RESULT:</b> ${escapeHtml(result)}</div>`;
   html += `<div style="overflow-x:auto"><table class="horse-table"><thead><tr>
@@ -499,7 +553,7 @@ function renderRace(race, scratches) {
   html += `</tbody></table></div>`;
   if (comment) html += `<div class="race-comment">${escapeHtml(comment)}</div>`;
   if (bets.length) {
-    const betStatus = status === 'COMPLETED' ? 'COMPLETED' : 'PENDING';
+    const betStatus = status === 'COMPLETED' ? 'COMPLETED' : (isLocked ? 'LOCKED - FINAL PICKS' : 'PENDING');
     html += `<div class="bet-box"><div class="bet-box-title">BETS FOR RACE ${num} (${betStatus})</div>`;
     for (const b of bets) {
       const rc = resultClass(b.result);
@@ -550,15 +604,34 @@ function renderQuickReference(d) {
 function renderFooter(d) {
   const version = d.version || '';
   const serverTime = d._server_time || '';
+  const refreshSec = Math.round(currentRefreshInterval / 1000);
+  const refreshNote = refreshSec < 30 ? `Fast refresh: every ${refreshSec}s (race approaching)` : 'Auto-refreshes every 30 seconds';
   const parts = [version, serverTime ? `Last updated: ${serverTime}` : ''].filter(Boolean);
-  return `<div class="card-footer">${escapeHtml(parts.join(' | '))}<br>Auto-refreshes every 30 seconds</div>`;
+  return `<div class="card-footer">${escapeHtml(parts.join(' | '))}<br>${refreshNote}</div>`;
+}
+
+function renderLiveBanner(data) {
+  if (!liveData || !liveData.current_race) return '';
+  const mtp = liveData.mtp || 0;
+  const curRace = liveData.current_race;
+  if (mtp > 0 && mtp <= 10) {
+    return `<div class="live-banner"><b>Race ${curRace} approaching!</b> ${mtp} min to post — picks are being updated with latest data</div>`;
+  }
+  if (mtp === 0) {
+    return `<div class="live-banner"><b>Race ${curRace} is OFF!</b> Bets locked. Waiting for results...</div>`;
+  }
+  return '';
 }
 
 function render(data) {
+  // Store live data for use in race rendering
+  liveData = data._live || null;
+
   const scratches = data.scratches || [];
   const races = data.races || [];
   let html = '';
   html += renderHeader(data);
+  html += renderLiveBanner(data);
   html += `<div class="section-card" style="padding: 14px 20px">`;
   html += renderWeather(data);
   html += renderInfoBlock(data);
@@ -614,8 +687,27 @@ async function fetchAndRender() {
   }
 }
 
-fetchAndRender();
-setInterval(fetchAndRender, REFRESH_INTERVAL);
+function adjustRefreshRate() {
+  // Adapt refresh rate based on MTP
+  let newInterval = REFRESH_NORMAL;
+  if (liveData && liveData.mtp > 0) {
+    if (liveData.mtp <= 3) newInterval = REFRESH_IMMINENT;
+    else if (liveData.mtp <= 10) newInterval = REFRESH_APPROACHING;
+  }
+  if (newInterval !== currentRefreshInterval) {
+    currentRefreshInterval = newInterval;
+    if (refreshTimer) clearInterval(refreshTimer);
+    refreshTimer = setInterval(fetchAndRender, currentRefreshInterval);
+  }
+}
+
+async function fetchAndRenderWithAdaptive() {
+  await fetchAndRender();
+  adjustRefreshRate();
+}
+
+fetchAndRenderWithAdaptive();
+refreshTimer = setInterval(fetchAndRenderWithAdaptive, currentRefreshInterval);
 </script>
 </body>
 </html>

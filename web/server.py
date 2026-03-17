@@ -56,6 +56,10 @@ OTB_API_URL = "https://ojlbo7v5hb.execute-api.us-west-2.amazonaws.com/current_ra
 OTB_CACHE_FILE = DATA_DIR / "_otb_schedule.json"
 OTB_CACHE_TTL = 300  # Refresh every 5 minutes
 
+# Pre-race update tracking — avoid double-triggering
+# { "track_slug": { "race_num": <int>, "triggered_at": <timestamp> } }
+PRE_RACE_TRIGGERS = {}
+
 # Known tracks with metadata
 TRACKS = {
     "fair-grounds": {"name": "Fair Grounds", "location": "New Orleans, LA", "code": "FG"},
@@ -269,6 +273,44 @@ async def background_scheduler():
             if changed:
                 save_schedules(schedules)
 
+            # --- Pre-race auto-refresh: trigger research when MTP <= 5 ---
+            try:
+                otb_schedule = await fetch_otb_schedule()
+                async with httpx.AsyncClient(timeout=5.0) as client:
+                    crons_resp = await client.get(f"{LISTEN_URL}/crons")
+                    crons_for_trigger = crons_resp.json().get("crons", []) if crons_resp.status_code == 200 else []
+
+                for slug, otb in otb_schedule.items():
+                    if slug not in TRACKS:
+                        continue
+                    try:
+                        mtp = int(otb.get("mtp", 99))
+                        current_race = int(otb.get("current_race", 0))
+                    except (ValueError, TypeError):
+                        continue
+
+                    # Trigger when MTP is between 1-5 minutes (approaching post)
+                    if 1 <= mtp <= 5:
+                        prev = PRE_RACE_TRIGGERS.get(slug, {})
+                        already_triggered = (
+                            prev.get("race_num") == current_race
+                            and (datetime.now().timestamp() - prev.get("triggered_at", 0)) < 600
+                        )
+                        if not already_triggered:
+                            # Find the cron for this track and trigger it
+                            cron_name = f"Cheat Card: {TRACKS[slug]['name']}"
+                            for c in crons_for_trigger:
+                                if c.get("name") == cron_name and c.get("enabled", False):
+                                    async with httpx.AsyncClient(timeout=10.0) as client:
+                                        await client.post(f"{LISTEN_URL}/cron/{c['id']}/trigger")
+                                    PRE_RACE_TRIGGERS[slug] = {
+                                        "race_num": current_race,
+                                        "triggered_at": datetime.now().timestamp(),
+                                    }
+                                    break
+            except Exception:
+                pass
+
             # --- Auto-stop finished tracks ---
             async with httpx.AsyncClient(timeout=5.0) as client:
                 resp = await client.get(f"{LISTEN_URL}/crons")
@@ -335,6 +377,8 @@ STEP 4: Write the data file
 - Increment the version number each update
 - Update race statuses: check results for completed races
 - Update P&L tracker with any new results
+- IMPORTANT: Do NOT modify bets/picks for races with status "COMPLETED" — preserve their results exactly
+- For PENDING races, update with the LATEST odds, scratches, and picks so the user gets the freshest data before betting closes
 
 STEP 5: Report what changed
 - Summarize what's new in this update (new races researched, results updated, scratches, etc.)
@@ -429,7 +473,7 @@ async def list_tracks(user: str = Depends(verify_auth)):
 
 @app.get("/api/data/{track_slug}")
 async def get_data(track_slug: str, user: str = Depends(verify_auth)):
-    """Get race data for a specific track."""
+    """Get race data for a specific track, enriched with live OTB data."""
     if track_slug not in TRACKS:
         return JSONResponse(content={"error": "Track not found"}, status_code=404)
 
@@ -441,6 +485,42 @@ async def get_data(track_slug: str, user: str = Depends(verify_auth)):
         )
 
     data["_server_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S CT")
+
+    # Merge live OTB data so frontend can show MTP countdown and lock races
+    otb_schedule = await fetch_otb_schedule()
+    otb = otb_schedule.get(track_slug, {})
+    if otb:
+        current_race = 0
+        try:
+            current_race = int(otb.get("current_race", 0))
+        except (ValueError, TypeError):
+            pass
+        mtp = 0
+        try:
+            mtp = int(otb.get("mtp", 0))
+        except (ValueError, TypeError):
+            pass
+
+        data["_live"] = {
+            "current_race": current_race,
+            "mtp": mtp,
+            "first_post": otb.get("first_post", ""),
+        }
+
+        # Mark race lock status based on live data
+        for race in data.get("races", []):
+            race_num = 0
+            try:
+                race_num = int(race.get("number", 0))
+            except (ValueError, TypeError):
+                pass
+            if race_num < current_race:
+                race["_locked"] = True
+            elif race_num == current_race and mtp == 0:
+                race["_locked"] = True
+            else:
+                race["_locked"] = False
+
     return JSONResponse(content=data)
 
 
