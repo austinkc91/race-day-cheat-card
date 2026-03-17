@@ -106,6 +106,7 @@
   .btn-view { background: var(--blue); color: white; }
   .btn-schedule { background: #7B1FA2; color: white; }
   .btn-cancel { background: var(--gray); color: white; font-size: 11px; padding: 4px 10px; }
+  .btn-refresh { background: #FF9800; color: white; }
 
   .schedule-row {
     width: 100%;
@@ -265,7 +266,8 @@ function renderTracks(data) {
 
     let actionBtns = '';
     if (t.cron_enabled) {
-      actionBtns = `<button class="btn btn-stop" onclick="event.stopPropagation(); stopTrack('${t.slug}')">Stop</button>`;
+      actionBtns = `<button class="btn btn-refresh" onclick="event.stopPropagation(); refreshTrack('${t.slug}')" title="Refresh picks now">&#x21bb; Refresh</button>
+        <button class="btn btn-stop" onclick="event.stopPropagation(); stopTrack('${t.slug}')">Stop</button>`;
     } else if (t.scheduled_start) {
       actionBtns = `<button class="btn btn-cancel" onclick="event.stopPropagation(); cancelSchedule('${t.slug}')">Cancel</button>`;
     } else {
@@ -331,6 +333,27 @@ async function startTrack(slug) {
   } catch (e) {
     showToast(`Failed: ${e.message}`, 5000);
   }
+}
+
+async function refreshTrack(slug) {
+  const track = tracks.find(t => t.slug === slug);
+  const btn = event.target.closest('.btn-refresh');
+  if (btn) { btn.disabled = true; btn.textContent = 'Refreshing...'; }
+  showToast(`Refreshing picks for ${track ? track.name : slug}...`);
+
+  try {
+    const resp = await fetch(`/api/refresh/${slug}`, { method: 'POST' });
+    const data = await resp.json();
+    if (resp.ok) {
+      showToast(data.message, 4000);
+    } else {
+      showToast(`Error: ${data.error || data.message}`, 5000);
+    }
+  } catch (e) {
+    showToast(`Failed: ${e.message}`, 5000);
+  }
+  // Re-enable after 30 seconds cooldown
+  if (btn) { setTimeout(() => { btn.disabled = false; btn.innerHTML = '&#x21bb; Refresh'; }, 30000); }
 }
 
 async function stopTrack(slug) {
