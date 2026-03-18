@@ -50,50 +50,53 @@ Build a comprehensive cheat card data file that includes:
 3. TOP PLAYS — STRAIGHT BETS (Most important section)
    CRITICAL RULES FROM BACKTEST (86% ROI, 70% profitable days):
    - WIN BETS ONLY AT 5/1+ ODDS. Never bet chalk (favorites). Expert consensus picks have NEGATIVE ROI on win bets at short odds. 79% of all winners paid $5+ (non-chalk).
-   - Bet $3-5 per WIN play on GREEN picks (4+ sources) that are 5/1 or longer.
+   - Bet $8-10 per WIN play on GREEN picks (4+ sources) that are 5/1 or longer.
    - If a GREEN pick is under 5/1 odds, DO NOT bet Win on it. Use it for exotics only.
    - NO PLACE BETS. Place bets dilute ROI per the backtest. Skip them entirely.
-   - SAVER LONGSHOT: $2-3 on any horse at 7/1+ odds that has at least 2 sources (ORANGE+). You only need 10-15% hit rate to profit. This is where BIG payouts come from.
-   - VALUE PLAY: Value Score >= 2.0 at 5/1+ odds gets a $3-5 Win bet regardless of color tier.
+   - SAVER LONGSHOT: $5 on any horse at 7/1+ odds that has at least 2 sources (ORANGE+). You only need 10-15% hit rate to profit. This is where BIG payouts come from.
+   - VALUE PLAY: Value Score >= 2.0 at 5/1+ odds gets a $8-10 Win bet regardless of color tier.
    - Goal: 2-4 total Win bets + 1-2 saver longshots for the ENTIRE card. NOT one bet per race.
-   - Daily straight bet budget: ~$12
+   - Daily straight bet budget: ~$35
 
 4. EXOTIC BETS (174% ROI from backtest — this is where the real money is)
    Build using GREEN and strong YELLOW picks:
 
-   a) TIER 1: $1 EXACTA BOX — EVERY RACE
-      - Box our expert pick + a value horse = $2/race
+   a) TIER 1: $2 EXACTA BOX — EVERY RACE
+      - Box our expert pick + a value horse = $4/race
       - Our picks finish top 2 about 38% of the time = huge edge
-      - Expected: 2-3 hits/month at $50-80 each
+      - At $2 base, hits pay $100-160. Expected: 2-3 hits/month.
 
-   b) TIER 2: $1 TRIFECTA BOX — ALL GOLDMINE CLM RACES
-      - Box 3 horses in EVERY CLM race with 8+ starters = $6/race
-      - Play ALL qualifying CLM races, not just the best one — cast a wider net to catch monster trifectas
-      - Typical card has 2-4 CLM races = $12-24 total trifecta spend
-      - Expected: 1-2 hits/month at $300-1,000+
+   b) TIER 1b: $2 EXACTA WHEEL — GREEN PICKS ONLY
+      - When a GREEN consensus pick exists, KEY that horse on top AND bottom with 2-3 value horses.
+      - Example: "$2 exacta wheel #4 with #1,#6,#8" = $6 top + $6 bottom = $12/race
+      - Better coverage than a box — covers more finish combos involving your strongest pick
+      - Only on the 1-2 best races per card. Budget: ~$12/day.
 
-   c) TIER 3: $0.10 SUPERFECTA BOX — ONE BIG FIELD RACE
-      - Box 4 horses in the biggest field of the day = $2.40 total
-      - Pure lottery ticket — payouts $1,000-5,000+
-      - Expected: 1 hit every 2-3 months
+   c) TIER 2: $2 TRIFECTA BOX — ALL GOLDMINE CLM RACES
+      - Box 3 horses in EVERY CLM race with 8+ starters = $12/race
+      - Play ALL qualifying CLM races — cast a wider net for monster trifectas
+      - Typical card has 2-4 CLM races = $24-48 total trifecta spend
+      - At $2 base, hits pay $600-2,000+. Expected: 1-2 hits/month.
 
-   d) TIER 4: PICK 3 — SATURDAYS ONLY
-      - $4 for 8 combos across 3 strongest consecutive races
-      - Saturday big cards only (highest purses, most data)
+   d) TIER 3: $0.20 SUPERFECTA BOX — TWO BIG FIELD RACES
+      - Box 4 horses in the TWO biggest fields = $4.80 each = ~$10 total
+      - More shots at $1,000-5,000+ payouts. Expected: 1 hit every 1-2 months.
+
+   e) TIER 4: PICK 3 — EVERY DAY
+      - $1/combo, 8 combos across 3 strongest consecutive races = $8/day
+      - No longer Saturday-only — more chances at $500-1,000+ bombs
       - Single the GREEN picks, spread 2-3 horses in weaker legs
-      - Skip Pick 3 on weekdays
-      - Expected: occasional $500-1,000+ bombs
 
-   e) DAILY DOUBLE
+   f) DAILY DOUBLE
       - Best consecutive-race pair where both have GREEN or strong YELLOW
-      - Key top pick in each leg, spread to 2 horses in weaker leg
-      - Example: "$2 Daily Double: R6 #4 with R7 #2, #5" (cost: $4)
+      - $3/combo, key top pick in each leg, spread to 2 horses in weaker leg
+      - Example: "$3 Daily Double: R6 #4 with R7 #2, #5" (cost: $6)
 
    f) WHAT TO SAY AT THE WINDOW
       - For EVERY bet, include the EXACT phrase to say at the window
       - Example: "Give me a one-dollar exacta box, numbers four and six in race five"
 
-   Daily exotic budget: ~$15-25 (higher due to trifecta boxes on all CLM races)
+   Daily exotic budget: ~$90 (exactas + wheels + trifectas + superfectas + multi-race)
 
 5. WEATHER & TRACK CONDITION CHECK
    - Search for current weather and track conditions at the venue
@@ -110,12 +113,13 @@ Build a comprehensive cheat card data file that includes:
    - Monday-Wednesday: Normal sizing
 
 7. BUDGET PLANS (reflecting all modifiers above)
-   - $20 budget (lean — exactas every race + trifecta on best CLM only)
-   - $30 budget (standard — exactas + trifecta boxes on ALL CLM races)
-   - $50 budget (aggressive — full straight bets + all exotics + superfecta)
+   - $50 budget (lean — $5 WIN bets, $1 exacta boxes, $1 tri on best CLM only)
+   - $125 budget (standard — full strategy: $8-10 WIN bets, $2 exacta boxes + wheels, $2 tri on ALL CLM, Pick 3 + DD + superfecta)
+   - $200 budget (aggressive — $15 WIN bets, $3 exacta boxes + wheels, $3 tri, Pick 4 on Saturdays)
    - Show exactly which bets to make at each budget level
    - REMEMBER: No place bets at any budget level. Win only at 5/1+.
-   - TRIFECTA PRIORITY: At $30+, trifecta box ALL qualifying CLM races (8+ starters). This is the key tweak — we keep barely missing $300-1,000 trifectas by only playing one race.
+   - TRIFECTA PRIORITY: At $125+, trifecta box ALL qualifying CLM races (8+ starters) at $2/box.
+   - EXACTA WHEEL PRIORITY: At $125+, add exacta wheels on the 1-2 strongest GREEN picks.
 
 8. QUICK REFERENCE
    - Table key / legend for abbreviations

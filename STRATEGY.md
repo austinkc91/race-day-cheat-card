@@ -15,12 +15,12 @@ This strategy combines selective straight bets with exotic wagers for maximum RO
 
 ### Rule 1: WIN Bets Only at 5/1+ Odds
 - **Never bet chalk (favorites).** Expert consensus picks have NEGATIVE ROI on win bets.
-- Bet $3-5 per play on about half the card where you see value.
+- Bet $8-10 per play on about half the card where you see value.
 - Target ~28% accuracy to be profitable.
 - 79% of ALL winners in our data paid $5+ (non-chalk). The market consistently overpays favorites.
 
 ### Rule 2: Saver Longshot Bets at 7/1+
-- $2-3 on horses at 7/1+ odds in about 25% of races.
+- $5 on horses at 7/1+ odds in about 25% of races.
 - You only need a 10-15% hit rate to profit.
 - This is where the BIG payouts come from: $143, $100, $91, $78, $60, $54, $51 were all longshots no consensus system would have picked.
 
@@ -37,26 +37,36 @@ This strategy combines selective straight bets with exotic wagers for maximum RO
 
 ## Part 2: Exotic Bets (174% ROI, adds on top)
 
-### Tier 1: $1 Exacta Box Every Race
-- Box our expert pick + a value horse = $2/race.
+### Tier 1: $2 Exacta Box Every Race
+- Box our expert pick + a value horse = $4/race.
 - Our picks finish top 2 about 38% of the time = huge edge for exacta boxes.
-- Expected: 2-3 hits/month at $50-80 each.
+- At $2 base, hits pay $100-160 instead of $50-80. Expected: 2-3 hits/month.
 
-### Tier 2: $1 Trifecta Box (ALL GOLDMINE CLM Races)
-- Box 3 horses in EVERY CLM race with 8+ starters = $6/race.
+### Tier 1b: $2 Exacta Wheel on GREEN Picks
+- When a GREEN consensus pick (4+ sources) exists, KEY that horse on top AND bottom with 2-3 value horses.
+- Example: $2 exacta wheel #4 with #1,#6,#8 = $6/race top + $6 bottom = $12 total.
+- Better coverage than a simple box — covers more finish combinations involving our strongest pick.
+- Only do this on 1-2 best races per card. Budget: ~$12/day.
+
+### Tier 2: $2 Trifecta Box (ALL GOLDMINE CLM Races)
+- Box 3 horses in EVERY CLM race with 8+ starters = $12/race.
 - CLM races have 22.6% upset rate and the biggest exotic payouts — cast a wider net.
-- Typical card has 2-4 qualifying CLM races = $12-24 total trifecta spend.
-- Expected: 1-2 hits/month at $300-1,000+. One hit covers weeks of trifecta spend.
+- Typical card has 2-4 qualifying CLM races = $24-48 total trifecta spend.
+- At $2 base, hits pay $600-2,000+. Expected: 1-2 hits/month. One hit covers weeks of spend.
 
-### Tier 3: $0.10 Superfecta Box (One Big Field Race)
-- Box 4 horses = $2.40 total.
-- Pure lottery ticket territory — but payouts are $1,000-5,000+.
-- Expected: 1 hit every 2-3 months.
+### Tier 3: $0.20 Superfecta Box (Two Big Field Races)
+- Box 4 horses in the TWO biggest fields = $4.80 each = ~$10 total.
+- More shots at $1,000-5,000+ payouts.
+- Expected: 1 hit every 1-2 months (doubled frequency from playing 2 races).
 
-### Tier 4: Pick 3 on Saturdays Only
-- $4 for 8 combos across 3 consecutive races.
-- Saturday big cards only (highest purses, most data).
-- Expected: occasional $500-1,000+ bombs.
+### Tier 4: Pick 3 Every Day
+- $1 per combo, 8 combos across 3 strongest consecutive races = $8/day.
+- No longer Saturday-only — more chances at $500-1,000+ bombs.
+- Single GREEN picks, spread 2-3 horses in weaker legs.
+
+### Tier 5: Daily Double
+- $3 per combo on best consecutive-race pair = ~$6/day.
+- Key top pick in each leg, spread to 2 horses in weaker leg.
 
 ---
 
@@ -70,15 +80,26 @@ This strategy combines selective straight bets with exotic wagers for maximum RO
 
 ---
 
-## Daily Budget
+## Daily Budget ($125 Standard)
 
 | Category | Cost |
 |----------|------|
-| Straight bets (WIN + saver) | ~$12/day |
-| Exacta boxes ($1 box every race) | ~$10/day |
-| Trifecta boxes ($1 box ALL CLM races, 8+ starters) | ~$6-18/day |
-| Superfecta + Pick 3 | ~$5/day |
-| **Total** | **~$30/day** |
+| Straight bets — WIN $8-10/play + saver longshots $5/play | ~$35/day |
+| Exacta boxes ($2 box every race) | ~$32/day |
+| Exacta wheels (GREEN picks keyed with 3 horses) | ~$12/day |
+| Trifecta boxes ($2 box ALL CLM races, 8+ starters) | ~$24/day |
+| Superfecta boxes ($0.20 on 2 biggest fields) | ~$10/day |
+| Pick 3 (every day, not just Saturday) | ~$8/day |
+| Daily Double | ~$6/day |
+| **Total** | **~$125/day** |
+
+### Budget Tiers
+
+| Tier | Daily Budget | Description |
+|------|-------------|-------------|
+| Lean | $50 | $5 WIN bets, $1 exacta boxes, $1 tri on best CLM only |
+| Standard | $125 | Full strategy below — all bet types active |
+| Aggressive | $200 | $15 WIN bets, $3 exacta boxes, $3 tri, Pick 4 on Saturdays |
 
 ---
 

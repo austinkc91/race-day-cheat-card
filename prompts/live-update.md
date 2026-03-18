@@ -38,16 +38,17 @@ STEP 2: READ PREVIOUS VERSION
 Read the current data file at /tmp/race_day_data/[TRACK_SLUG].json to see what version we're on and what's already been researched.
 
 STEP 3: APPLY THE BETTING STRATEGY
-- WIN bets only at 5/1+ odds
+- WIN bets $8-10/play only at 5/1+ odds. Saver longshots $5 at 7/1+.
 - Consensus tier system: GREEN (4+ sources), YELLOW (3), ORANGE (2), RED (1)
 - LOCAL EXPERT RULE: Local experts from same track count as ONE source
 - VALUE SCORE: (consensus/total_sources) x current_odds. Flag >= 2.0 as VALUE PLAY
 - Race type targeting: CLM = GOLDMINE, MSW = longshot value, MOC/STK = SKIP
-- $1 Exacta Box every race with our pick + value horse
-- $1 Trifecta Box on ALL CLM races with 8+ starters (cast wider net for monster tris)
-- $0.10 Superfecta Box on biggest field
-- Pick 3 on Saturdays only
-- Daily Double on best consecutive pair
+- $2 Exacta Box every race with our pick + value horse
+- $2 Exacta Wheel on GREEN picks: key horse top AND bottom with 2-3 value horses (1-2 best races only)
+- $2 Trifecta Box on ALL CLM races with 8+ starters (cast wider net for monster tris)
+- $0.20 Superfecta Box on 2 biggest fields
+- Pick 3 every day ($1/combo, 8 combos)
+- Daily Double $3/combo on best consecutive pair
 - Halve bets on sloppy/muddy tracks
 - No place bets
 - RE-CHECK ODDS: If a GREEN pick has drifted below 5/1, move it to exotics-only. If an ORANGE+ horse has drifted to 7/1+, consider as saver longshot.
@@ -72,8 +73,9 @@ MODIFIERS (apply to all bets):
 - Display modifier in day_modifier field
 
 BUDGET PLANS:
-- $23 budget (backtested optimal), $30 budget, $50 budget
+- $50 budget (lean), $125 budget (standard), $200 budget (aggressive)
 - NO place bets at any budget level
+- At $125+: $2 exacta boxes, $2 trifecta boxes, exacta wheels on GREEN picks, Pick 3 every day
 
 STEP 4: WRITE UPDATED DATA FILE
 - Follow the JSON schema at ~/race-day-cheat-card/web/schema.json EXACTLY
