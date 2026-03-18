@@ -4,14 +4,17 @@
 # to your linux-mini-agent (via Telegram or `just send`).
 #
 # Variables to customize:
-#   - TRACK: Track name and location
+#   - TRACK: Track name, code, and location
 #   - DATE: Race date
-#   - EMAILS: Email addresses to send the PDF to
+#   - TRACK_SLUG: URL-friendly track name (e.g., "fair-grounds", "oaklawn")
 #
 # STRATEGY: This prompt implements the All-In Betting Strategy from STRATEGY.md
 # (3-year validated, 528 races, 10,000 Monte Carlo sims, 508% ROI at $2 base)
+#
+# OUTPUT: JSON data file at /tmp/race_day_data/<track-slug>.json
+# The web UI at port 7700 auto-refreshes every 30 seconds — no PDF needed.
 
-I want you to do deep research today on the horse races at [TRACK NAME] [LOCATION] on [DATE].
+I want you to do deep research today on the horse races at [TRACK NAME] ([TRACK CODE]) in [LOCATION] on [DATE].
 
 I want to know:
 - The full schedule with race times and post times
@@ -20,7 +23,7 @@ I want to know:
 - Current scratches
 - Which horses are supposed to do the best based on expert picks and handicapping analysis
 
-Build a professional PDF cheat card that includes:
+Build a comprehensive cheat card data file that includes:
 
 1. RACE-BY-RACE ANALYSIS
    - Pull picks from these 6 specific sources:
@@ -63,10 +66,11 @@ Build a professional PDF cheat card that includes:
       - Our picks finish top 2 about 38% of the time = huge edge
       - Expected: 2-3 hits/month at $50-80 each
 
-   b) TIER 2: $0.50 TRIFECTA BOX — BEST CLM RACES ONLY
-      - Box 3 horses in CLM races with 10+ starters = $3 total
-      - Target claiming races — biggest upset rate AND biggest exotic payouts
-      - Expected: ~1 hit/month at $200-500
+   b) TIER 2: $1 TRIFECTA BOX — ALL GOLDMINE CLM RACES
+      - Box 3 horses in EVERY CLM race with 8+ starters = $6/race
+      - Play ALL qualifying CLM races, not just the best one — cast a wider net to catch monster trifectas
+      - Typical card has 2-4 CLM races = $12-24 total trifecta spend
+      - Expected: 1-2 hits/month at $300-1,000+
 
    c) TIER 3: $0.10 SUPERFECTA BOX — ONE BIG FIELD RACE
       - Box 4 horses in the biggest field of the day = $2.40 total
@@ -89,7 +93,7 @@ Build a professional PDF cheat card that includes:
       - For EVERY bet, include the EXACT phrase to say at the window
       - Example: "Give me a one-dollar exacta box, numbers four and six in race five"
 
-   Daily exotic budget: ~$11
+   Daily exotic budget: ~$15-25 (higher due to trifecta boxes on all CLM races)
 
 5. WEATHER & TRACK CONDITION CHECK
    - Search for current weather and track conditions at the venue
@@ -106,11 +110,12 @@ Build a professional PDF cheat card that includes:
    - Monday-Wednesday: Normal sizing
 
 7. BUDGET PLANS (reflecting all modifiers above)
-   - $23 budget (backtested optimal — ~$12 straight + ~$11 exotic)
-   - $30 budget (slight increase on exotics)
-   - $50 budget (double straight bets, add extra trifecta)
+   - $20 budget (lean — exactas every race + trifecta on best CLM only)
+   - $30 budget (standard — exactas + trifecta boxes on ALL CLM races)
+   - $50 budget (aggressive — full straight bets + all exotics + superfecta)
    - Show exactly which bets to make at each budget level
    - REMEMBER: No place bets at any budget level. Win only at 5/1+.
+   - TRIFECTA PRIORITY: At $30+, trifecta box ALL qualifying CLM races (8+ starters). This is the key tweak — we keep barely missing $300-1,000 trifectas by only playing one race.
 
 8. QUICK REFERENCE
    - Table key / legend for abbreviations
@@ -119,34 +124,19 @@ Build a professional PDF cheat card that includes:
    - Track tips (parking, food, viewing spots)
    - ONE-SENTENCE STRATEGY: "Stop betting favorites, bet WIN only at 5/1+, use expert picks for exacta/trifecta boxes where their 51% board rate is an edge, and target claiming races with big fields."
 
-PDF FORMATTING:
-- Use Python reportlab library
-- Proper margins (72pt all sides)
-- Font sizes: Title 18pt, Headers 14pt, Body 10pt
-- No text overlap, proper line spacing
-- Clean professional layout with color coding
+OUTPUT — WRITE JSON DATA FILE:
+- Follow the JSON schema at ~/race-day-cheat-card/web/schema.json EXACTLY
+- Create the directory first: mkdir -p /tmp/race_day_data
+- Write to: /tmp/race_day_data/[TRACK_SLUG].json
+- The web UI at port 7700 auto-refreshes every 30 seconds — it will pick up your data immediately
+- Write valid JSON or the page breaks
+- Include version "v1.0" and increment on updates
 
-CRITICAL LAYOUT RULE — BETS BELOW EACH RACE:
-- For EVERY race, immediately below the horse table, show a prominent "BETS FOR THIS RACE" box
-- This box should have a colored background (light green or light blue) so it stands out
-- List EVERY bet for that specific race:
-  * Win bet (if any horse qualifies at 5/1+ with consensus)
-  * Saver longshot (if any horse qualifies at 7/1+)
-  * Exacta box (which horses, cost)
-  * Trifecta box (if CLM with 10+ starters)
-  * Superfecta (if this is the big field race)
-  * Daily Double (if this race is part of a DD pair)
-  * "What to say at the window" phrase for each bet
-- If NO bets qualify for a race, show "BETS: $1 Exacta Box only" (since we box every race)
-- The user should be able to look at ONE race and immediately know every bet to make
-- Do NOT put bets in a separate section away from the race — they MUST be directly below each race table
-- Budget plans and summary sections can still appear at the end, but the per-race bets are the primary layout
+SET UP AUTO-UPDATE CRON:
+After writing the initial data file, create a cron job via the Listen server so the card stays updated:
+- POST to http://localhost:7600/cron
+- Schedule: "*/10 * * * *" (every 10 minutes)
+- Name: "Cheat Card: [TRACK NAME]"
+- Prompt: Use the live-update prompt from ~/race-day-cheat-card/prompts/live-update.md with variables filled in
 
-Save the PDF to /tmp/race_day_cheatcard.pdf
-
-Email the PDF to: [EMAIL1], [EMAIL2]
-Use SMTP with the Google App Password from /home/austin/linux-mini-agent/.env (GOOGLE_APP_PASSWORD).
-Send from vacypert@gmail.com.
-Subject: [TRACK NAME] Race Day Cheat Card - [DATE]
-
-Also attach /tmp/race_day_cheatcard.pdf to this job's attachments for Telegram delivery.
+Also attach a screenshot or summary to this job for Telegram delivery so Austin knows the card is live.

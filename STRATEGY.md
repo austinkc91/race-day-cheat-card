@@ -42,10 +42,11 @@ This strategy combines selective straight bets with exotic wagers for maximum RO
 - Our picks finish top 2 about 38% of the time = huge edge for exacta boxes.
 - Expected: 2-3 hits/month at $50-80 each.
 
-### Tier 2: $0.50 Trifecta Box (Best Race of the Day)
-- Box 3 horses = $3 total.
-- Target CLM (claiming) races with 10+ starters — biggest upset rate AND biggest exotic payouts.
-- Expected: ~1 hit/month at $200-500.
+### Tier 2: $1 Trifecta Box (ALL GOLDMINE CLM Races)
+- Box 3 horses in EVERY CLM race with 8+ starters = $6/race.
+- CLM races have 22.6% upset rate and the biggest exotic payouts — cast a wider net.
+- Typical card has 2-4 qualifying CLM races = $12-24 total trifecta spend.
+- Expected: 1-2 hits/month at $300-1,000+. One hit covers weeks of trifecta spend.
 
 ### Tier 3: $0.10 Superfecta Box (One Big Field Race)
 - Box 4 horses = $2.40 total.
@@ -74,8 +75,10 @@ This strategy combines selective straight bets with exotic wagers for maximum RO
 | Category | Cost |
 |----------|------|
 | Straight bets (WIN + saver) | ~$12/day |
-| Exotic bets (exacta + trifecta + superfecta + pick 3) | ~$11/day |
-| **Total** | **~$23/day** |
+| Exacta boxes ($1 box every race) | ~$10/day |
+| Trifecta boxes ($1 box ALL CLM races, 8+ starters) | ~$6-18/day |
+| Superfecta + Pick 3 | ~$5/day |
+| **Total** | **~$30/day** |
 
 ---
 
