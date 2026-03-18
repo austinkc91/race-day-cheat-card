@@ -8,8 +8,9 @@
 #   - DATE: Race date
 #   - TRACK_SLUG: URL-friendly track name (e.g., "fair-grounds", "oaklawn")
 #
-# STRATEGY: This prompt implements the All-In Betting Strategy from STRATEGY.md
-# (3-year validated, 528 races, 10,000 Monte Carlo sims, 508% ROI at $2 base)
+# STRATEGY: This prompt implements the ML-Driven Betting Strategy from STRATEGY.md
+# Key insight: Morning Line top 5 catches 80%+ of exactas vs 30% for expert consensus
+# Backtested: 36-41% ROI, 100% days profitable across Parx + Fair Grounds
 #
 # OUTPUT: JSON data file at /tmp/race_day_data/<track-slug>.json
 # The web UI at port 7700 auto-refreshes every 30 seconds — no PDF needed.
@@ -47,56 +48,47 @@ Build a comprehensive cheat card data file that includes:
    - SKIP Stakes/MOC races — Too chalky, favorites win too often, low exotic value. Do NOT recommend Win bets in Stakes/MOC races. Exotics only if consensus is very strong.
    - Label each race with its type prominently.
 
-3. TOP PLAYS — STRAIGHT BETS (Most important section)
-   CRITICAL RULES FROM BACKTEST (86% ROI, 70% profitable days):
-   - WIN BETS ONLY AT 5/1+ ODDS. Never bet chalk (favorites). Expert consensus picks have NEGATIVE ROI on win bets at short odds. 79% of all winners paid $5+ (non-chalk).
-   - Bet $8-10 per WIN play on GREEN picks (4+ sources) that are 5/1 or longer.
-   - If a GREEN pick is under 5/1 odds, DO NOT bet Win on it. Use it for exotics only.
-   - NO PLACE BETS. Place bets dilute ROI per the backtest. Skip them entirely.
-   - SAVER LONGSHOT: $5 on any horse at 7/1+ odds that has at least 2 sources (ORANGE+). You only need 10-15% hit rate to profit. This is where BIG payouts come from.
-   - VALUE PLAY: Value Score >= 2.0 at 5/1+ odds gets a $8-10 Win bet regardless of color tier.
-   - Goal: 2-4 total Win bets + 1-2 saver longshots for the ENTIRE card. NOT one bet per race.
-   - Daily straight bet budget: ~$35
+3. ML-DRIVEN EXOTIC BETS (36% ROI — THE CORE MONEY MAKER)
+   CRITICAL: Use MORNING LINE ODDS (not expert consensus) to select horses for exotic bets.
+   Sort all active (non-scratched) horses by ML odds, lowest first. The top 5 by ML are your exotic bet horses.
 
-4. EXOTIC BETS (174% ROI from backtest — this is where the real money is)
-   Build using GREEN and strong YELLOW picks:
+   a) TIER 1: $0.50 EXACTA BOX — TOP 5 BY ML — EVERY RACE
+      - Box the 5 horses with the lowest (best) morning line odds = 20 combos x $0.50 = $10/race
+      - Hit rate: 80%+ of all races (backtested). The track handicapper who sets ML watches workouts and knows the horses.
+      - Expert consensus only catches 30% of exactas. ML catches 80%+. This is the key insight.
+      - Average exacta payout at $0.50/combo: $3-$41 per hit.
+      - Budget: ~$100/day for a 10-race card.
 
-   a) TIER 1: $2 EXACTA BOX — EVERY RACE
-      - Box our expert pick + a value horse = $4/race
-      - Our picks finish top 2 about 38% of the time = huge edge
-      - At $2 base, hits pay $100-160. Expected: 2-3 hits/month.
+   b) TIER 2: $0.50 TRIFECTA BOX — TOP 4 BY ML — RACES WITH 7+ STARTERS
+      - Box the 4 horses with the lowest ML odds = 24 combos x $0.50 = $12/race
+      - Only play races with 7+ starters (enough field depth for meaningful payouts).
+      - Hit rate: ~30% of qualifying races. Pays $47-$234 per hit at $0.50/combo.
+      - Typical card has 4-6 qualifying races = $48-$72 in trifecta spend.
 
-   b) TIER 1b: $2 EXACTA WHEEL — GREEN PICKS ONLY
-      - When a GREEN consensus pick exists, KEY that horse on top AND bottom with 2-3 value horses.
-      - Example: "$2 exacta wheel #4 with #1,#6,#8" = $6 top + $6 bottom = $12/race
-      - Better coverage than a box — covers more finish combos involving your strongest pick
-      - Only on the 1-2 best races per card. Budget: ~$12/day.
+   c) TIER 3: $3 SHOW BET — #1 ML PICK — EVERY RACE
+      - Bet $3 show on the horse with the lowest morning line odds every race.
+      - Hit rate: ~60%. Provides steady small returns that offset exacta misses.
+      - Budget: ~$30/day for a 10-race card.
 
-   c) TIER 2: $2 TRIFECTA BOX — ALL GOLDMINE CLM RACES
-      - Box 3 horses in EVERY CLM race with 8+ starters = $12/race
-      - Play ALL qualifying CLM races — cast a wider net for monster trifectas
-      - Typical card has 2-4 CLM races = $24-48 total trifecta spend
-      - At $2 base, hits pay $600-2,000+. Expected: 1-2 hits/month.
-
-   d) TIER 3: $0.20 SUPERFECTA BOX — TWO BIG FIELD RACES
-      - Box 4 horses in the TWO biggest fields = $4.80 each = ~$10 total
-      - More shots at $1,000-5,000+ payouts. Expected: 1 hit every 1-2 months.
-
-   e) TIER 4: PICK 3 — EVERY DAY
+   d) TIER 4: PICK 3 — EVERY DAY
       - $1/combo, 8 combos across 3 strongest consecutive races = $8/day
-      - No longer Saturday-only — more chances at $500-1,000+ bombs
-      - Single the GREEN picks, spread 2-3 horses in weaker legs
+      - Use expert GREEN picks for singling, ML top 3 for spread legs
 
-   f) DAILY DOUBLE
-      - Best consecutive-race pair where both have GREEN or strong YELLOW
-      - $3/combo, key top pick in each leg, spread to 2 horses in weaker leg
-      - Example: "$3 Daily Double: R6 #4 with R7 #2, #5" (cost: $6)
+   e) TIER 5: DAILY DOUBLE
+      - $3/combo on best consecutive pair. Key top ML pick, spread to top 2-3 ML in weaker leg.
 
    f) WHAT TO SAY AT THE WINDOW
       - For EVERY bet, include the EXACT phrase to say at the window
-      - Example: "Give me a one-dollar exacta box, numbers four and six in race five"
+      - Example: "Give me a fifty-cent exacta box, numbers four, six, two, nine, and one in race five"
 
-   Daily exotic budget: ~$90 (exactas + wheels + trifectas + superfectas + multi-race)
+   Daily exotic budget: ~$150 (ML5 exactas + ML4 trifectas + show bets + multi-race)
+
+4. OPTIONAL STRAIGHT BETS (for bigger days)
+   - WIN bets $5-8/play ONLY at 5/1+ ML odds on horses that also have expert consensus (YELLOW+).
+   - Max 1 WIN bet per race, only on the shortest ML horse in the 5/1-12/1 range.
+   - Expert consensus adds confidence but is NOT required for exotic selection.
+   - NO PLACE BETS. Place bets dilute ROI.
+   - Daily straight bet budget (optional): ~$30-50
 
 5. WEATHER & TRACK CONDITION CHECK
    - Search for current weather and track conditions at the venue
@@ -113,20 +105,20 @@ Build a comprehensive cheat card data file that includes:
    - Monday-Wednesday: Normal sizing
 
 7. BUDGET PLANS (reflecting all modifiers above)
-   - $50 budget (lean — $5 WIN bets, $1 exacta boxes, $1 tri on best CLM only)
-   - $125 budget (standard — full strategy: $8-10 WIN bets, $2 exacta boxes + wheels, $2 tri on ALL CLM, Pick 3 + DD + superfecta)
-   - $200 budget (aggressive — $15 WIN bets, $3 exacta boxes + wheels, $3 tri, Pick 4 on Saturdays)
+   - $80 budget (lean — $0.50 exacta box top 4 by ML + $3 show bets only)
+   - $150 budget (standard — full strategy: ML5 $0.50 exacta + ML4 $0.50 tri 7+st + show + Pick 3 + DD)
+   - $250 budget (aggressive — $1 exacta box ML5 + $1 tri ML4 + WIN bets + Pick 4 on Saturdays)
    - Show exactly which bets to make at each budget level
-   - REMEMBER: No place bets at any budget level. Win only at 5/1+.
-   - TRIFECTA PRIORITY: At $125+, trifecta box ALL qualifying CLM races (8+ starters) at $2/box.
-   - EXACTA WHEEL PRIORITY: At $125+, add exacta wheels on the 1-2 strongest GREEN picks.
+   - REMEMBER: Use ML rankings for all exotic horse selection. Expert consensus for multi-race singles.
+   - TRIFECTA PRIORITY: At $150+, trifecta box top 4 ML in ALL races with 7+ starters.
+   - EXACTA PRIORITY: ML5 exacta box EVERY race at all budget levels. This is the backbone.
 
 8. QUICK REFERENCE
    - Table key / legend for abbreviations
    - Race type guide (CLM = goldmine, MSW = longshot value, SKIP Stakes/MOC)
    - Track bias data (inside/outside, speed/closer)
    - Track tips (parking, food, viewing spots)
-   - ONE-SENTENCE STRATEGY: "Stop betting favorites, bet WIN only at 5/1+, use expert picks for exacta/trifecta boxes where their 51% board rate is an edge, and target claiming races with big fields."
+   - ONE-SENTENCE STRATEGY: "Use morning line top 5 for exacta boxes and top 4 for trifecta boxes on every race — the track handicapper beats expert consensus for exotic bet selection."
 
 OUTPUT — WRITE JSON DATA FILE:
 - Follow the JSON schema at ~/race-day-cheat-card/web/schema.json EXACTLY

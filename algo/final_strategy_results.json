@@ -1,0 +1,120 @@
+{
+  "recommendation": "O: ML5 $0.50 EX + ML4 $1 TRI 8+ + $3 SHW",
+  "config": {
+    "exacta_n": 5,
+    "exacta_bet": 0.5,
+    "use_tri": true,
+    "tri_n": 4,
+    "tri_bet": 1.0,
+    "tri_min_starters": 8,
+    "use_show": true,
+    "show_bet": 3.0
+  },
+  "roi": 41.25,
+  "daily_budget": 218.0,
+  "daily_profit": 90.0,
+  "all_ranked": [
+    {
+      "name": "O: ML5 $0.50 EX + ML4 $1 TRI 8+ + $3 SHW",
+      "roi": 41.3,
+      "daily_spend": 218.0,
+      "win_pct": 100.0
+    },
+    {
+      "name": "E: ML5 $0.50 EX + ML4 $0.50 TRI 7+",
+      "roi": 36.1,
+      "daily_spend": 159.0,
+      "win_pct": 100.0
+    },
+    {
+      "name": "P: ML5 $1 EX + ML4 $1 TRI 7+",
+      "roi": 36.1,
+      "daily_spend": 318.0,
+      "win_pct": 100.0
+    },
+    {
+      "name": "N: ML5 $0.50 EX + ML4 $0.50 TRI + $3 PLC",
+      "roi": 25.2,
+      "daily_spend": 188.0,
+      "win_pct": 100.0
+    },
+    {
+      "name": "D: ML4 $1 EX + ML4 $0.50 TRI 7+",
+      "roi": 20.0,
+      "daily_spend": 180.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "K: ML4 $1 EX + $4 SHW #1 ML + ML4 TRI",
+      "roi": 18.0,
+      "daily_spend": 218.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "J: ML5 $0.50 EX + $3 PLC top2 + ML4 TRI",
+      "roi": 17.5,
+      "daily_spend": 216.0,
+      "win_pct": 100.0
+    },
+    {
+      "name": "A: ML5 $0.50 Exacta (~$100/day)",
+      "roi": 17.4,
+      "daily_spend": 93.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "B: ML5 $1 Exacta (~$200/day)",
+      "roi": 17.4,
+      "daily_spend": 186.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "I: ML4 $1 EX + $4 PLC #1 ML + ML4 TRI",
+      "roi": 10.2,
+      "daily_spend": 218.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "L: ML4 EX + $5 WIN 4/1-8/1 + ML4 TRI",
+      "roi": 7.9,
+      "daily_spend": 225.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "H: ML5 $0.50 EX + $3 PLC #1 ML",
+      "roi": 4.9,
+      "daily_spend": 122.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "Q: ML5 $1 EX + ML5 $0.50 TRI 7+ + $3 PLC",
+      "roi": -3.4,
+      "daily_spend": 380.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "C: ML4 $1 Exacta (~$120/day)",
+      "roi": -4.6,
+      "daily_spend": 114.0,
+      "win_pct": 0.0
+    },
+    {
+      "name": "F: ML5 $0.50 EX + ML5 $0.50 TRI 7+",
+      "roi": -7.2,
+      "daily_spend": 258.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "M: ML5 EX + $5 WIN 5/1-12/1 + ML5 TRI",
+      "roi": -9.6,
+      "daily_spend": 206.0,
+      "win_pct": 50.0
+    },
+    {
+      "name": "G: ML4 $1 EX + ML5 $0.50 TRI 6+",
+      "roi": -22.4,
+      "daily_spend": 339.0,
+      "win_pct": 0.0
+    }
+  ]
+}

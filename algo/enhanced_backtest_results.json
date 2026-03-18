@@ -1,0 +1,29 @@
+{
+  "winning_model": "Enhanced V1",
+  "roi": 517.33,
+  "params": {
+    "consensus_weight": 1.0,
+    "ml_value_weight": 1.0,
+    "contrarian_weight": 0.5,
+    "contrarian_bonus": 2.0,
+    "exacta_width": 2,
+    "exacta_bet": 2.0,
+    "use_wheels": false,
+    "wheel_width": 2,
+    "wheel_bet": 2.0,
+    "win_min_ml": 5.0,
+    "win_max_ml": 10.0,
+    "win_bet": 10.0,
+    "win_min_score": 4.0,
+    "tri_min_starters": 8,
+    "tri_bet": 2.0,
+    "tri_width": 3,
+    "use_supers": false
+  },
+  "grand_total": {
+    "wagered": 262.0,
+    "returned": 1617.4,
+    "net": 1355.4,
+    "roi": 517.33
+  }
+}

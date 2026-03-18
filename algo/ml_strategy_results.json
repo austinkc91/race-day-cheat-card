@@ -1,0 +1,108 @@
+{
+  "winning_strategy": "ML4 Exacta + ML4 Tri (7+st)",
+  "config": {
+    "exacta_method": "ml",
+    "exacta_n": 4,
+    "exacta_bet": 1.0,
+    "win_max_per_race": 0,
+    "use_tri": true,
+    "tri_method": "ml",
+    "tri_n": 4,
+    "tri_bet": 0.5,
+    "tri_min_starters": 7,
+    "use_place": false
+  },
+  "totals": {
+    "wagered": 360.0,
+    "returned": 432.09999999999997,
+    "net": 72.09999999999997,
+    "roi": 20.027777777777768
+  },
+  "all_strategies_ranked": [
+    {
+      "name": "ML4 Exacta + ML4 Tri (7+st)",
+      "roi": 20.027777777777768,
+      "net": 72.09999999999997
+    },
+    {
+      "name": "ML Top 5 Exacta Only",
+      "roi": 17.419354838709666,
+      "net": 64.79999999999995
+    },
+    {
+      "name": "ML4 All-In (exacta+tri+win)",
+      "roi": 7.911111111111103,
+      "net": 35.599999999999966
+    },
+    {
+      "name": "ML4 Scaled ($2 exacta, $10 win, $1 tri)",
+      "roi": 7.911111111111103,
+      "net": 71.19999999999993
+    },
+    {
+      "name": "ML Top 4 Exacta Only",
+      "roi": -4.56140350877192,
+      "net": -10.399999999999977
+    },
+    {
+      "name": "ML Top 4 Exacta ($0.50)",
+      "roi": -4.56140350877192,
+      "net": -5.199999999999989
+    },
+    {
+      "name": "ML5 Conservative ($0.50 bets)",
+      "roi": -5.0860215053763325,
+      "net": -18.91999999999996
+    },
+    {
+      "name": "ML5 Exacta + ML5 Tri (7+st)",
+      "roi": -7.248062015503871,
+      "net": -37.39999999999998
+    },
+    {
+      "name": "ML5 Scaled ($1 exacta, $8 win, $0.50 tri)",
+      "roi": -7.4940898345153775,
+      "net": -63.40000000000009
+    },
+    {
+      "name": "ML4 Exacta + Place on #1 ML",
+      "roi": -11.315789473684204,
+      "net": -34.39999999999998
+    },
+    {
+      "name": "ML4 Exacta + ML5 Tri (7+st)",
+      "roi": -14.372759856630832,
+      "net": -80.20000000000005
+    },
+    {
+      "name": "ML4 Exacta + ML Win 4/1-10/1",
+      "roi": -14.74842767295597,
+      "net": -46.89999999999998
+    },
+    {
+      "name": "ML4 Exacta + ML Win 3/1-8/1",
+      "roi": -14.829721362229096,
+      "net": -47.89999999999998
+    },
+    {
+      "name": "Blend Full (3ML+2P exacta, ML tri, ML win)",
+      "roi": -16.60287081339714,
+      "net": -69.40000000000003
+    },
+    {
+      "name": "Blend 4ML+2Picks Exacta",
+      "roi": -27.94701986754966,
+      "net": -84.39999999999998
+    },
+    {
+      "name": "Blend 3ML+2Picks Exacta",
+      "roi": -58.87755102040817,
+      "net": -115.4
+    },
+    {
+      "name": "Picks Top 3 Exacta Only",
+      "roi": -78.42105263157895,
+      "net": -89.4
+    }
+  ]
+}
