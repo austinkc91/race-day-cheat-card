@@ -45,6 +45,7 @@ app = FastAPI(title="Race Day Cheat Card", lifespan=lifespan)
 security = HTTPBasic()
 
 WEB_DIR = Path(__file__).parent
+PROJECT_DIR = WEB_DIR.parent
 DATA_DIR = Path("/tmp/race_day_data")
 SCHEDULE_FILE = DATA_DIR / "_schedules.json"
 LISTEN_URL = os.environ.get("LISTEN_URL", "http://localhost:7600")
@@ -492,6 +493,14 @@ def build_cron_prompt(track_slug: str, track_info: dict) -> str:
     day_names = [["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][d] for d in race_days]
 
     today_str = datetime.now().strftime("%A, %B %d, %Y")
+
+    # Read the betting strategy from STRATEGY.md so changes there auto-apply
+    strategy_path = PROJECT_DIR / "STRATEGY.md"
+    try:
+        strategy_text = strategy_path.read_text()
+    except FileNotFoundError:
+        strategy_text = "(STRATEGY.md not found — use ML top 5 for exacta boxes, top 4 for trifecta boxes)"
+
     typical = is_typical_race_day(track_slug)
     schedule_note = ""
     if not typical:
@@ -533,15 +542,14 @@ STEP 3: Research today's card at {track_name}
 - Check all 6 expert sources: SFTB, Racing Dudes, FanDuel Research, Ultimate Capper, Today's Racing Digest, AllChalk
 - Look for scratches, track conditions, odds changes
 
-STEP 4: Apply the betting strategy
-- WIN bets only at 5/1+ odds
+STEP 4: Apply the betting strategy from STRATEGY.md
+
+{strategy_text}
+
+ALSO APPLY:
 - Consensus tier system: GREEN (4+ sources), YELLOW (3), ORANGE (2), RED (1)
-- Race type targeting: CLM = GOLDMINE, MCL = longshot value, MOC = SKIP, STK = SKIP
-- $1 Exacta Box every race with our pick + value horse
-- $0.50 Trifecta Box on best race of the day
-- Value Score >= 2.0 for value plays
-- Halve bets on sloppy/muddy tracks
-- No place bets
+- Value Score = (consensus_count / total_sources) x morning_line_odds. Flag >= 2.0 as VALUE PLAY.
+- For EVERY bet, include the EXACT phrase to say at the betting window.
 
 STEP 5: Write the data file
 - Follow the JSON schema at ~/race-day-cheat-card/web/schema.json EXACTLY

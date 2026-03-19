@@ -10,9 +10,8 @@
 #   - AUTO_STOP: Time to stop updating (usually 30 min after last race)
 #   - TRACK_SLUG: URL-friendly track name (e.g., "fair-grounds", "oaklawn")
 #
-# STRATEGY: This prompt implements the ML-Driven Betting Strategy from STRATEGY.md
-# Key insight: Morning Line top 5 catches 80%+ of exactas vs 30% for expert consensus
-# Backtested: 36-41% ROI, 100% days profitable across Parx + Fair Grounds
+# STRATEGY: This prompt implements the SELECTIVE betting approach from STRATEGY.md
+# Key insight: No mechanical system beats horse racing. Only bet where you see an angle.
 #
 # OUTPUT: Updates JSON data file at /tmp/race_day_data/<track-slug>.json
 # The web UI at port 7700 auto-refreshes every 30 seconds — no PDF needed.
@@ -38,35 +37,37 @@ Search for the LATEST information from these 6 SPECIFIC SOURCES. Focus on what h
 STEP 2: READ PREVIOUS VERSION
 Read the current data file at /tmp/race_day_data/[TRACK_SLUG].json to see what version we're on and what's already been researched.
 
-STEP 3: APPLY THE ML-DRIVEN BETTING STRATEGY
-CRITICAL: Use MORNING LINE ODDS (not expert consensus) to select horses for exotic bets.
-Sort all active (non-scratched) horses by ML odds, lowest first. Top 5 by ML = your exotic bet horses.
+STEP 3: APPLY THE SELECTIVE BETTING STRATEGY
+Read STRATEGY.md for full details. Key principles:
 
-EXOTIC BETS (core strategy, 36% ROI backtested):
-- $0.50 Exacta Box top 5 by ML — EVERY RACE (20 combos = $10/race)
-- $0.50 Trifecta Box top 4 by ML — races with 7+ starters (24 combos = $12/race)
-- $3 Show bet on #1 ML pick — EVERY RACE
-- Pick 3 every day ($1/combo, 8 combos, use GREEN picks for singles)
-- Daily Double $3/combo on best consecutive pair (key top ML)
-- Halve bets on sloppy/muddy tracks
+ONLY RECOMMEND BETS WHERE YOU SEE A SPECIFIC ANGLE:
+- VALUE PLAY horse (score >= 2.0) in CLM/MC race with 8+ starters
+- Competitive field with ML favorite at 3/1+ (no heavy chalk)
+- Class droppers that experts aren't picking
+- GREEN consensus pick at 5/1+ ML odds (crowd vs experts disagree)
 
-OPTIONAL STRAIGHT BETS:
-- WIN bets $5-8/play only at 5/1+ ML odds with expert consensus support
-- No place bets
+SKIP THESE RACES (no bet recommendation):
+- Heavy chalk favorite (even money or 3/5) — payouts too small
+- Small fields (5-6 starters) — exactas only pay $5-$8
+- Stakes/MOC races — favorites win too often
+- No clear angle
 
-EXPERT CONSENSUS (secondary signal):
-- Still collect from 6 sources and color-code GREEN/YELLOW/ORANGE/RED
-- Use for Pick 3 singling and Daily Double keying
-- Use as confidence boost for WIN bet selection
-- Do NOT use for exacta/trifecta horse selection — ML is superior
+BET TYPES (when you have a spot):
+- Exacta Key ($1-2/combo): Key your pick on top AND bottom with 2-3 contenders. 4-8 combos.
+- Trifecta Box ($0.50/combo): Top 4 picks in 8+ starter CLM/MC races. Max 1-3 per card.
+- Win Bet ($5-10): VALUE PLAYS only at 5/1+. Max 1-2 per card.
+- Pick 3 / Daily Double: GREEN picks for singles, ML top 3 for spread. 1 per card max.
 
-- CRITICAL: NEVER recommend a bet on a scratched horse. Remove entirely and recalculate ML rankings.
-- RE-CHECK ODDS: If live odds differ significantly from ML, use CURRENT live odds for ML ranking.
+DAILY BUDGET: $50-80 (selective, not every race)
+
+EXPERT CONSENSUS:
+- Collect from 6 sources, color-code GREEN/YELLOW/ORANGE/RED
+- Calculate Value Score = (consensus / sources) x ML odds. Flag >= 2.0 as VALUE PLAY.
+- CRITICAL: NEVER recommend a bet on a scratched horse. Remove and recalculate.
 
 RACE RESULTS for completed races:
 - Winner, payouts, how our picks did
-- Track whether our picks hit WIN or missed
-- Note: NO place tracking since we don't bet Place
+- Track whether our bets hit or missed
 
 P&L TRACKING (CRITICAL — must update after Race 1 finishes):
 - Update the pnl array with results for completed races
@@ -78,14 +79,17 @@ P&L TRACKING (CRITICAL — must update after Race 1 finishes):
 
 MODIFIERS (apply to all bets):
 - WEATHER: If SLOPPY/MUDDY/HEAVY, cut ALL bets 50%. Set weather.advisory field.
-- DAY-OF-WEEK: Thursday = reduce 30%, Friday = best day (full), Sat/Sun = normal
+- DAY-OF-WEEK: Thursday = be extra selective, reduce 30%. Friday = best day. Sat/Sun = normal.
 - Display modifier in day_modifier field
 
 BUDGET PLANS:
-- $80 budget (lean — ML4 $0.50 exacta + show bets only)
-- $150 budget (standard — ML5 $0.50 exacta + ML4 $0.50 tri 7+st + show + Pick 3 + DD)
-- $250 budget (aggressive — ML5 $1 exacta + ML4 $1 tri + WIN bets + Pick 4)
-- Use ML rankings for ALL exotic horse selection at every budget level
+- $50 budget (lean — exacta keys on 2-3 best spots + 1 trifecta box)
+- $80 budget (standard — exacta keys on 3-5 spots + 1-2 trifecta boxes + Pick 3)
+- $120 budget (aggressive — add win bets on value plays + Daily Double)
+
+WINDOW PHRASES:
+- For EVERY recommended bet, include the EXACT phrase to say at the window
+- Example: "Give me a one-dollar exacta, four on top with six and two in race five"
 
 STEP 4: WRITE UPDATED DATA FILE
 - Follow the JSON schema at ~/race-day-cheat-card/web/schema.json EXACTLY
