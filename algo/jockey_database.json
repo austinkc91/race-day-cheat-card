@@ -1,0 +1,3194 @@
+{
+  "Alejandro Gomez": {
+    "starts": 48,
+    "wins": 11,
+    "win_rate": 0.229,
+    "itm_rate": 0.646,
+    "roi": 2.885,
+    "avg_win_payout": 33.91
+  },
+  "Nicolas Molina": {
+    "starts": 32,
+    "wins": 7,
+    "win_rate": 0.219,
+    "itm_rate": 0.75,
+    "roi": 2.822,
+    "avg_win_payout": 34.94
+  },
+  "Jarred Journet": {
+    "starts": 42,
+    "wins": 8,
+    "win_rate": 0.19,
+    "itm_rate": 0.571,
+    "roi": 2.707,
+    "avg_win_payout": 38.93
+  },
+  "Adam Bowman": {
+    "starts": 49,
+    "wins": 8,
+    "win_rate": 0.163,
+    "itm_rate": 0.612,
+    "roi": 2.367,
+    "avg_win_payout": 41.25
+  },
+  "Javier Hernandez": {
+    "starts": 74,
+    "wins": 18,
+    "win_rate": 0.243,
+    "itm_rate": 0.73,
+    "roi": 2.357,
+    "avg_win_payout": 27.6
+  },
+  "Renzo Rojas": {
+    "starts": 47,
+    "wins": 8,
+    "win_rate": 0.17,
+    "itm_rate": 0.447,
+    "roi": 2.313,
+    "avg_win_payout": 38.92
+  },
+  "Gaddiel Martinez": {
+    "starts": 61,
+    "wins": 10,
+    "win_rate": 0.164,
+    "itm_rate": 0.508,
+    "roi": 2.198,
+    "avg_win_payout": 39.02
+  },
+  "Daniel Vergara": {
+    "starts": 52,
+    "wins": 18,
+    "win_rate": 0.346,
+    "itm_rate": 0.808,
+    "roi": 2.006,
+    "avg_win_payout": 17.37
+  },
+  "Jairo Flores": {
+    "starts": 32,
+    "wins": 8,
+    "win_rate": 0.25,
+    "itm_rate": 0.781,
+    "roi": 1.853,
+    "avg_win_payout": 22.82
+  },
+  "Rodolfo Fuenzalida Garcia": {
+    "starts": 94,
+    "wins": 27,
+    "win_rate": 0.287,
+    "itm_rate": 0.745,
+    "roi": 1.751,
+    "avg_win_payout": 19.16
+  },
+  "Carlos Lozada": {
+    "starts": 52,
+    "wins": 17,
+    "win_rate": 0.327,
+    "itm_rate": 0.788,
+    "roi": 1.679,
+    "avg_win_payout": 16.39
+  },
+  "Miguel Gutierrez Badilla": {
+    "starts": 35,
+    "wins": 7,
+    "win_rate": 0.2,
+    "itm_rate": 0.8,
+    "roi": 1.537,
+    "avg_win_payout": 25.37
+  },
+  "Lesly Gonzalez": {
+    "starts": 57,
+    "wins": 19,
+    "win_rate": 0.333,
+    "itm_rate": 0.667,
+    "roi": 1.514,
+    "avg_win_payout": 15.08
+  },
+  "Kevin Espina Lazo": {
+    "starts": 35,
+    "wins": 14,
+    "win_rate": 0.4,
+    "itm_rate": 0.8,
+    "roi": 1.437,
+    "avg_win_payout": 12.19
+  },
+  "Pablo Carrizo": {
+    "starts": 47,
+    "wins": 12,
+    "win_rate": 0.255,
+    "itm_rate": 0.638,
+    "roi": 1.402,
+    "avg_win_payout": 18.82
+  },
+  "Casey Fusilier": {
+    "starts": 32,
+    "wins": 5,
+    "win_rate": 0.156,
+    "itm_rate": 0.75,
+    "roi": 1.344,
+    "avg_win_payout": 30.0
+  },
+  "Franklin Gonzalez, Jr.": {
+    "starts": 62,
+    "wins": 13,
+    "win_rate": 0.21,
+    "itm_rate": 0.677,
+    "roi": 1.215,
+    "avg_win_payout": 21.12
+  },
+  "Bastian Soto Vergara": {
+    "starts": 30,
+    "wins": 5,
+    "win_rate": 0.167,
+    "itm_rate": 0.8,
+    "roi": 1.21,
+    "avg_win_payout": 26.52
+  },
+  "Joao Enick": {
+    "starts": 40,
+    "wins": 10,
+    "win_rate": 0.25,
+    "itm_rate": 0.8,
+    "roi": 1.198,
+    "avg_win_payout": 17.58
+  },
+  "Kelvin Arana": {
+    "starts": 36,
+    "wins": 6,
+    "win_rate": 0.167,
+    "itm_rate": 0.611,
+    "roi": 1.175,
+    "avg_win_payout": 26.1
+  },
+  "Alfredo Triana, Jr.": {
+    "starts": 83,
+    "wins": 25,
+    "win_rate": 0.301,
+    "itm_rate": 0.795,
+    "roi": 1.11,
+    "avg_win_payout": 14.01
+  },
+  "Alexis Rios-Conde, Jr.": {
+    "starts": 35,
+    "wins": 6,
+    "win_rate": 0.171,
+    "itm_rate": 0.571,
+    "roi": 1.1,
+    "avg_win_payout": 24.5
+  },
+  "Jean Aguilar": {
+    "starts": 48,
+    "wins": 15,
+    "win_rate": 0.312,
+    "itm_rate": 0.708,
+    "roi": 1.056,
+    "avg_win_payout": 13.16
+  },
+  "Roberto Melo": {
+    "starts": 46,
+    "wins": 9,
+    "win_rate": 0.196,
+    "itm_rate": 0.783,
+    "roi": 1.041,
+    "avg_win_payout": 20.87
+  },
+  "Santos Rivera": {
+    "starts": 33,
+    "wins": 5,
+    "win_rate": 0.152,
+    "itm_rate": 0.636,
+    "roi": 1.027,
+    "avg_win_payout": 26.76
+  },
+  "Tomas Baez": {
+    "starts": 40,
+    "wins": 10,
+    "win_rate": 0.25,
+    "itm_rate": 0.725,
+    "roi": 0.993,
+    "avg_win_payout": 15.94
+  },
+  "Felipe Henriquez": {
+    "starts": 50,
+    "wins": 12,
+    "win_rate": 0.24,
+    "itm_rate": 0.82,
+    "roi": 0.928,
+    "avg_win_payout": 16.07
+  },
+  "Bernardo Leon Espinoza": {
+    "starts": 31,
+    "wins": 7,
+    "win_rate": 0.226,
+    "itm_rate": 0.806,
+    "roi": 0.919,
+    "avg_win_payout": 17.0
+  },
+  "Jose Rodriguez": {
+    "starts": 40,
+    "wins": 8,
+    "win_rate": 0.2,
+    "itm_rate": 0.75,
+    "roi": 0.887,
+    "avg_win_payout": 18.88
+  },
+  "Ananias Pereda": {
+    "starts": 86,
+    "wins": 23,
+    "win_rate": 0.267,
+    "itm_rate": 0.767,
+    "roi": 0.872,
+    "avg_win_payout": 14.0
+  },
+  "Welfin Orantes": {
+    "starts": 38,
+    "wins": 5,
+    "win_rate": 0.132,
+    "itm_rate": 0.711,
+    "roi": 0.842,
+    "avg_win_payout": 28.0
+  },
+  "Viitorio Vinycios": {
+    "starts": 37,
+    "wins": 8,
+    "win_rate": 0.216,
+    "itm_rate": 0.73,
+    "roi": 0.811,
+    "avg_win_payout": 16.75
+  },
+  "Gerald Rodriguez Sepulveda": {
+    "starts": 155,
+    "wins": 45,
+    "win_rate": 0.29,
+    "itm_rate": 0.755,
+    "roi": 0.804,
+    "avg_win_payout": 12.43
+  },
+  "Rodrigo Painen Berrios": {
+    "starts": 32,
+    "wins": 5,
+    "win_rate": 0.156,
+    "itm_rate": 0.719,
+    "roi": 0.797,
+    "avg_win_payout": 23.0
+  },
+  "Maria Schneider": {
+    "starts": 54,
+    "wins": 16,
+    "win_rate": 0.296,
+    "itm_rate": 0.741,
+    "roi": 0.787,
+    "avg_win_payout": 12.06
+  },
+  "Jose Villagran": {
+    "starts": 43,
+    "wins": 11,
+    "win_rate": 0.256,
+    "itm_rate": 0.651,
+    "roi": 0.781,
+    "avg_win_payout": 13.93
+  },
+  "Johan Gonzalez Eyzaguirre": {
+    "starts": 52,
+    "wins": 7,
+    "win_rate": 0.135,
+    "itm_rate": 0.654,
+    "roi": 0.779,
+    "avg_win_payout": 26.43
+  },
+  "Jaime Mino Fica": {
+    "starts": 36,
+    "wins": 9,
+    "win_rate": 0.25,
+    "itm_rate": 0.75,
+    "roi": 0.758,
+    "avg_win_payout": 14.07
+  },
+  "Xavier Perez": {
+    "starts": 69,
+    "wins": 19,
+    "win_rate": 0.275,
+    "itm_rate": 0.71,
+    "roi": 0.749,
+    "avg_win_payout": 12.71
+  },
+  "Francisco Garcia": {
+    "starts": 35,
+    "wins": 8,
+    "win_rate": 0.229,
+    "itm_rate": 0.743,
+    "roi": 0.743,
+    "avg_win_payout": 15.25
+  },
+  "Alonso Quinonez": {
+    "starts": 67,
+    "wins": 9,
+    "win_rate": 0.134,
+    "itm_rate": 0.448,
+    "roi": 0.718,
+    "avg_win_payout": 25.58
+  },
+  "Ernesto Valdez-Jiminez": {
+    "starts": 95,
+    "wins": 22,
+    "win_rate": 0.232,
+    "itm_rate": 0.674,
+    "roi": 0.681,
+    "avg_win_payout": 14.52
+  },
+  "Thomas Pompell": {
+    "starts": 147,
+    "wins": 33,
+    "win_rate": 0.224,
+    "itm_rate": 0.81,
+    "roi": 0.673,
+    "avg_win_payout": 14.9
+  },
+  "Andy Hernandez": {
+    "starts": 110,
+    "wins": 37,
+    "win_rate": 0.336,
+    "itm_rate": 0.8,
+    "roi": 0.672,
+    "avg_win_payout": 9.94
+  },
+  "Cristian Rojas Espinosa": {
+    "starts": 41,
+    "wins": 12,
+    "win_rate": 0.293,
+    "itm_rate": 0.805,
+    "roi": 0.661,
+    "avg_win_payout": 11.35
+  },
+  "David Cora": {
+    "starts": 72,
+    "wins": 24,
+    "win_rate": 0.333,
+    "itm_rate": 0.764,
+    "roi": 0.629,
+    "avg_win_payout": 9.78
+  },
+  "Jose Alvarez": {
+    "starts": 84,
+    "wins": 23,
+    "win_rate": 0.274,
+    "itm_rate": 0.81,
+    "roi": 0.61,
+    "avg_win_payout": 11.76
+  },
+  "Jesus Rios": {
+    "starts": 42,
+    "wins": 6,
+    "win_rate": 0.143,
+    "itm_rate": 0.571,
+    "roi": 0.602,
+    "avg_win_payout": 22.43
+  },
+  "Joel Dominguez": {
+    "starts": 171,
+    "wins": 53,
+    "win_rate": 0.31,
+    "itm_rate": 0.772,
+    "roi": 0.582,
+    "avg_win_payout": 10.21
+  },
+  "Hector Lazo": {
+    "starts": 31,
+    "wins": 8,
+    "win_rate": 0.258,
+    "itm_rate": 0.871,
+    "roi": 0.561,
+    "avg_win_payout": 12.1
+  },
+  "Kelsi Purcell": {
+    "starts": 32,
+    "wins": 11,
+    "win_rate": 0.344,
+    "itm_rate": 0.719,
+    "roi": 0.556,
+    "avg_win_payout": 9.05
+  },
+  "Carlos Urbina": {
+    "starts": 51,
+    "wins": 13,
+    "win_rate": 0.255,
+    "itm_rate": 0.647,
+    "roi": 0.553,
+    "avg_win_payout": 12.18
+  },
+  "Mirco Demuro": {
+    "starts": 64,
+    "wins": 22,
+    "win_rate": 0.344,
+    "itm_rate": 0.797,
+    "roi": 0.548,
+    "avg_win_payout": 9.01
+  },
+  "Leandro Henrique Espindola De Oliveira": {
+    "starts": 113,
+    "wins": 44,
+    "win_rate": 0.389,
+    "itm_rate": 0.805,
+    "roi": 0.538,
+    "avg_win_payout": 7.9
+  },
+  "Ubardo Casique": {
+    "starts": 48,
+    "wins": 5,
+    "win_rate": 0.104,
+    "itm_rate": 0.438,
+    "roi": 0.533,
+    "avg_win_payout": 29.44
+  },
+  "Wilfredo Corujo": {
+    "starts": 48,
+    "wins": 5,
+    "win_rate": 0.104,
+    "itm_rate": 0.562,
+    "roi": 0.502,
+    "avg_win_payout": 28.84
+  },
+  "Jose Ferrer": {
+    "starts": 107,
+    "wins": 22,
+    "win_rate": 0.206,
+    "itm_rate": 0.607,
+    "roi": 0.499,
+    "avg_win_payout": 14.58
+  },
+  "Luis Quinonez": {
+    "starts": 60,
+    "wins": 14,
+    "win_rate": 0.233,
+    "itm_rate": 0.7,
+    "roi": 0.496,
+    "avg_win_payout": 12.82
+  },
+  "Alexander Castillo": {
+    "starts": 88,
+    "wins": 14,
+    "win_rate": 0.159,
+    "itm_rate": 0.602,
+    "roi": 0.494,
+    "avg_win_payout": 18.79
+  },
+  "Martin Montoya": {
+    "starts": 162,
+    "wins": 40,
+    "win_rate": 0.247,
+    "itm_rate": 0.722,
+    "roi": 0.479,
+    "avg_win_payout": 11.98
+  },
+  "Alejandro Maureira": {
+    "starts": 51,
+    "wins": 22,
+    "win_rate": 0.431,
+    "itm_rate": 0.882,
+    "roi": 0.463,
+    "avg_win_payout": 6.78
+  },
+  "Jean Briceno": {
+    "starts": 60,
+    "wins": 15,
+    "win_rate": 0.25,
+    "itm_rate": 0.65,
+    "roi": 0.458,
+    "avg_win_payout": 11.67
+  },
+  "Elijah Greenidge": {
+    "starts": 68,
+    "wins": 11,
+    "win_rate": 0.162,
+    "itm_rate": 0.691,
+    "roi": 0.446,
+    "avg_win_payout": 17.87
+  },
+  "Joaquin Herrera Olivares": {
+    "starts": 168,
+    "wins": 67,
+    "win_rate": 0.399,
+    "itm_rate": 0.827,
+    "roi": 0.44,
+    "avg_win_payout": 7.22
+  },
+  "Adrian Castellanos": {
+    "starts": 96,
+    "wins": 26,
+    "win_rate": 0.271,
+    "itm_rate": 0.74,
+    "roi": 0.44,
+    "avg_win_payout": 10.63
+  },
+  "Fredy Peltroche": {
+    "starts": 75,
+    "wins": 13,
+    "win_rate": 0.173,
+    "itm_rate": 0.68,
+    "roi": 0.431,
+    "avg_win_payout": 16.51
+  },
+  "Forest Boyce": {
+    "starts": 71,
+    "wins": 18,
+    "win_rate": 0.254,
+    "itm_rate": 0.662,
+    "roi": 0.403,
+    "avg_win_payout": 11.07
+  },
+  "Joe Bravo": {
+    "starts": 91,
+    "wins": 22,
+    "win_rate": 0.242,
+    "itm_rate": 0.626,
+    "roi": 0.402,
+    "avg_win_payout": 11.6
+  },
+  "Sebastian Gonzalez": {
+    "starts": 108,
+    "wins": 33,
+    "win_rate": 0.306,
+    "itm_rate": 0.852,
+    "roi": 0.399,
+    "avg_win_payout": 9.16
+  },
+  "Joseph Rocco, Jr.": {
+    "starts": 42,
+    "wins": 10,
+    "win_rate": 0.238,
+    "itm_rate": 0.643,
+    "roi": 0.398,
+    "avg_win_payout": 11.74
+  },
+  "Bryan Torres": {
+    "starts": 80,
+    "wins": 11,
+    "win_rate": 0.138,
+    "itm_rate": 0.688,
+    "roi": 0.394,
+    "avg_win_payout": 20.27
+  },
+  "Sara Hess": {
+    "starts": 65,
+    "wins": 9,
+    "win_rate": 0.138,
+    "itm_rate": 0.523,
+    "roi": 0.389,
+    "avg_win_payout": 20.07
+  },
+  "Ignacio Valdivia": {
+    "starts": 54,
+    "wins": 16,
+    "win_rate": 0.296,
+    "itm_rate": 0.796,
+    "roi": 0.381,
+    "avg_win_payout": 9.32
+  },
+  "Kleiner Mejias": {
+    "starts": 35,
+    "wins": 5,
+    "win_rate": 0.143,
+    "itm_rate": 0.571,
+    "roi": 0.363,
+    "avg_win_payout": 19.08
+  },
+  "Kevin Roman": {
+    "starts": 143,
+    "wins": 30,
+    "win_rate": 0.21,
+    "itm_rate": 0.741,
+    "roi": 0.362,
+    "avg_win_payout": 12.99
+  },
+  "Iram Diego": {
+    "starts": 84,
+    "wins": 16,
+    "win_rate": 0.19,
+    "itm_rate": 0.714,
+    "roi": 0.355,
+    "avg_win_payout": 14.22
+  },
+  "Jose Aparecido Da Silva": {
+    "starts": 41,
+    "wins": 11,
+    "win_rate": 0.268,
+    "itm_rate": 0.732,
+    "roi": 0.346,
+    "avg_win_payout": 10.04
+  },
+  "Vagner Leal": {
+    "starts": 34,
+    "wins": 14,
+    "win_rate": 0.412,
+    "itm_rate": 0.765,
+    "roi": 0.344,
+    "avg_win_payout": 6.53
+  },
+  "Elvio Candia Gutierrez": {
+    "starts": 34,
+    "wins": 5,
+    "win_rate": 0.147,
+    "itm_rate": 0.794,
+    "roi": 0.326,
+    "avg_win_payout": 18.04
+  },
+  "Cristian Esqueda": {
+    "starts": 43,
+    "wins": 12,
+    "win_rate": 0.279,
+    "itm_rate": 0.837,
+    "roi": 0.316,
+    "avg_win_payout": 9.43
+  },
+  "Luis Ocasio": {
+    "starts": 79,
+    "wins": 17,
+    "win_rate": 0.215,
+    "itm_rate": 0.709,
+    "roi": 0.306,
+    "avg_win_payout": 12.14
+  },
+  "Jose Vega": {
+    "starts": 43,
+    "wins": 9,
+    "win_rate": 0.209,
+    "itm_rate": 0.721,
+    "roi": 0.3,
+    "avg_win_payout": 12.42
+  },
+  "Julio Ramirez, Jr.": {
+    "starts": 89,
+    "wins": 18,
+    "win_rate": 0.202,
+    "itm_rate": 0.685,
+    "roi": 0.298,
+    "avg_win_payout": 12.83
+  },
+  "Emisael Jaramillo": {
+    "starts": 198,
+    "wins": 72,
+    "win_rate": 0.364,
+    "itm_rate": 0.722,
+    "roi": 0.296,
+    "avg_win_payout": 7.13
+  },
+  "Cristian Velazquez": {
+    "starts": 35,
+    "wins": 7,
+    "win_rate": 0.2,
+    "itm_rate": 0.829,
+    "roi": 0.291,
+    "avg_win_payout": 12.91
+  },
+  "Silvestre Gonzalez": {
+    "starts": 137,
+    "wins": 31,
+    "win_rate": 0.226,
+    "itm_rate": 0.708,
+    "roi": 0.29,
+    "avg_win_payout": 11.4
+  },
+  "Anthony Salgado": {
+    "starts": 46,
+    "wins": 12,
+    "win_rate": 0.261,
+    "itm_rate": 0.783,
+    "roi": 0.289,
+    "avg_win_payout": 9.88
+  },
+  "Jorge Zuniga Diaz": {
+    "starts": 65,
+    "wins": 14,
+    "win_rate": 0.215,
+    "itm_rate": 0.769,
+    "roi": 0.283,
+    "avg_win_payout": 11.91
+  },
+  "Andres Chavez": {
+    "starts": 67,
+    "wins": 12,
+    "win_rate": 0.179,
+    "itm_rate": 0.522,
+    "roi": 0.279,
+    "avg_win_payout": 14.28
+  },
+  "Silvio Amador": {
+    "starts": 54,
+    "wins": 12,
+    "win_rate": 0.222,
+    "itm_rate": 0.741,
+    "roi": 0.267,
+    "avg_win_payout": 11.4
+  },
+  "Jeriel Catala": {
+    "starts": 88,
+    "wins": 19,
+    "win_rate": 0.216,
+    "itm_rate": 0.682,
+    "roi": 0.264,
+    "avg_win_payout": 11.71
+  },
+  "Leonel Reyes": {
+    "starts": 64,
+    "wins": 12,
+    "win_rate": 0.188,
+    "itm_rate": 0.656,
+    "roi": 0.253,
+    "avg_win_payout": 13.37
+  },
+  "Jonathan Castillo Tapia": {
+    "starts": 79,
+    "wins": 21,
+    "win_rate": 0.266,
+    "itm_rate": 0.772,
+    "roi": 0.248,
+    "avg_win_payout": 9.39
+  },
+  "Pablo Rodriguez": {
+    "starts": 39,
+    "wins": 16,
+    "win_rate": 0.41,
+    "itm_rate": 0.923,
+    "roi": 0.244,
+    "avg_win_payout": 6.06
+  },
+  "Ruben Silvera": {
+    "starts": 196,
+    "wins": 40,
+    "win_rate": 0.204,
+    "itm_rate": 0.75,
+    "roi": 0.24,
+    "avg_win_payout": 12.15
+  },
+  "Floyd Wethey Jr.": {
+    "starts": 148,
+    "wins": 42,
+    "win_rate": 0.284,
+    "itm_rate": 0.831,
+    "roi": 0.233,
+    "avg_win_payout": 8.69
+  },
+  "Ramon Vazquez": {
+    "starts": 101,
+    "wins": 39,
+    "win_rate": 0.386,
+    "itm_rate": 0.851,
+    "roi": 0.225,
+    "avg_win_payout": 6.35
+  },
+  "Maximiliano MacHado": {
+    "starts": 83,
+    "wins": 25,
+    "win_rate": 0.301,
+    "itm_rate": 0.699,
+    "roi": 0.224,
+    "avg_win_payout": 8.13
+  },
+  "Piero Reyes Podesta": {
+    "starts": 78,
+    "wins": 15,
+    "win_rate": 0.192,
+    "itm_rate": 0.756,
+    "roi": 0.222,
+    "avg_win_payout": 12.71
+  },
+  "Juan Belisario": {
+    "starts": 137,
+    "wins": 42,
+    "win_rate": 0.307,
+    "itm_rate": 0.81,
+    "roi": 0.22,
+    "avg_win_payout": 7.96
+  },
+  "Martin Valle": {
+    "starts": 64,
+    "wins": 19,
+    "win_rate": 0.297,
+    "itm_rate": 0.828,
+    "roi": 0.217,
+    "avg_win_payout": 8.2
+  },
+  "Erik Esqueda": {
+    "starts": 35,
+    "wins": 6,
+    "win_rate": 0.171,
+    "itm_rate": 0.657,
+    "roi": 0.214,
+    "avg_win_payout": 14.17
+  },
+  "Juan Villagra": {
+    "starts": 93,
+    "wins": 39,
+    "win_rate": 0.419,
+    "itm_rate": 0.828,
+    "roi": 0.213,
+    "avg_win_payout": 5.78
+  },
+  "Miguel Vasquez": {
+    "starts": 282,
+    "wins": 61,
+    "win_rate": 0.216,
+    "itm_rate": 0.624,
+    "roi": 0.208,
+    "avg_win_payout": 11.17
+  },
+  "Mario Delgado": {
+    "starts": 58,
+    "wins": 13,
+    "win_rate": 0.224,
+    "itm_rate": 0.776,
+    "roi": 0.2,
+    "avg_win_payout": 10.71
+  },
+  "Brandon Guevara": {
+    "starts": 47,
+    "wins": 14,
+    "win_rate": 0.298,
+    "itm_rate": 0.872,
+    "roi": 0.183,
+    "avg_win_payout": 7.94
+  },
+  "Osvaldo Alderete": {
+    "starts": 35,
+    "wins": 8,
+    "win_rate": 0.229,
+    "itm_rate": 0.743,
+    "roi": 0.18,
+    "avg_win_payout": 10.33
+  },
+  "Abel Lezcano": {
+    "starts": 50,
+    "wins": 14,
+    "win_rate": 0.28,
+    "itm_rate": 0.74,
+    "roi": 0.178,
+    "avg_win_payout": 8.41
+  },
+  "Andrew Wolfsont": {
+    "starts": 78,
+    "wins": 17,
+    "win_rate": 0.218,
+    "itm_rate": 0.795,
+    "roi": 0.172,
+    "avg_win_payout": 10.75
+  },
+  "Brian Barraza": {
+    "starts": 42,
+    "wins": 8,
+    "win_rate": 0.19,
+    "itm_rate": 0.81,
+    "roi": 0.164,
+    "avg_win_payout": 12.22
+  },
+  "Umberto Rispoli": {
+    "starts": 96,
+    "wins": 30,
+    "win_rate": 0.312,
+    "itm_rate": 0.854,
+    "roi": 0.162,
+    "avg_win_payout": 7.44
+  },
+  "Leandro Goncalves": {
+    "starts": 69,
+    "wins": 17,
+    "win_rate": 0.246,
+    "itm_rate": 0.696,
+    "roi": 0.162,
+    "avg_win_payout": 9.44
+  },
+  "Guillermo Perez": {
+    "starts": 80,
+    "wins": 14,
+    "win_rate": 0.175,
+    "itm_rate": 0.762,
+    "roi": 0.157,
+    "avg_win_payout": 13.23
+  },
+  "Frankie Pennington": {
+    "starts": 106,
+    "wins": 26,
+    "win_rate": 0.245,
+    "itm_rate": 0.764,
+    "roi": 0.157,
+    "avg_win_payout": 9.44
+  },
+  "Jansen Melancon": {
+    "starts": 170,
+    "wins": 53,
+    "win_rate": 0.312,
+    "itm_rate": 0.782,
+    "roi": 0.155,
+    "avg_win_payout": 7.41
+  },
+  "Luis Rivera": {
+    "starts": 233,
+    "wins": 71,
+    "win_rate": 0.305,
+    "itm_rate": 0.803,
+    "roi": 0.151,
+    "avg_win_payout": 7.55
+  },
+  "Horacio Karamanos": {
+    "starts": 96,
+    "wins": 18,
+    "win_rate": 0.188,
+    "itm_rate": 0.625,
+    "roi": 0.148,
+    "avg_win_payout": 12.24
+  },
+  "Jose Montano": {
+    "starts": 51,
+    "wins": 16,
+    "win_rate": 0.314,
+    "itm_rate": 0.686,
+    "roi": 0.141,
+    "avg_win_payout": 7.28
+  },
+  "Francisco Lavigna": {
+    "starts": 62,
+    "wins": 14,
+    "win_rate": 0.226,
+    "itm_rate": 0.774,
+    "roi": 0.129,
+    "avg_win_payout": 10.0
+  },
+  "Inoel Beato": {
+    "starts": 63,
+    "wins": 12,
+    "win_rate": 0.19,
+    "itm_rate": 0.794,
+    "roi": 0.119,
+    "avg_win_payout": 11.75
+  },
+  "Roman Cruz": {
+    "starts": 143,
+    "wins": 46,
+    "win_rate": 0.322,
+    "itm_rate": 0.818,
+    "roi": 0.113,
+    "avg_win_payout": 6.92
+  },
+  "Jely Barril Curin": {
+    "starts": 74,
+    "wins": 20,
+    "win_rate": 0.27,
+    "itm_rate": 0.797,
+    "roi": 0.112,
+    "avg_win_payout": 8.23
+  },
+  "Jose Da Silva": {
+    "starts": 31,
+    "wins": 11,
+    "win_rate": 0.355,
+    "itm_rate": 0.774,
+    "roi": 0.11,
+    "avg_win_payout": 6.25
+  },
+  "Eduardo Ortega Pavon": {
+    "starts": 34,
+    "wins": 8,
+    "win_rate": 0.235,
+    "itm_rate": 0.824,
+    "roi": 0.109,
+    "avg_win_payout": 9.43
+  },
+  "Sheldon Russell": {
+    "starts": 92,
+    "wins": 33,
+    "win_rate": 0.359,
+    "itm_rate": 0.728,
+    "roi": 0.109,
+    "avg_win_payout": 6.18
+  },
+  "Jose Gomez": {
+    "starts": 58,
+    "wins": 7,
+    "win_rate": 0.121,
+    "itm_rate": 0.517,
+    "roi": 0.109,
+    "avg_win_payout": 18.37
+  },
+  "Kevin Banegas": {
+    "starts": 157,
+    "wins": 49,
+    "win_rate": 0.312,
+    "itm_rate": 0.777,
+    "roi": 0.097,
+    "avg_win_payout": 7.03
+  },
+  "Vicente Del-Cid": {
+    "starts": 325,
+    "wins": 131,
+    "win_rate": 0.403,
+    "itm_rate": 0.815,
+    "roi": 0.097,
+    "avg_win_payout": 5.44
+  },
+  "J. Acosta": {
+    "starts": 172,
+    "wins": 40,
+    "win_rate": 0.233,
+    "itm_rate": 0.727,
+    "roi": 0.095,
+    "avg_win_payout": 9.42
+  },
+  "Juan Paoloni": {
+    "starts": 75,
+    "wins": 21,
+    "win_rate": 0.28,
+    "itm_rate": 0.733,
+    "roi": 0.092,
+    "avg_win_payout": 7.8
+  },
+  "Antonio Queiroz": {
+    "starts": 74,
+    "wins": 10,
+    "win_rate": 0.135,
+    "itm_rate": 0.73,
+    "roi": 0.089,
+    "avg_win_payout": 16.12
+  },
+  "Rodolfo Dores Cabrera": {
+    "starts": 46,
+    "wins": 10,
+    "win_rate": 0.217,
+    "itm_rate": 0.717,
+    "roi": 0.089,
+    "avg_win_payout": 10.02
+  },
+  "Jose Bracho": {
+    "starts": 176,
+    "wins": 51,
+    "win_rate": 0.29,
+    "itm_rate": 0.812,
+    "roi": 0.089,
+    "avg_win_payout": 7.51
+  },
+  "Obed Sanchez": {
+    "starts": 68,
+    "wins": 15,
+    "win_rate": 0.221,
+    "itm_rate": 0.706,
+    "roi": 0.088,
+    "avg_win_payout": 9.87
+  },
+  "T. Houghton": {
+    "starts": 37,
+    "wins": 11,
+    "win_rate": 0.297,
+    "itm_rate": 0.649,
+    "roi": 0.085,
+    "avg_win_payout": 7.3
+  },
+  "Leo Acuna": {
+    "starts": 101,
+    "wins": 17,
+    "win_rate": 0.168,
+    "itm_rate": 0.723,
+    "roi": 0.074,
+    "avg_win_payout": 12.76
+  },
+  "David Egan": {
+    "starts": 153,
+    "wins": 29,
+    "win_rate": 0.19,
+    "itm_rate": 0.575,
+    "roi": 0.07,
+    "avg_win_payout": 11.29
+  },
+  "Carlos Perez": {
+    "starts": 190,
+    "wins": 30,
+    "win_rate": 0.158,
+    "itm_rate": 0.8,
+    "roi": 0.064,
+    "avg_win_payout": 13.48
+  },
+  "Cody Smith": {
+    "starts": 53,
+    "wins": 12,
+    "win_rate": 0.226,
+    "itm_rate": 0.755,
+    "roi": 0.053,
+    "avg_win_payout": 9.3
+  },
+  "Jorge Ruiz": {
+    "starts": 231,
+    "wins": 57,
+    "win_rate": 0.247,
+    "itm_rate": 0.593,
+    "roi": 0.05,
+    "avg_win_payout": 8.51
+  },
+  "Axel Alvarez Gallardo": {
+    "starts": 45,
+    "wins": 5,
+    "win_rate": 0.111,
+    "itm_rate": 0.644,
+    "roi": 0.047,
+    "avg_win_payout": 18.84
+  },
+  "Rafael Cisternas Ayala": {
+    "starts": 55,
+    "wins": 11,
+    "win_rate": 0.2,
+    "itm_rate": 0.764,
+    "roi": 0.038,
+    "avg_win_payout": 10.38
+  },
+  "Lucas Noriega Cobian": {
+    "starts": 31,
+    "wins": 8,
+    "win_rate": 0.258,
+    "itm_rate": 0.742,
+    "roi": 0.032,
+    "avg_win_payout": 8.0
+  },
+  "Gabriel Medrano": {
+    "starts": 41,
+    "wins": 10,
+    "win_rate": 0.244,
+    "itm_rate": 0.756,
+    "roi": 0.027,
+    "avg_win_payout": 8.42
+  },
+  "Diego Herrera": {
+    "starts": 80,
+    "wins": 16,
+    "win_rate": 0.2,
+    "itm_rate": 0.55,
+    "roi": 0.02,
+    "avg_win_payout": 10.2
+  },
+  "Carlos Pavez": {
+    "starts": 62,
+    "wins": 15,
+    "win_rate": 0.242,
+    "itm_rate": 0.758,
+    "roi": 0.018,
+    "avg_win_payout": 8.41
+  },
+  "Deshawn Parker": {
+    "starts": 86,
+    "wins": 23,
+    "win_rate": 0.267,
+    "itm_rate": 0.767,
+    "roi": 0.017,
+    "avg_win_payout": 7.61
+  },
+  "Laureano Sosa": {
+    "starts": 36,
+    "wins": 13,
+    "win_rate": 0.361,
+    "itm_rate": 0.806,
+    "roi": 0.017,
+    "avg_win_payout": 5.63
+  },
+  "Jaime Medina": {
+    "starts": 183,
+    "wins": 65,
+    "win_rate": 0.355,
+    "itm_rate": 0.825,
+    "roi": 0.006,
+    "avg_win_payout": 5.66
+  },
+  "Juan Pulido": {
+    "starts": 69,
+    "wins": 31,
+    "win_rate": 0.449,
+    "itm_rate": 0.87,
+    "roi": 0.006,
+    "avg_win_payout": 4.48
+  },
+  "Guillermo Rodriguez": {
+    "starts": 107,
+    "wins": 30,
+    "win_rate": 0.28,
+    "itm_rate": 0.813,
+    "roi": -0.002,
+    "avg_win_payout": 7.12
+  },
+  "Jorge Gonzalez": {
+    "starts": 55,
+    "wins": 12,
+    "win_rate": 0.218,
+    "itm_rate": 0.691,
+    "roi": -0.004,
+    "avg_win_payout": 9.13
+  },
+  "Timothy Thornton": {
+    "starts": 150,
+    "wins": 49,
+    "win_rate": 0.327,
+    "itm_rate": 0.807,
+    "roi": -0.004,
+    "avg_win_payout": 6.1
+  },
+  "Benjamin Sancho Escalante": {
+    "starts": 102,
+    "wins": 30,
+    "win_rate": 0.294,
+    "itm_rate": 0.745,
+    "roi": -0.004,
+    "avg_win_payout": 6.77
+  },
+  "Yabriel Ramos": {
+    "starts": 77,
+    "wins": 17,
+    "win_rate": 0.221,
+    "itm_rate": 0.701,
+    "roi": -0.006,
+    "avg_win_payout": 9.0
+  },
+  "Pedro Robles": {
+    "starts": 35,
+    "wins": 9,
+    "win_rate": 0.257,
+    "itm_rate": 0.657,
+    "roi": -0.009,
+    "avg_win_payout": 7.71
+  },
+  "Wilson Moreyra": {
+    "starts": 73,
+    "wins": 18,
+    "win_rate": 0.247,
+    "itm_rate": 0.781,
+    "roi": -0.01,
+    "avg_win_payout": 8.03
+  },
+  "Rocco Bowen": {
+    "starts": 123,
+    "wins": 34,
+    "win_rate": 0.276,
+    "itm_rate": 0.813,
+    "roi": -0.011,
+    "avg_win_payout": 7.16
+  },
+  "Johan Rengifo": {
+    "starts": 51,
+    "wins": 11,
+    "win_rate": 0.216,
+    "itm_rate": 0.706,
+    "roi": -0.016,
+    "avg_win_payout": 9.13
+  },
+  "Yolber Torres": {
+    "starts": 154,
+    "wins": 21,
+    "win_rate": 0.136,
+    "itm_rate": 0.448,
+    "roi": -0.016,
+    "avg_win_payout": 14.43
+  },
+  "Joao Brasil": {
+    "starts": 106,
+    "wins": 31,
+    "win_rate": 0.292,
+    "itm_rate": 0.783,
+    "roi": -0.017,
+    "avg_win_payout": 6.72
+  },
+  "Erik Asmussen": {
+    "starts": 123,
+    "wins": 46,
+    "win_rate": 0.374,
+    "itm_rate": 0.854,
+    "roi": -0.021,
+    "avg_win_payout": 5.23
+  },
+  "Luis Rojas Aranguren": {
+    "starts": 60,
+    "wins": 15,
+    "win_rate": 0.25,
+    "itm_rate": 0.767,
+    "roi": -0.027,
+    "avg_win_payout": 7.79
+  },
+  "Justin Lewis": {
+    "starts": 158,
+    "wins": 29,
+    "win_rate": 0.184,
+    "itm_rate": 0.715,
+    "roi": -0.028,
+    "avg_win_payout": 10.59
+  },
+  "J.G. Torrealba": {
+    "starts": 145,
+    "wins": 35,
+    "win_rate": 0.241,
+    "itm_rate": 0.676,
+    "roi": -0.028,
+    "avg_win_payout": 8.05
+  },
+  "Luis Batista": {
+    "starts": 169,
+    "wins": 41,
+    "win_rate": 0.243,
+    "itm_rate": 0.722,
+    "roi": -0.038,
+    "avg_win_payout": 7.93
+  },
+  "Alexander Crispin": {
+    "starts": 70,
+    "wins": 15,
+    "win_rate": 0.214,
+    "itm_rate": 0.771,
+    "roi": -0.043,
+    "avg_win_payout": 8.93
+  },
+  "Juan Campos": {
+    "starts": 30,
+    "wins": 4,
+    "win_rate": 0.133,
+    "itm_rate": 0.6,
+    "roi": -0.043,
+    "avg_win_payout": 14.35
+  },
+  "Marcos Meneses": {
+    "starts": 136,
+    "wins": 27,
+    "win_rate": 0.199,
+    "itm_rate": 0.566,
+    "roi": -0.049,
+    "avg_win_payout": 9.58
+  },
+  "Raul Mena": {
+    "starts": 97,
+    "wins": 20,
+    "win_rate": 0.206,
+    "itm_rate": 0.701,
+    "roi": -0.056,
+    "avg_win_payout": 9.16
+  },
+  "Brian Enrique": {
+    "starts": 132,
+    "wins": 36,
+    "win_rate": 0.273,
+    "itm_rate": 0.765,
+    "roi": -0.057,
+    "avg_win_payout": 6.92
+  },
+  "Richard Mitchell": {
+    "starts": 33,
+    "wins": 5,
+    "win_rate": 0.152,
+    "itm_rate": 0.515,
+    "roi": -0.058,
+    "avg_win_payout": 12.44
+  },
+  "Facundo Coria": {
+    "starts": 68,
+    "wins": 13,
+    "win_rate": 0.191,
+    "itm_rate": 0.735,
+    "roi": -0.063,
+    "avg_win_payout": 9.8
+  },
+  "Elio Barrera": {
+    "starts": 135,
+    "wins": 30,
+    "win_rate": 0.222,
+    "itm_rate": 0.77,
+    "roi": -0.071,
+    "avg_win_payout": 8.36
+  },
+  "Jaime Rodriguez": {
+    "starts": 208,
+    "wins": 54,
+    "win_rate": 0.26,
+    "itm_rate": 0.712,
+    "roi": -0.071,
+    "avg_win_payout": 7.16
+  },
+  "Julio Correa": {
+    "starts": 38,
+    "wins": 2,
+    "win_rate": 0.053,
+    "itm_rate": 0.658,
+    "roi": -0.074,
+    "avg_win_payout": 35.2
+  },
+  "Anyelo Soto Garces": {
+    "starts": 40,
+    "wins": 10,
+    "win_rate": 0.25,
+    "itm_rate": 0.675,
+    "roi": -0.075,
+    "avg_win_payout": 7.4
+  },
+  "Ivan Monasterolo": {
+    "starts": 89,
+    "wins": 25,
+    "win_rate": 0.281,
+    "itm_rate": 0.798,
+    "roi": -0.075,
+    "avg_win_payout": 6.58
+  },
+  "Nicolas Ramirez Munoz": {
+    "starts": 104,
+    "wins": 29,
+    "win_rate": 0.279,
+    "itm_rate": 0.856,
+    "roi": -0.076,
+    "avg_win_payout": 6.63
+  },
+  "Erik Barbaran": {
+    "starts": 207,
+    "wins": 68,
+    "win_rate": 0.329,
+    "itm_rate": 0.807,
+    "roi": -0.079,
+    "avg_win_payout": 5.61
+  },
+  "Kendrick Carmouche": {
+    "starts": 176,
+    "wins": 54,
+    "win_rate": 0.307,
+    "itm_rate": 0.83,
+    "roi": -0.08,
+    "avg_win_payout": 6.0
+  },
+  "Isaiah Wiseman": {
+    "starts": 61,
+    "wins": 12,
+    "win_rate": 0.197,
+    "itm_rate": 0.738,
+    "roi": -0.084,
+    "avg_win_payout": 9.32
+  },
+  "Kevin Carbajal": {
+    "starts": 56,
+    "wins": 18,
+    "win_rate": 0.321,
+    "itm_rate": 0.75,
+    "roi": -0.087,
+    "avg_win_payout": 5.68
+  },
+  "Vagner Borges": {
+    "starts": 99,
+    "wins": 27,
+    "win_rate": 0.273,
+    "itm_rate": 0.737,
+    "roi": -0.09,
+    "avg_win_payout": 6.67
+  },
+  "Felipe Tapia": {
+    "starts": 56,
+    "wins": 14,
+    "win_rate": 0.25,
+    "itm_rate": 0.75,
+    "roi": -0.091,
+    "avg_win_payout": 7.27
+  },
+  "Victor Rodriguez": {
+    "starts": 111,
+    "wins": 29,
+    "win_rate": 0.261,
+    "itm_rate": 0.748,
+    "roi": -0.093,
+    "avg_win_payout": 6.94
+  },
+  "Martin Chuan": {
+    "starts": 188,
+    "wins": 49,
+    "win_rate": 0.261,
+    "itm_rate": 0.681,
+    "roi": -0.094,
+    "avg_win_payout": 6.95
+  },
+  "Junior Alvarado": {
+    "starts": 170,
+    "wins": 43,
+    "win_rate": 0.253,
+    "itm_rate": 0.676,
+    "roi": -0.096,
+    "avg_win_payout": 7.15
+  },
+  "Kiaman McGregor": {
+    "starts": 140,
+    "wins": 30,
+    "win_rate": 0.214,
+    "itm_rate": 0.736,
+    "roi": -0.098,
+    "avg_win_payout": 8.42
+  },
+  "Gerson Pereda": {
+    "starts": 58,
+    "wins": 17,
+    "win_rate": 0.293,
+    "itm_rate": 0.69,
+    "roi": -0.1,
+    "avg_win_payout": 6.14
+  },
+  "Gustavo Vera": {
+    "starts": 88,
+    "wins": 23,
+    "win_rate": 0.261,
+    "itm_rate": 0.75,
+    "roi": -0.102,
+    "avg_win_payout": 6.87
+  },
+  "Benjamin Troncoso": {
+    "starts": 45,
+    "wins": 8,
+    "win_rate": 0.178,
+    "itm_rate": 0.689,
+    "roi": -0.104,
+    "avg_win_payout": 10.07
+  },
+  "Mychel Sanchez": {
+    "starts": 403,
+    "wins": 137,
+    "win_rate": 0.34,
+    "itm_rate": 0.777,
+    "roi": -0.11,
+    "avg_win_payout": 5.24
+  },
+  "C.J. McMahon": {
+    "starts": 34,
+    "wins": 6,
+    "win_rate": 0.176,
+    "itm_rate": 0.676,
+    "roi": -0.112,
+    "avg_win_payout": 10.07
+  },
+  "Carlos Lopez": {
+    "starts": 133,
+    "wins": 37,
+    "win_rate": 0.278,
+    "itm_rate": 0.722,
+    "roi": -0.113,
+    "avg_win_payout": 6.38
+  },
+  "Henderson Fernandes": {
+    "starts": 119,
+    "wins": 37,
+    "win_rate": 0.311,
+    "itm_rate": 0.807,
+    "roi": -0.114,
+    "avg_win_payout": 5.7
+  },
+  "Armando Ayuso": {
+    "starts": 139,
+    "wins": 32,
+    "win_rate": 0.23,
+    "itm_rate": 0.669,
+    "roi": -0.117,
+    "avg_win_payout": 7.67
+  },
+  "Flavien Prat": {
+    "starts": 227,
+    "wins": 90,
+    "win_rate": 0.396,
+    "itm_rate": 0.837,
+    "roi": -0.117,
+    "avg_win_payout": 4.46
+  },
+  "Christopher Elliott": {
+    "starts": 136,
+    "wins": 27,
+    "win_rate": 0.199,
+    "itm_rate": 0.684,
+    "roi": -0.129,
+    "avg_win_payout": 8.78
+  },
+  "Victor Miranda Gallegos": {
+    "starts": 31,
+    "wins": 6,
+    "win_rate": 0.194,
+    "itm_rate": 0.806,
+    "roi": -0.129,
+    "avg_win_payout": 9.0
+  },
+  "Carlos Montalvo": {
+    "starts": 47,
+    "wins": 16,
+    "win_rate": 0.34,
+    "itm_rate": 0.702,
+    "roi": -0.13,
+    "avg_win_payout": 5.11
+  },
+  "Melvis Gonzalez": {
+    "starts": 77,
+    "wins": 14,
+    "win_rate": 0.182,
+    "itm_rate": 0.714,
+    "roi": -0.13,
+    "avg_win_payout": 9.57
+  },
+  "Jose Moya Sepulveda": {
+    "starts": 61,
+    "wins": 14,
+    "win_rate": 0.23,
+    "itm_rate": 0.77,
+    "roi": -0.133,
+    "avg_win_payout": 7.56
+  },
+  "Orlando Mojica": {
+    "starts": 154,
+    "wins": 54,
+    "win_rate": 0.351,
+    "itm_rate": 0.877,
+    "roi": -0.133,
+    "avg_win_payout": 4.94
+  },
+  "Larry Reynolds": {
+    "starts": 48,
+    "wins": 9,
+    "win_rate": 0.188,
+    "itm_rate": 0.771,
+    "roi": -0.133,
+    "avg_win_payout": 9.24
+  },
+  "Rene Diaz": {
+    "starts": 64,
+    "wins": 14,
+    "win_rate": 0.219,
+    "itm_rate": 0.703,
+    "roi": -0.136,
+    "avg_win_payout": 7.9
+  },
+  "Edwin Gonzalez": {
+    "starts": 201,
+    "wins": 50,
+    "win_rate": 0.249,
+    "itm_rate": 0.652,
+    "roi": -0.137,
+    "avg_win_payout": 6.94
+  },
+  "Waldemar Boccia": {
+    "starts": 38,
+    "wins": 7,
+    "win_rate": 0.184,
+    "itm_rate": 0.816,
+    "roi": -0.139,
+    "avg_win_payout": 9.34
+  },
+  "Kevin Krigger": {
+    "starts": 48,
+    "wins": 13,
+    "win_rate": 0.271,
+    "itm_rate": 0.708,
+    "roi": -0.14,
+    "avg_win_payout": 6.35
+  },
+  "Ramiro Barrueco": {
+    "starts": 45,
+    "wins": 10,
+    "win_rate": 0.222,
+    "itm_rate": 0.711,
+    "roi": -0.144,
+    "avg_win_payout": 7.7
+  },
+  "Tyler Baze": {
+    "starts": 76,
+    "wins": 15,
+    "win_rate": 0.197,
+    "itm_rate": 0.645,
+    "roi": -0.147,
+    "avg_win_payout": 8.64
+  },
+  "Yan Aviles": {
+    "starts": 53,
+    "wins": 8,
+    "win_rate": 0.151,
+    "itm_rate": 0.755,
+    "roi": -0.149,
+    "avg_win_payout": 11.28
+  },
+  "Javier Castellano": {
+    "starts": 203,
+    "wins": 43,
+    "win_rate": 0.212,
+    "itm_rate": 0.621,
+    "roi": -0.15,
+    "avg_win_payout": 8.03
+  },
+  "Israel Villagran": {
+    "starts": 40,
+    "wins": 8,
+    "win_rate": 0.2,
+    "itm_rate": 0.625,
+    "roi": -0.15,
+    "avg_win_payout": 8.5
+  },
+  "Pablo Morales": {
+    "starts": 59,
+    "wins": 13,
+    "win_rate": 0.22,
+    "itm_rate": 0.593,
+    "roi": -0.151,
+    "avg_win_payout": 7.71
+  },
+  "Maximo Chilo": {
+    "starts": 68,
+    "wins": 14,
+    "win_rate": 0.206,
+    "itm_rate": 0.691,
+    "roi": -0.151,
+    "avg_win_payout": 8.24
+  },
+  "Juan Nunez": {
+    "starts": 111,
+    "wins": 25,
+    "win_rate": 0.225,
+    "itm_rate": 0.802,
+    "roi": -0.154,
+    "avg_win_payout": 7.51
+  },
+  "Israel Rodriguez": {
+    "starts": 104,
+    "wins": 21,
+    "win_rate": 0.202,
+    "itm_rate": 0.606,
+    "roi": -0.155,
+    "avg_win_payout": 8.37
+  },
+  "Antonio Fresu": {
+    "starts": 98,
+    "wins": 27,
+    "win_rate": 0.276,
+    "itm_rate": 0.796,
+    "roi": -0.155,
+    "avg_win_payout": 6.13
+  },
+  "Juan Vargas": {
+    "starts": 145,
+    "wins": 29,
+    "win_rate": 0.2,
+    "itm_rate": 0.717,
+    "roi": -0.158,
+    "avg_win_payout": 8.42
+  },
+  "Gonzalo Borda": {
+    "starts": 105,
+    "wins": 41,
+    "win_rate": 0.39,
+    "itm_rate": 0.876,
+    "roi": -0.162,
+    "avg_win_payout": 4.29
+  },
+  "Sunday Diaz, Jr.": {
+    "starts": 137,
+    "wins": 33,
+    "win_rate": 0.241,
+    "itm_rate": 0.679,
+    "roi": -0.164,
+    "avg_win_payout": 6.95
+  },
+  "Kazushi Kimura": {
+    "starts": 154,
+    "wins": 44,
+    "win_rate": 0.286,
+    "itm_rate": 0.799,
+    "roi": -0.164,
+    "avg_win_payout": 5.85
+  },
+  "Glenn Corbett": {
+    "starts": 75,
+    "wins": 21,
+    "win_rate": 0.28,
+    "itm_rate": 0.76,
+    "roi": -0.165,
+    "avg_win_payout": 5.96
+  },
+  "Juan Hernandez": {
+    "starts": 169,
+    "wins": 57,
+    "win_rate": 0.337,
+    "itm_rate": 0.834,
+    "roi": -0.168,
+    "avg_win_payout": 4.94
+  },
+  "Dalila Rivera": {
+    "starts": 54,
+    "wins": 7,
+    "win_rate": 0.13,
+    "itm_rate": 0.741,
+    "roi": -0.174,
+    "avg_win_payout": 12.75
+  },
+  "William Pereyra": {
+    "starts": 58,
+    "wins": 22,
+    "win_rate": 0.379,
+    "itm_rate": 0.793,
+    "roi": -0.174,
+    "avg_win_payout": 4.35
+  },
+  "Dexter Haddock": {
+    "starts": 167,
+    "wins": 34,
+    "win_rate": 0.204,
+    "itm_rate": 0.725,
+    "roi": -0.174,
+    "avg_win_payout": 8.11
+  },
+  "Joel Rosario": {
+    "starts": 57,
+    "wins": 16,
+    "win_rate": 0.281,
+    "itm_rate": 0.702,
+    "roi": -0.175,
+    "avg_win_payout": 5.88
+  },
+  "Jose Lezcano": {
+    "starts": 184,
+    "wins": 62,
+    "win_rate": 0.337,
+    "itm_rate": 0.799,
+    "roi": -0.176,
+    "avg_win_payout": 4.89
+  },
+  "Chelsey Keiser": {
+    "starts": 94,
+    "wins": 25,
+    "win_rate": 0.266,
+    "itm_rate": 0.766,
+    "roi": -0.177,
+    "avg_win_payout": 6.19
+  },
+  "Denis Araujo": {
+    "starts": 139,
+    "wins": 34,
+    "win_rate": 0.245,
+    "itm_rate": 0.827,
+    "roi": -0.178,
+    "avg_win_payout": 6.72
+  },
+  "Jeiron Barbosa": {
+    "starts": 165,
+    "wins": 34,
+    "win_rate": 0.206,
+    "itm_rate": 0.673,
+    "roi": -0.184,
+    "avg_win_payout": 7.92
+  },
+  "Lucrecia Carabajal": {
+    "starts": 39,
+    "wins": 9,
+    "win_rate": 0.231,
+    "itm_rate": 0.821,
+    "roi": -0.185,
+    "avg_win_payout": 7.07
+  },
+  "Valdinei Gil": {
+    "starts": 44,
+    "wins": 13,
+    "win_rate": 0.295,
+    "itm_rate": 0.795,
+    "roi": -0.186,
+    "avg_win_payout": 5.51
+  },
+  "Luis Martinez": {
+    "starts": 45,
+    "wins": 7,
+    "win_rate": 0.156,
+    "itm_rate": 0.644,
+    "roi": -0.187,
+    "avg_win_payout": 10.46
+  },
+  "Rodrigo Bascunan": {
+    "starts": 54,
+    "wins": 10,
+    "win_rate": 0.185,
+    "itm_rate": 0.722,
+    "roi": -0.187,
+    "avg_win_payout": 8.78
+  },
+  "John Velazquez": {
+    "starts": 165,
+    "wins": 43,
+    "win_rate": 0.261,
+    "itm_rate": 0.63,
+    "roi": -0.189,
+    "avg_win_payout": 6.23
+  },
+  "Jomar Torres": {
+    "starts": 87,
+    "wins": 19,
+    "win_rate": 0.218,
+    "itm_rate": 0.782,
+    "roi": -0.193,
+    "avg_win_payout": 7.39
+  },
+  "Alfredo Juarez, Jr.": {
+    "starts": 68,
+    "wins": 26,
+    "win_rate": 0.382,
+    "itm_rate": 0.765,
+    "roi": -0.199,
+    "avg_win_payout": 4.19
+  },
+  "Yedsit Hazlewood": {
+    "starts": 449,
+    "wins": 153,
+    "win_rate": 0.341,
+    "itm_rate": 0.822,
+    "roi": -0.2,
+    "avg_win_payout": 4.7
+  },
+  "Jose Asencio": {
+    "starts": 98,
+    "wins": 19,
+    "win_rate": 0.194,
+    "itm_rate": 0.704,
+    "roi": -0.202,
+    "avg_win_payout": 8.23
+  },
+  "Jesse Levario": {
+    "starts": 45,
+    "wins": 15,
+    "win_rate": 0.333,
+    "itm_rate": 0.822,
+    "roi": -0.202,
+    "avg_win_payout": 4.79
+  },
+  "Yan Rodriguez": {
+    "starts": 117,
+    "wins": 23,
+    "win_rate": 0.197,
+    "itm_rate": 0.598,
+    "roi": -0.207,
+    "avg_win_payout": 8.07
+  },
+  "Adilton Da Silva": {
+    "starts": 36,
+    "wins": 5,
+    "win_rate": 0.139,
+    "itm_rate": 0.639,
+    "roi": -0.211,
+    "avg_win_payout": 11.36
+  },
+  "Pedro Assis": {
+    "starts": 62,
+    "wins": 10,
+    "win_rate": 0.161,
+    "itm_rate": 0.613,
+    "roi": -0.215,
+    "avg_win_payout": 9.74
+  },
+  "Kendry Rivera": {
+    "starts": 116,
+    "wins": 22,
+    "win_rate": 0.19,
+    "itm_rate": 0.741,
+    "roi": -0.216,
+    "avg_win_payout": 8.27
+  },
+  "Luis Rivera, Jr.": {
+    "starts": 64,
+    "wins": 14,
+    "win_rate": 0.219,
+    "itm_rate": 0.656,
+    "roi": -0.218,
+    "avg_win_payout": 7.15
+  },
+  "Joezer Rangel": {
+    "starts": 64,
+    "wins": 13,
+    "win_rate": 0.203,
+    "itm_rate": 0.781,
+    "roi": -0.219,
+    "avg_win_payout": 7.69
+  },
+  "Emiliano Siniani": {
+    "starts": 36,
+    "wins": 6,
+    "win_rate": 0.167,
+    "itm_rate": 0.806,
+    "roi": -0.219,
+    "avg_win_payout": 9.37
+  },
+  "Paulina Ramirez": {
+    "starts": 35,
+    "wins": 5,
+    "win_rate": 0.143,
+    "itm_rate": 0.743,
+    "roi": -0.22,
+    "avg_win_payout": 10.92
+  },
+  "Ismerio Villalobos": {
+    "starts": 90,
+    "wins": 16,
+    "win_rate": 0.178,
+    "itm_rate": 0.6,
+    "roi": -0.221,
+    "avg_win_payout": 8.76
+  },
+  "Walter De La Cruz": {
+    "starts": 32,
+    "wins": 10,
+    "win_rate": 0.312,
+    "itm_rate": 0.844,
+    "roi": -0.222,
+    "avg_win_payout": 4.98
+  },
+  "Ramon Aguirre": {
+    "starts": 46,
+    "wins": 10,
+    "win_rate": 0.217,
+    "itm_rate": 0.717,
+    "roi": -0.226,
+    "avg_win_payout": 7.12
+  },
+  "Abner Adorno": {
+    "starts": 144,
+    "wins": 36,
+    "win_rate": 0.25,
+    "itm_rate": 0.84,
+    "roi": -0.232,
+    "avg_win_payout": 6.14
+  },
+  "Reshawn Latchman": {
+    "starts": 72,
+    "wins": 22,
+    "win_rate": 0.306,
+    "itm_rate": 0.736,
+    "roi": -0.236,
+    "avg_win_payout": 5.0
+  },
+  "Ricardo Feliciano": {
+    "starts": 42,
+    "wins": 8,
+    "win_rate": 0.19,
+    "itm_rate": 0.452,
+    "roi": -0.238,
+    "avg_win_payout": 8.0
+  },
+  "Angel Rodriguez": {
+    "starts": 167,
+    "wins": 52,
+    "win_rate": 0.311,
+    "itm_rate": 0.838,
+    "roi": -0.243,
+    "avg_win_payout": 4.87
+  },
+  "Julio Hernandez": {
+    "starts": 146,
+    "wins": 40,
+    "win_rate": 0.274,
+    "itm_rate": 0.774,
+    "roi": -0.248,
+    "avg_win_payout": 5.49
+  },
+  "David Alvarez, Jr.": {
+    "starts": 56,
+    "wins": 15,
+    "win_rate": 0.268,
+    "itm_rate": 0.714,
+    "roi": -0.25,
+    "avg_win_payout": 5.6
+  },
+  "Antonio Gallardo": {
+    "starts": 86,
+    "wins": 11,
+    "win_rate": 0.128,
+    "itm_rate": 0.558,
+    "roi": -0.258,
+    "avg_win_payout": 11.6
+  },
+  "Armando Aguilar": {
+    "starts": 53,
+    "wins": 7,
+    "win_rate": 0.132,
+    "itm_rate": 0.623,
+    "roi": -0.27,
+    "avg_win_payout": 11.06
+  },
+  "Francisco Martinez": {
+    "starts": 166,
+    "wins": 37,
+    "win_rate": 0.223,
+    "itm_rate": 0.705,
+    "roi": -0.27,
+    "avg_win_payout": 6.55
+  },
+  "Jesus Castanon": {
+    "starts": 69,
+    "wins": 6,
+    "win_rate": 0.087,
+    "itm_rate": 0.391,
+    "roi": -0.271,
+    "avg_win_payout": 16.77
+  },
+  "Charle Oliveros": {
+    "starts": 36,
+    "wins": 8,
+    "win_rate": 0.222,
+    "itm_rate": 0.694,
+    "roi": -0.275,
+    "avg_win_payout": 6.53
+  },
+  "Cipriano Gil": {
+    "starts": 210,
+    "wins": 41,
+    "win_rate": 0.195,
+    "itm_rate": 0.614,
+    "roi": -0.275,
+    "avg_win_payout": 7.42
+  },
+  "Wladimir Quinteros Gonzalez": {
+    "starts": 38,
+    "wins": 8,
+    "win_rate": 0.211,
+    "itm_rate": 0.684,
+    "roi": -0.276,
+    "avg_win_payout": 6.88
+  },
+  "Matilda Burnham": {
+    "starts": 70,
+    "wins": 13,
+    "win_rate": 0.186,
+    "itm_rate": 0.586,
+    "roi": -0.28,
+    "avg_win_payout": 7.75
+  },
+  "Hugo Ochoa Olmos": {
+    "starts": 59,
+    "wins": 16,
+    "win_rate": 0.271,
+    "itm_rate": 0.797,
+    "roi": -0.281,
+    "avg_win_payout": 5.3
+  },
+  "Hector Berrios": {
+    "starts": 126,
+    "wins": 24,
+    "win_rate": 0.19,
+    "itm_rate": 0.746,
+    "roi": -0.283,
+    "avg_win_payout": 7.53
+  },
+  "Angel Cruz": {
+    "starts": 269,
+    "wins": 69,
+    "win_rate": 0.257,
+    "itm_rate": 0.688,
+    "roi": -0.29,
+    "avg_win_payout": 5.54
+  },
+  "Ricardo Gonzalez": {
+    "starts": 69,
+    "wins": 16,
+    "win_rate": 0.232,
+    "itm_rate": 0.754,
+    "roi": -0.293,
+    "avg_win_payout": 6.1
+  },
+  "Edgard Zayas": {
+    "starts": 362,
+    "wins": 84,
+    "win_rate": 0.232,
+    "itm_rate": 0.663,
+    "roi": -0.294,
+    "avg_win_payout": 6.09
+  },
+  "Elvin Gonzalez": {
+    "starts": 81,
+    "wins": 16,
+    "win_rate": 0.198,
+    "itm_rate": 0.716,
+    "roi": -0.294,
+    "avg_win_payout": 7.15
+  },
+  "Jevian Toledo": {
+    "starts": 164,
+    "wins": 40,
+    "win_rate": 0.244,
+    "itm_rate": 0.677,
+    "roi": -0.297,
+    "avg_win_payout": 5.77
+  },
+  "Micah Husbands": {
+    "starts": 156,
+    "wins": 47,
+    "win_rate": 0.301,
+    "itm_rate": 0.776,
+    "roi": -0.297,
+    "avg_win_payout": 4.66
+  },
+  "Carlos Ortega Tapia": {
+    "starts": 41,
+    "wins": 8,
+    "win_rate": 0.195,
+    "itm_rate": 0.707,
+    "roi": -0.298,
+    "avg_win_payout": 7.2
+  },
+  "Fernando Salazar Becerra": {
+    "starts": 167,
+    "wins": 36,
+    "win_rate": 0.216,
+    "itm_rate": 0.707,
+    "roi": -0.298,
+    "avg_win_payout": 6.51
+  },
+  "Weston Hamilton": {
+    "starts": 90,
+    "wins": 17,
+    "win_rate": 0.189,
+    "itm_rate": 0.733,
+    "roi": -0.303,
+    "avg_win_payout": 7.38
+  },
+  "Adrian Giannetti": {
+    "starts": 49,
+    "wins": 17,
+    "win_rate": 0.347,
+    "itm_rate": 0.796,
+    "roi": -0.304,
+    "avg_win_payout": 4.01
+  },
+  "Edwin Maldonado": {
+    "starts": 66,
+    "wins": 16,
+    "win_rate": 0.242,
+    "itm_rate": 0.727,
+    "roi": -0.308,
+    "avg_win_payout": 5.71
+  },
+  "Arnaldo Bocachica": {
+    "starts": 203,
+    "wins": 68,
+    "win_rate": 0.335,
+    "itm_rate": 0.842,
+    "roi": -0.31,
+    "avg_win_payout": 4.12
+  },
+  "Martina Rojas": {
+    "starts": 43,
+    "wins": 6,
+    "win_rate": 0.14,
+    "itm_rate": 0.581,
+    "roi": -0.312,
+    "avg_win_payout": 9.87
+  },
+  "Karlo Lopez": {
+    "starts": 191,
+    "wins": 41,
+    "win_rate": 0.215,
+    "itm_rate": 0.754,
+    "roi": -0.322,
+    "avg_win_payout": 6.32
+  },
+  "Mike Smith": {
+    "starts": 35,
+    "wins": 9,
+    "win_rate": 0.257,
+    "itm_rate": 0.771,
+    "roi": -0.323,
+    "avg_win_payout": 5.27
+  },
+  "David Cohen": {
+    "starts": 45,
+    "wins": 11,
+    "win_rate": 0.244,
+    "itm_rate": 0.733,
+    "roi": -0.324,
+    "avg_win_payout": 5.53
+  },
+  "Sahin Civaci": {
+    "starts": 114,
+    "wins": 18,
+    "win_rate": 0.158,
+    "itm_rate": 0.675,
+    "roi": -0.325,
+    "avg_win_payout": 8.55
+  },
+  "Rajiv Maragh": {
+    "starts": 155,
+    "wins": 23,
+    "win_rate": 0.148,
+    "itm_rate": 0.587,
+    "roi": -0.328,
+    "avg_win_payout": 9.06
+  },
+  "Angel Diaz": {
+    "starts": 178,
+    "wins": 39,
+    "win_rate": 0.219,
+    "itm_rate": 0.775,
+    "roi": -0.336,
+    "avg_win_payout": 6.06
+  },
+  "Jose Vargas": {
+    "starts": 101,
+    "wins": 20,
+    "win_rate": 0.198,
+    "itm_rate": 0.644,
+    "roi": -0.339,
+    "avg_win_payout": 6.68
+  },
+  "Kyle Frey": {
+    "starts": 94,
+    "wins": 15,
+    "win_rate": 0.16,
+    "itm_rate": 0.713,
+    "roi": -0.34,
+    "avg_win_payout": 8.27
+  },
+  "Sebastian Gonzalez Barriga": {
+    "starts": 42,
+    "wins": 8,
+    "win_rate": 0.19,
+    "itm_rate": 0.714,
+    "roi": -0.34,
+    "avg_win_payout": 6.92
+  },
+  "Alex Cruz": {
+    "starts": 85,
+    "wins": 16,
+    "win_rate": 0.188,
+    "itm_rate": 0.694,
+    "roi": -0.342,
+    "avg_win_payout": 6.99
+  },
+  "Luis Valenzuela": {
+    "starts": 79,
+    "wins": 25,
+    "win_rate": 0.316,
+    "itm_rate": 0.709,
+    "roi": -0.351,
+    "avg_win_payout": 4.1
+  },
+  "Ruberlei Filho": {
+    "starts": 35,
+    "wins": 4,
+    "win_rate": 0.114,
+    "itm_rate": 0.629,
+    "roi": -0.36,
+    "avg_win_payout": 11.2
+  },
+  "Luis Fuenmayor": {
+    "starts": 46,
+    "wins": 2,
+    "win_rate": 0.043,
+    "itm_rate": 0.457,
+    "roi": -0.363,
+    "avg_win_payout": 29.3
+  },
+  "Warren Ebow III": {
+    "starts": 107,
+    "wins": 24,
+    "win_rate": 0.224,
+    "itm_rate": 0.794,
+    "roi": -0.366,
+    "avg_win_payout": 5.65
+  },
+  "Charlie Marquez": {
+    "starts": 80,
+    "wins": 13,
+    "win_rate": 0.163,
+    "itm_rate": 0.512,
+    "roi": -0.373,
+    "avg_win_payout": 7.72
+  },
+  "Manuel Franco": {
+    "starts": 305,
+    "wins": 86,
+    "win_rate": 0.282,
+    "itm_rate": 0.803,
+    "roi": -0.379,
+    "avg_win_payout": 4.41
+  },
+  "Manuel Americano": {
+    "starts": 272,
+    "wins": 74,
+    "win_rate": 0.272,
+    "itm_rate": 0.739,
+    "roi": -0.382,
+    "avg_win_payout": 4.55
+  },
+  "Olaf Hernandez": {
+    "starts": 35,
+    "wins": 7,
+    "win_rate": 0.2,
+    "itm_rate": 0.771,
+    "roi": -0.389,
+    "avg_win_payout": 6.11
+  },
+  "David Cabrera": {
+    "starts": 217,
+    "wins": 68,
+    "win_rate": 0.313,
+    "itm_rate": 0.779,
+    "roi": -0.392,
+    "avg_win_payout": 3.88
+  },
+  "Mark Jasso": {
+    "starts": 38,
+    "wins": 13,
+    "win_rate": 0.342,
+    "itm_rate": 0.842,
+    "roi": -0.4,
+    "avg_win_payout": 3.51
+  },
+  "Travis Cunningham": {
+    "starts": 32,
+    "wins": 5,
+    "win_rate": 0.156,
+    "itm_rate": 0.688,
+    "roi": -0.4,
+    "avg_win_payout": 7.68
+  },
+  "Ajhari Williams": {
+    "starts": 44,
+    "wins": 9,
+    "win_rate": 0.205,
+    "itm_rate": 0.705,
+    "roi": -0.402,
+    "avg_win_payout": 5.84
+  },
+  "Harry Hernandez": {
+    "starts": 68,
+    "wins": 17,
+    "win_rate": 0.25,
+    "itm_rate": 0.882,
+    "roi": -0.404,
+    "avg_win_payout": 4.76
+  },
+  "Joe Stokes": {
+    "starts": 51,
+    "wins": 11,
+    "win_rate": 0.216,
+    "itm_rate": 0.804,
+    "roi": -0.406,
+    "avg_win_payout": 5.51
+  },
+  "Thiago Larrea Frutos": {
+    "starts": 62,
+    "wins": 10,
+    "win_rate": 0.161,
+    "itm_rate": 0.742,
+    "roi": -0.406,
+    "avg_win_payout": 7.36
+  },
+  "Sonny Leon": {
+    "starts": 242,
+    "wins": 49,
+    "win_rate": 0.202,
+    "itm_rate": 0.607,
+    "roi": -0.408,
+    "avg_win_payout": 5.84
+  },
+  "David Haldar": {
+    "starts": 76,
+    "wins": 18,
+    "win_rate": 0.237,
+    "itm_rate": 0.711,
+    "roi": -0.413,
+    "avg_win_payout": 4.96
+  },
+  "Angel Morales": {
+    "starts": 45,
+    "wins": 4,
+    "win_rate": 0.089,
+    "itm_rate": 0.578,
+    "roi": -0.413,
+    "avg_win_payout": 13.2
+  },
+  "Samy Camacho": {
+    "starts": 300,
+    "wins": 86,
+    "win_rate": 0.287,
+    "itm_rate": 0.707,
+    "roi": -0.415,
+    "avg_win_payout": 4.08
+  },
+  "Christian Hiraldo": {
+    "starts": 41,
+    "wins": 6,
+    "win_rate": 0.146,
+    "itm_rate": 0.61,
+    "roi": -0.42,
+    "avg_win_payout": 7.93
+  },
+  "Oscar Andrade, Jr.": {
+    "starts": 108,
+    "wins": 29,
+    "win_rate": 0.269,
+    "itm_rate": 0.75,
+    "roi": -0.42,
+    "avg_win_payout": 4.32
+  },
+  "Aldo Arboleda": {
+    "starts": 38,
+    "wins": 8,
+    "win_rate": 0.211,
+    "itm_rate": 0.684,
+    "roi": -0.421,
+    "avg_win_payout": 5.5
+  },
+  "Ademar Santos": {
+    "starts": 71,
+    "wins": 8,
+    "win_rate": 0.113,
+    "itm_rate": 0.549,
+    "roi": -0.424,
+    "avg_win_payout": 10.22
+  },
+  "Carlos Martinez": {
+    "starts": 57,
+    "wins": 6,
+    "win_rate": 0.105,
+    "itm_rate": 0.509,
+    "roi": -0.426,
+    "avg_win_payout": 10.9
+  },
+  "Samuel Marin": {
+    "starts": 372,
+    "wins": 109,
+    "win_rate": 0.293,
+    "itm_rate": 0.731,
+    "roi": -0.427,
+    "avg_win_payout": 3.91
+  },
+  "Johann Olate": {
+    "starts": 68,
+    "wins": 18,
+    "win_rate": 0.265,
+    "itm_rate": 0.75,
+    "roi": -0.432,
+    "avg_win_payout": 4.29
+  },
+  "Adrian Escobedo": {
+    "starts": 32,
+    "wins": 4,
+    "win_rate": 0.125,
+    "itm_rate": 0.656,
+    "roi": -0.444,
+    "avg_win_payout": 8.9
+  },
+  "Richard Eramia": {
+    "starts": 97,
+    "wins": 23,
+    "win_rate": 0.237,
+    "itm_rate": 0.732,
+    "roi": -0.446,
+    "avg_win_payout": 4.67
+  },
+  "Julio Jorge": {
+    "starts": 34,
+    "wins": 5,
+    "win_rate": 0.147,
+    "itm_rate": 0.706,
+    "roi": -0.45,
+    "avg_win_payout": 7.48
+  },
+  "Irad Ortiz, Jr.": {
+    "starts": 284,
+    "wins": 92,
+    "win_rate": 0.324,
+    "itm_rate": 0.729,
+    "roi": -0.452,
+    "avg_win_payout": 3.39
+  },
+  "Jose Batista": {
+    "starts": 57,
+    "wins": 9,
+    "win_rate": 0.158,
+    "itm_rate": 0.544,
+    "roi": -0.453,
+    "avg_win_payout": 6.93
+  },
+  "Jose Morelos": {
+    "starts": 267,
+    "wins": 44,
+    "win_rate": 0.165,
+    "itm_rate": 0.607,
+    "roi": -0.453,
+    "avg_win_payout": 6.64
+  },
+  "Jorge Vargas, Jr.": {
+    "starts": 84,
+    "wins": 24,
+    "win_rate": 0.286,
+    "itm_rate": 0.726,
+    "roi": -0.453,
+    "avg_win_payout": 3.83
+  },
+  "Victor Carrasco": {
+    "starts": 49,
+    "wins": 6,
+    "win_rate": 0.122,
+    "itm_rate": 0.449,
+    "roi": -0.463,
+    "avg_win_payout": 8.77
+  },
+  "Wilkley Xavier": {
+    "starts": 85,
+    "wins": 22,
+    "win_rate": 0.259,
+    "itm_rate": 0.824,
+    "roi": -0.465,
+    "avg_win_payout": 4.14
+  },
+  "Edgar Perez": {
+    "starts": 108,
+    "wins": 14,
+    "win_rate": 0.13,
+    "itm_rate": 0.556,
+    "roi": -0.465,
+    "avg_win_payout": 8.26
+  },
+  "Gustavo Calvente": {
+    "starts": 43,
+    "wins": 8,
+    "win_rate": 0.186,
+    "itm_rate": 0.814,
+    "roi": -0.465,
+    "avg_win_payout": 5.75
+  },
+  "Alexander Chavez": {
+    "starts": 114,
+    "wins": 29,
+    "win_rate": 0.254,
+    "itm_rate": 0.772,
+    "roi": -0.468,
+    "avg_win_payout": 4.18
+  },
+  "Tyler Gaffalione": {
+    "starts": 286,
+    "wins": 61,
+    "win_rate": 0.213,
+    "itm_rate": 0.65,
+    "roi": -0.469,
+    "avg_win_payout": 4.98
+  },
+  "Christian Maldonado": {
+    "starts": 56,
+    "wins": 9,
+    "win_rate": 0.161,
+    "itm_rate": 0.625,
+    "roi": -0.47,
+    "avg_win_payout": 6.6
+  },
+  "Tais Lyapustina": {
+    "starts": 66,
+    "wins": 9,
+    "win_rate": 0.136,
+    "itm_rate": 0.621,
+    "roi": -0.474,
+    "avg_win_payout": 7.71
+  },
+  "Edwin Escobedo": {
+    "starts": 44,
+    "wins": 11,
+    "win_rate": 0.25,
+    "itm_rate": 0.841,
+    "roi": -0.475,
+    "avg_win_payout": 4.2
+  },
+  "Maximiliano Aserito Rodriguez": {
+    "starts": 42,
+    "wins": 7,
+    "win_rate": 0.167,
+    "itm_rate": 0.619,
+    "roi": -0.479,
+    "avg_win_payout": 6.26
+  },
+  "Jorge Peralta": {
+    "starts": 70,
+    "wins": 16,
+    "win_rate": 0.229,
+    "itm_rate": 0.814,
+    "roi": -0.491,
+    "avg_win_payout": 4.45
+  },
+  "Reylu Gutierrez": {
+    "starts": 97,
+    "wins": 16,
+    "win_rate": 0.165,
+    "itm_rate": 0.67,
+    "roi": -0.506,
+    "avg_win_payout": 5.98
+  },
+  "Eliseo Ruiz": {
+    "starts": 109,
+    "wins": 29,
+    "win_rate": 0.266,
+    "itm_rate": 0.817,
+    "roi": -0.509,
+    "avg_win_payout": 3.69
+  },
+  "Moises Santaella": {
+    "starts": 227,
+    "wins": 65,
+    "win_rate": 0.286,
+    "itm_rate": 0.775,
+    "roi": -0.51,
+    "avg_win_payout": 3.42
+  },
+  "Cordarelton Benn": {
+    "starts": 62,
+    "wins": 13,
+    "win_rate": 0.21,
+    "itm_rate": 0.629,
+    "roi": -0.515,
+    "avg_win_payout": 4.63
+  },
+  "Ricardo Chiappe": {
+    "starts": 87,
+    "wins": 13,
+    "win_rate": 0.149,
+    "itm_rate": 0.621,
+    "roi": -0.516,
+    "avg_win_payout": 6.48
+  },
+  "Cesar Gonzalez": {
+    "starts": 70,
+    "wins": 15,
+    "win_rate": 0.214,
+    "itm_rate": 0.514,
+    "roi": -0.52,
+    "avg_win_payout": 4.48
+  },
+  "Stewart Elliott": {
+    "starts": 100,
+    "wins": 15,
+    "win_rate": 0.15,
+    "itm_rate": 0.72,
+    "roi": -0.521,
+    "avg_win_payout": 6.39
+  },
+  "Frank Alvarado": {
+    "starts": 117,
+    "wins": 26,
+    "win_rate": 0.222,
+    "itm_rate": 0.692,
+    "roi": -0.521,
+    "avg_win_payout": 4.31
+  },
+  "Lucas Gonzalez": {
+    "starts": 80,
+    "wins": 14,
+    "win_rate": 0.175,
+    "itm_rate": 0.713,
+    "roi": -0.53,
+    "avg_win_payout": 5.37
+  },
+  "Kevin Gomez": {
+    "starts": 73,
+    "wins": 9,
+    "win_rate": 0.123,
+    "itm_rate": 0.562,
+    "roi": -0.541,
+    "avg_win_payout": 7.44
+  },
+  "Lautaro Balmaceda": {
+    "starts": 33,
+    "wins": 6,
+    "win_rate": 0.182,
+    "itm_rate": 0.727,
+    "roi": -0.542,
+    "avg_win_payout": 5.03
+  },
+  "Luis Saez": {
+    "starts": 65,
+    "wins": 12,
+    "win_rate": 0.185,
+    "itm_rate": 0.631,
+    "roi": -0.549,
+    "avg_win_payout": 4.88
+  },
+  "Daniel Centeno": {
+    "starts": 136,
+    "wins": 29,
+    "win_rate": 0.213,
+    "itm_rate": 0.647,
+    "roi": -0.549,
+    "avg_win_payout": 4.23
+  },
+  "Belen Quinonez": {
+    "starts": 49,
+    "wins": 8,
+    "win_rate": 0.163,
+    "itm_rate": 0.673,
+    "roi": -0.553,
+    "avg_win_payout": 5.47
+  },
+  "Maicol Inirio": {
+    "starts": 52,
+    "wins": 6,
+    "win_rate": 0.115,
+    "itm_rate": 0.519,
+    "roi": -0.554,
+    "avg_win_payout": 7.73
+  },
+  "Jose Enriquez": {
+    "starts": 43,
+    "wins": 12,
+    "win_rate": 0.279,
+    "itm_rate": 0.744,
+    "roi": -0.558,
+    "avg_win_payout": 3.17
+  },
+  "Jose Eyzaguirre": {
+    "starts": 48,
+    "wins": 9,
+    "win_rate": 0.188,
+    "itm_rate": 0.667,
+    "roi": -0.56,
+    "avg_win_payout": 4.69
+  },
+  "Wesley Ho": {
+    "starts": 93,
+    "wins": 13,
+    "win_rate": 0.14,
+    "itm_rate": 0.57,
+    "roi": -0.574,
+    "avg_win_payout": 6.09
+  },
+  "Victor Fernandez": {
+    "starts": 119,
+    "wins": 29,
+    "win_rate": 0.244,
+    "itm_rate": 0.79,
+    "roi": -0.585,
+    "avg_win_payout": 3.41
+  },
+  "Luis Negron": {
+    "starts": 70,
+    "wins": 29,
+    "win_rate": 0.414,
+    "itm_rate": 0.743,
+    "roi": -0.589,
+    "avg_win_payout": 1.99
+  },
+  "Brandon Tapara": {
+    "starts": 113,
+    "wins": 21,
+    "win_rate": 0.186,
+    "itm_rate": 0.673,
+    "roi": -0.598,
+    "avg_win_payout": 4.32
+  },
+  "Cerapio Figueroa": {
+    "starts": 58,
+    "wins": 16,
+    "win_rate": 0.276,
+    "itm_rate": 0.759,
+    "roi": -0.598,
+    "avg_win_payout": 2.91
+  },
+  "Christian Ramos": {
+    "starts": 66,
+    "wins": 18,
+    "win_rate": 0.273,
+    "itm_rate": 0.833,
+    "roi": -0.598,
+    "avg_win_payout": 2.94
+  },
+  "Alejandro Medellin": {
+    "starts": 49,
+    "wins": 10,
+    "win_rate": 0.204,
+    "itm_rate": 0.694,
+    "roi": -0.604,
+    "avg_win_payout": 3.88
+  },
+  "Francisco Amparan": {
+    "starts": 35,
+    "wins": 11,
+    "win_rate": 0.314,
+    "itm_rate": 0.8,
+    "roi": -0.609,
+    "avg_win_payout": 2.49
+  },
+  "Jacob Enriquez": {
+    "starts": 54,
+    "wins": 17,
+    "win_rate": 0.315,
+    "itm_rate": 0.685,
+    "roi": -0.609,
+    "avg_win_payout": 2.48
+  },
+  "Mario Gutierrez": {
+    "starts": 93,
+    "wins": 18,
+    "win_rate": 0.194,
+    "itm_rate": 0.581,
+    "roi": -0.616,
+    "avg_win_payout": 3.97
+  },
+  "Eric Cancel": {
+    "starts": 67,
+    "wins": 10,
+    "win_rate": 0.149,
+    "itm_rate": 0.791,
+    "roi": -0.619,
+    "avg_win_payout": 5.11
+  },
+  "Gabriel Maldonado": {
+    "starts": 71,
+    "wins": 8,
+    "win_rate": 0.113,
+    "itm_rate": 0.507,
+    "roi": -0.623,
+    "avg_win_payout": 6.7
+  },
+  "Noe Garcia, Jr.": {
+    "starts": 40,
+    "wins": 8,
+    "win_rate": 0.2,
+    "itm_rate": 0.625,
+    "roi": -0.628,
+    "avg_win_payout": 3.72
+  },
+  "Dylan Davis": {
+    "starts": 32,
+    "wins": 4,
+    "win_rate": 0.125,
+    "itm_rate": 0.719,
+    "roi": -0.632,
+    "avg_win_payout": 5.89
+  },
+  "Juan Noriega": {
+    "starts": 31,
+    "wins": 5,
+    "win_rate": 0.161,
+    "itm_rate": 0.677,
+    "roi": -0.635,
+    "avg_win_payout": 4.52
+  },
+  "Ramiro Garcia": {
+    "starts": 42,
+    "wins": 5,
+    "win_rate": 0.119,
+    "itm_rate": 0.643,
+    "roi": -0.64,
+    "avg_win_payout": 6.04
+  },
+  "Geovanni Franco": {
+    "starts": 32,
+    "wins": 7,
+    "win_rate": 0.219,
+    "itm_rate": 0.75,
+    "roi": -0.65,
+    "avg_win_payout": 3.2
+  },
+  "Ronaldo Rodriguez": {
+    "starts": 58,
+    "wins": 11,
+    "win_rate": 0.19,
+    "itm_rate": 0.534,
+    "roi": -0.652,
+    "avg_win_payout": 3.67
+  },
+  "Nik Juarez": {
+    "starts": 30,
+    "wins": 5,
+    "win_rate": 0.167,
+    "itm_rate": 0.533,
+    "roi": -0.66,
+    "avg_win_payout": 4.08
+  },
+  "Blake Nunnally": {
+    "starts": 132,
+    "wins": 30,
+    "win_rate": 0.227,
+    "itm_rate": 0.727,
+    "roi": -0.663,
+    "avg_win_payout": 2.97
+  },
+  "Ricardo Santana, Jr.": {
+    "starts": 144,
+    "wins": 31,
+    "win_rate": 0.215,
+    "itm_rate": 0.722,
+    "roi": -0.667,
+    "avg_win_payout": 3.1
+  },
+  "Heriberto Figueroa": {
+    "starts": 48,
+    "wins": 2,
+    "win_rate": 0.042,
+    "itm_rate": 0.5,
+    "roi": -0.669,
+    "avg_win_payout": 15.9
+  },
+  "Jorge Hernandez": {
+    "starts": 53,
+    "wins": 7,
+    "win_rate": 0.132,
+    "itm_rate": 0.547,
+    "roi": -0.67,
+    "avg_win_payout": 5.0
+  },
+  "Miguel Perez": {
+    "starts": 44,
+    "wins": 10,
+    "win_rate": 0.227,
+    "itm_rate": 0.75,
+    "roi": -0.673,
+    "avg_win_payout": 2.88
+  },
+  "Ken Tohill": {
+    "starts": 31,
+    "wins": 7,
+    "win_rate": 0.226,
+    "itm_rate": 0.806,
+    "roi": -0.677,
+    "avg_win_payout": 2.86
+  },
+  "Luca Panici": {
+    "starts": 107,
+    "wins": 15,
+    "win_rate": 0.14,
+    "itm_rate": 0.589,
+    "roi": -0.68,
+    "avg_win_payout": 4.56
+  },
+  "Tiago Pereira": {
+    "starts": 81,
+    "wins": 14,
+    "win_rate": 0.173,
+    "itm_rate": 0.716,
+    "roi": -0.685,
+    "avg_win_payout": 3.64
+  },
+  "Katie Davis": {
+    "starts": 48,
+    "wins": 5,
+    "win_rate": 0.104,
+    "itm_rate": 0.542,
+    "roi": -0.69,
+    "avg_win_payout": 5.96
+  },
+  "Gokhan Kocakaya": {
+    "starts": 39,
+    "wins": 5,
+    "win_rate": 0.128,
+    "itm_rate": 0.692,
+    "roi": -0.694,
+    "avg_win_payout": 4.77
+  },
+  "Nelson Rojas": {
+    "starts": 33,
+    "wins": 8,
+    "win_rate": 0.242,
+    "itm_rate": 0.606,
+    "roi": -0.706,
+    "avg_win_payout": 2.42
+  },
+  "Mauro Cedillo": {
+    "starts": 72,
+    "wins": 9,
+    "win_rate": 0.125,
+    "itm_rate": 0.681,
+    "roi": -0.743,
+    "avg_win_payout": 4.11
+  },
+  "Gerald Almodovar": {
+    "starts": 71,
+    "wins": 16,
+    "win_rate": 0.225,
+    "itm_rate": 0.718,
+    "roi": -0.746,
+    "avg_win_payout": 2.25
+  },
+  "Jordy Muniz": {
+    "starts": 40,
+    "wins": 9,
+    "win_rate": 0.225,
+    "itm_rate": 0.825,
+    "roi": -0.747,
+    "avg_win_payout": 2.24
+  },
+  "Angel Castillo": {
+    "starts": 53,
+    "wins": 10,
+    "win_rate": 0.189,
+    "itm_rate": 0.736,
+    "roi": -0.751,
+    "avg_win_payout": 2.64
+  },
+  "Angel Stanley": {
+    "starts": 41,
+    "wins": 10,
+    "win_rate": 0.244,
+    "itm_rate": 0.683,
+    "roi": -0.778,
+    "avg_win_payout": 1.82
+  },
+  "Jose Vazquez": {
+    "starts": 36,
+    "wins": 6,
+    "win_rate": 0.167,
+    "itm_rate": 0.75,
+    "roi": -0.786,
+    "avg_win_payout": 2.57
+  },
+  "Jonathan Ocasio": {
+    "starts": 89,
+    "wins": 5,
+    "win_rate": 0.056,
+    "itm_rate": 0.461,
+    "roi": -0.799,
+    "avg_win_payout": 7.16
+  },
+  "Alberto Pusac": {
+    "starts": 37,
+    "wins": 9,
+    "win_rate": 0.243,
+    "itm_rate": 0.811,
+    "roi": -0.8,
+    "avg_win_payout": 1.64
+  },
+  "Enrique Gomez": {
+    "starts": 42,
+    "wins": 8,
+    "win_rate": 0.19,
+    "itm_rate": 0.714,
+    "roi": -0.948,
+    "avg_win_payout": 0.55
+  },
+  "Florent Geroux": {
+    "starts": 43,
+    "wins": 10,
+    "win_rate": 0.233,
+    "itm_rate": 0.674,
+    "roi": -0.948,
+    "avg_win_payout": 0.44
+  },
+  "Ronnie Huckaby": {
+    "starts": 51,
+    "wins": 13,
+    "win_rate": 0.255,
+    "itm_rate": 0.686,
+    "roi": -0.951,
+    "avg_win_payout": 0.38
+  },
+  "Curtis Kimes": {
+    "starts": 30,
+    "wins": 4,
+    "win_rate": 0.133,
+    "itm_rate": 0.633,
+    "roi": -1.0,
+    "avg_win_payout": 0.0
+  },
+  "Alfredo Sigala": {
+    "starts": 33,
+    "wins": 4,
+    "win_rate": 0.121,
+    "itm_rate": 0.606,
+    "roi": -1.0,
+    "avg_win_payout": 0.0
+  },
+  "Scott Spieth": {
+    "starts": 33,
+    "wins": 3,
+    "win_rate": 0.091,
+    "itm_rate": 0.485,
+    "roi": -1.0,
+    "avg_win_payout": 0.0
+  },
+  "Alejandro Maureira Salinas": {
+    "starts": 30,
+    "wins": 10,
+    "win_rate": 0.333,
+    "itm_rate": 0.8,
+    "roi": -1.0,
+    "avg_win_payout": 0.0
+  }
+}

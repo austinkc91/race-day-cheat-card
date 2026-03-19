@@ -1,0 +1,328 @@
+{
+  "model_results": {
+    "Win: 20% edge, CLM/MC only": {
+      "bets": 4,
+      "wins": 2,
+      "win_rate": 50.0,
+      "wagered": 8.0,
+      "returned": 14.6,
+      "net": 6.6,
+      "roi": 82.5,
+      "profitable_days": 1,
+      "total_days": 3
+    },
+    "Win: 30% edge, CLM/MC only": {
+      "bets": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "wagered": 4.0,
+      "returned": 11.0,
+      "net": 7.0,
+      "roi": 175.0,
+      "profitable_days": 1,
+      "total_days": 2
+    },
+    "Win: 40% edge, CLM/MC only": {
+      "bets": 1,
+      "wins": 1,
+      "win_rate": 100.0,
+      "wagered": 2.0,
+      "returned": 11.0,
+      "net": 9.0,
+      "roi": 450.0,
+      "profitable_days": 1,
+      "total_days": 1
+    },
+    "Win: 20% edge, all types": {
+      "bets": 5,
+      "wins": 2,
+      "win_rate": 40.0,
+      "wagered": 10.0,
+      "returned": 14.6,
+      "net": 4.6,
+      "roi": 46.0,
+      "profitable_days": 1,
+      "total_days": 4
+    },
+    "Win: 30% edge, all types": {
+      "bets": 3,
+      "wins": 1,
+      "win_rate": 33.33333333333333,
+      "wagered": 6.0,
+      "returned": 11.0,
+      "net": 5.0,
+      "roi": 83.33333333333334,
+      "profitable_days": 1,
+      "total_days": 3
+    },
+    "Win: 50% edge, CLM/MC only": {
+      "bets": 1,
+      "wins": 1,
+      "win_rate": 100.0,
+      "wagered": 2.0,
+      "returned": 11.0,
+      "net": 9.0,
+      "roi": 450.0,
+      "profitable_days": 1,
+      "total_days": 1
+    },
+    "Win: 20% edge, top 3 only": {
+      "bets": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "wagered": 4.0,
+      "returned": 3.6,
+      "net": -0.3999999999999999,
+      "roi": -9.999999999999998,
+      "profitable_days": 0,
+      "total_days": 1
+    },
+    "Win: 30% edge, top 3 only": {
+      "bets": 1,
+      "wins": 0,
+      "win_rate": 0.0,
+      "wagered": 2.0,
+      "returned": 0,
+      "net": -2.0,
+      "roi": -100.0,
+      "profitable_days": 0,
+      "total_days": 1
+    },
+    "Place: 20% edge, CLM/MC": {
+      "bets": 4,
+      "wins": 2,
+      "win_rate": 50.0,
+      "wagered": 8.0,
+      "returned": 7.9,
+      "net": -0.09999999999999964,
+      "roi": -1.2499999999999956,
+      "profitable_days": 1,
+      "total_days": 3
+    },
+    "Place: 30% edge, CLM/MC": {
+      "bets": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "wagered": 4.0,
+      "returned": 5.5,
+      "net": 1.5,
+      "roi": 37.5,
+      "profitable_days": 1,
+      "total_days": 2
+    }
+  },
+  "top_jockeys": [
+    {
+      "name": "Francisco Martinez",
+      "starts": 57,
+      "wins": 17,
+      "win_rate": 0.2982456140350877,
+      "roi": 1.6105263157894738
+    },
+    {
+      "name": "Oscar Andrade, Jr.",
+      "starts": 61,
+      "wins": 18,
+      "win_rate": 0.29508196721311475,
+      "roi": 1.3114754098360655
+    },
+    {
+      "name": "Emisael Jaramillo",
+      "starts": 59,
+      "wins": 22,
+      "win_rate": 0.3728813559322034,
+      "roi": 1.0152542372881352
+    },
+    {
+      "name": "Blake Nunnally",
+      "starts": 68,
+      "wins": 19,
+      "win_rate": 0.27941176470588236,
+      "roi": 0.9882352941176471
+    },
+    {
+      "name": "Ricardo Santana, Jr.",
+      "starts": 60,
+      "wins": 18,
+      "win_rate": 0.3,
+      "roi": 0.9746666666666667
+    },
+    {
+      "name": "Armando Ayuso",
+      "starts": 58,
+      "wins": 16,
+      "win_rate": 0.27586206896551724,
+      "roi": 0.9362068965517241
+    },
+    {
+      "name": "Joaquin Herrera Olivares",
+      "starts": 54,
+      "wins": 20,
+      "win_rate": 0.37037037037037035,
+      "roi": 0.9333333333333335
+    },
+    {
+      "name": "Moises Santaella",
+      "starts": 69,
+      "wins": 27,
+      "win_rate": 0.391304347826087,
+      "roi": 0.8753623188405797
+    },
+    {
+      "name": "Dexter Haddock",
+      "starts": 51,
+      "wins": 14,
+      "win_rate": 0.27450980392156865,
+      "roi": 0.8647058823529412
+    },
+    {
+      "name": "Justin Lewis",
+      "starts": 53,
+      "wins": 8,
+      "win_rate": 0.1509433962264151,
+      "roi": 0.7547169811320755
+    }
+  ],
+  "profitable_combos": [
+    {
+      "jockey": "Rodolfo Fuenzalida Garcia",
+      "race_type": "STK",
+      "starts": 23,
+      "wins": 9,
+      "roi": 366.52173913043475
+    },
+    {
+      "jockey": "Lesly Gonzalez",
+      "race_type": "STK",
+      "starts": 25,
+      "wins": 8,
+      "roi": 312.4
+    },
+    {
+      "jockey": "Blake Nunnally",
+      "race_type": "MC",
+      "starts": 20,
+      "wins": 6,
+      "roi": 308.5
+    },
+    {
+      "jockey": "Luis Ocasio",
+      "race_type": "CLM",
+      "starts": 20,
+      "wins": 6,
+      "roi": 265.0
+    },
+    {
+      "jockey": "Luis Negron",
+      "race_type": "CLM",
+      "starts": 27,
+      "wins": 10,
+      "roi": 262.962962962963
+    },
+    {
+      "jockey": "Felipe Tapia",
+      "race_type": "STK",
+      "starts": 21,
+      "wins": 7,
+      "roi": 253.8095238095238
+    },
+    {
+      "jockey": "Francisco Martinez",
+      "race_type": "CLM",
+      "starts": 41,
+      "wins": 13,
+      "roi": 231.70731707317077
+    },
+    {
+      "jockey": "Maximiliano MacHado",
+      "race_type": "ALW",
+      "starts": 21,
+      "wins": 8,
+      "roi": 211.9047619047619
+    },
+    {
+      "jockey": "Jacob Enriquez",
+      "race_type": "OTH",
+      "starts": 23,
+      "wins": 7,
+      "roi": 178.26086956521735
+    },
+    {
+      "jockey": "Ruben Silvera",
+      "race_type": "CLM",
+      "starts": 24,
+      "wins": 6,
+      "roi": 176.04166666666669
+    },
+    {
+      "jockey": "Hugo Ochoa Olmos",
+      "race_type": "STK",
+      "starts": 20,
+      "wins": 7,
+      "roi": 161.49999999999997
+    },
+    {
+      "jockey": "Alex Cruz",
+      "race_type": "CLM",
+      "starts": 21,
+      "wins": 6,
+      "roi": 160.95238095238093
+    },
+    {
+      "jockey": "Chelsey Keiser",
+      "race_type": "CLM",
+      "starts": 21,
+      "wins": 6,
+      "roi": 154.28571428571428
+    },
+    {
+      "jockey": "Junior Alvarado",
+      "race_type": "MSW",
+      "starts": 20,
+      "wins": 7,
+      "roi": 153.99999999999997
+    },
+    {
+      "jockey": "Dexter Haddock",
+      "race_type": "CLM",
+      "starts": 34,
+      "wins": 11,
+      "roi": 152.6470588235294
+    },
+    {
+      "jockey": "Jorge Vargas, Jr.",
+      "race_type": "CLM",
+      "starts": 27,
+      "wins": 7,
+      "roi": 147.77777777777777
+    },
+    {
+      "jockey": "Ricardo Santana, Jr.",
+      "race_type": "MC",
+      "starts": 29,
+      "wins": 10,
+      "roi": 147.13793103448276
+    },
+    {
+      "jockey": "Emisael Jaramillo",
+      "race_type": "MC",
+      "starts": 33,
+      "wins": 16,
+      "roi": 146.36363636363637
+    },
+    {
+      "jockey": "Benjamin Sancho Escalante",
+      "race_type": "STK",
+      "starts": 30,
+      "wins": 11,
+      "roi": 142.66666666666669
+    },
+    {
+      "jockey": "Jose Morelos",
+      "race_type": "MC",
+      "starts": 31,
+      "wins": 10,
+      "roi": 131.29032258064518
+    }
+  ]
+}

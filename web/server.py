@@ -549,7 +549,10 @@ STEP 4: Apply the betting strategy from STRATEGY.md
 ALSO APPLY:
 - Consensus tier system: GREEN (4+ sources), YELLOW (3), ORANGE (2), RED (1)
 - Value Score = (consensus_count / total_sources) x morning_line_odds. Flag >= 2.0 as VALUE PLAY.
-- For EVERY bet, include the EXACT phrase to say at the betting window.
+- For VALUE PLAY horses: include minimum tote odds needed and the decision rule from STRATEGY.md
+- For EVERY recommended bet, include the EXACT phrase to say at the betting window.
+- IMPORTANT: Only recommend WIN bets (not exotics). Maximum 3 bets per card.
+- Mark races with no value as "NO BET — no value identified"
 
 STEP 5: Write the data file
 - Follow the JSON schema at ~/race-day-cheat-card/web/schema.json EXACTLY

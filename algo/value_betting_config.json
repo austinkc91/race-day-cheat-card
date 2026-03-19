@@ -1,0 +1,1945 @@
+{
+  "system": "value_betting_v2",
+  "updated": "2026-03-18T21:13:20.580513",
+  "strategy": {
+    "description": "Value betting based on jockey edge + expert consensus vs tote odds",
+    "bet_types": [
+      "win",
+      "place"
+    ],
+    "max_bets_per_race": 1,
+    "max_bets_per_day": 8,
+    "base_bet_size": 2.0,
+    "min_edge_threshold": 0.15
+  },
+  "value_jockeys": {
+    "David Egan": {
+      "win_rate": 0.19,
+      "roi": 0.07,
+      "starts": 153,
+      "avg_win_payout": 11.29,
+      "profitable_types": {
+        "ALW": {
+          "starts": 11,
+          "wins": 2,
+          "roi": 0.573
+        },
+        "MSW": {
+          "starts": 31,
+          "wins": 5,
+          "roi": 0.555
+        }
+      }
+    },
+    "Miguel Vasquez": {
+      "win_rate": 0.216,
+      "roi": 0.208,
+      "starts": 282,
+      "avg_win_payout": 11.17,
+      "profitable_types": {
+        "MC": {
+          "starts": 135,
+          "wins": 28,
+          "roi": 0.313
+        },
+        "CLM": {
+          "starts": 75,
+          "wins": 22,
+          "roi": 0.461
+        },
+        "MSW": {
+          "starts": 34,
+          "wins": 5,
+          "roi": 0.106
+        }
+      }
+    },
+    "Jesus Rios": {
+      "win_rate": 0.143,
+      "roi": 0.602,
+      "starts": 42,
+      "avg_win_payout": 22.43,
+      "profitable_types": {
+        "MC": {
+          "starts": 11,
+          "wins": 2,
+          "roi": 2.918
+        }
+      }
+    },
+    "Maximiliano MacHado": {
+      "win_rate": 0.301,
+      "roi": 0.224,
+      "starts": 83,
+      "avg_win_payout": 8.13,
+      "profitable_types": {
+        "MSW": {
+          "starts": 31,
+          "wins": 10,
+          "roi": 1.145
+        }
+      }
+    },
+    "Martin Montoya": {
+      "win_rate": 0.247,
+      "roi": 0.479,
+      "starts": 162,
+      "avg_win_payout": 11.98,
+      "profitable_types": {
+        "MSW": {
+          "starts": 76,
+          "wins": 16,
+          "roi": 0.372
+        },
+        "ALW": {
+          "starts": 79,
+          "wins": 22,
+          "roi": 0.586
+        }
+      }
+    },
+    "Francisco Lavigna": {
+      "win_rate": 0.226,
+      "roi": 0.129,
+      "starts": 62,
+      "avg_win_payout": 10.0,
+      "profitable_types": {
+        "ALW": {
+          "starts": 28,
+          "wins": 9,
+          "roi": 0.457
+        }
+      }
+    },
+    "Jorge Zuniga Diaz": {
+      "win_rate": 0.215,
+      "roi": 0.283,
+      "starts": 65,
+      "avg_win_payout": 11.91,
+      "profitable_types": {
+        "STK": {
+          "starts": 58,
+          "wins": 13,
+          "roi": 0.466
+        }
+      }
+    },
+    "Joaquin Herrera Olivares": {
+      "win_rate": 0.399,
+      "roi": 0.44,
+      "starts": 168,
+      "avg_win_payout": 7.22,
+      "profitable_types": {
+        "STK": {
+          "starts": 143,
+          "wins": 54,
+          "roi": 0.582
+        },
+        "MSW": {
+          "starts": 23,
+          "wins": 13,
+          "roi": 0.552
+        }
+      }
+    },
+    "Felipe Henriquez": {
+      "win_rate": 0.24,
+      "roi": 0.928,
+      "starts": 50,
+      "avg_win_payout": 16.07,
+      "profitable_types": {
+        "STK": {
+          "starts": 49,
+          "wins": 12,
+          "roi": 0.988
+        }
+      }
+    },
+    "Sebastian Gonzalez": {
+      "win_rate": 0.306,
+      "roi": 0.399,
+      "starts": 108,
+      "avg_win_payout": 9.16,
+      "profitable_types": {
+        "STK": {
+          "starts": 101,
+          "wins": 31,
+          "roi": 0.377
+        }
+      }
+    },
+    "Lesly Gonzalez": {
+      "win_rate": 0.333,
+      "roi": 1.514,
+      "starts": 57,
+      "avg_win_payout": 15.08,
+      "profitable_types": {
+        "STK": {
+          "starts": 51,
+          "wins": 17,
+          "roi": 1.471
+        }
+      }
+    },
+    "Jonathan Castillo Tapia": {
+      "win_rate": 0.266,
+      "roi": 0.248,
+      "starts": 79,
+      "avg_win_payout": 9.39,
+      "profitable_types": {
+        "STK": {
+          "starts": 77,
+          "wins": 21,
+          "roi": 0.345
+        }
+      }
+    },
+    "Rodolfo Fuenzalida Garcia": {
+      "win_rate": 0.287,
+      "roi": 1.751,
+      "starts": 94,
+      "avg_win_payout": 19.16,
+      "profitable_types": {
+        "STK": {
+          "starts": 81,
+          "wins": 25,
+          "roi": 1.591
+        },
+        "MSW": {
+          "starts": 13,
+          "wins": 2,
+          "roi": 3.515
+        }
+      }
+    },
+    "Guillermo Perez": {
+      "win_rate": 0.175,
+      "roi": 0.157,
+      "starts": 80,
+      "avg_win_payout": 13.23,
+      "profitable_types": {
+        "STK": {
+          "starts": 72,
+          "wins": 14,
+          "roi": 0.314
+        }
+      }
+    },
+    "Piero Reyes Podesta": {
+      "win_rate": 0.192,
+      "roi": 0.222,
+      "starts": 78,
+      "avg_win_payout": 12.71,
+      "profitable_types": {
+        "STK": {
+          "starts": 71,
+          "wins": 12,
+          "roi": 0.27
+        }
+      }
+    },
+    "Johan Gonzalez Eyzaguirre": {
+      "win_rate": 0.135,
+      "roi": 0.779,
+      "starts": 52,
+      "avg_win_payout": 26.43,
+      "profitable_types": {
+        "STK": {
+          "starts": 48,
+          "wins": 7,
+          "roi": 1.01
+        }
+      }
+    },
+    "Mirco Demuro": {
+      "win_rate": 0.344,
+      "roi": 0.548,
+      "starts": 64,
+      "avg_win_payout": 9.01,
+      "profitable_types": {
+        "MSW": {
+          "starts": 11,
+          "wins": 4,
+          "roi": 0.718
+        },
+        "MC": {
+          "starts": 35,
+          "wins": 14,
+          "roi": 0.866
+        }
+      }
+    },
+    "Emisael Jaramillo": {
+      "win_rate": 0.364,
+      "roi": 0.296,
+      "starts": 198,
+      "avg_win_payout": 7.13,
+      "profitable_types": {
+        "MSW": {
+          "starts": 33,
+          "wins": 11,
+          "roi": 0.915
+        },
+        "MC": {
+          "starts": 106,
+          "wins": 40,
+          "roi": 0.342
+        },
+        "ALW": {
+          "starts": 14,
+          "wins": 6,
+          "roi": 0.0
+        },
+        "CLM": {
+          "starts": 31,
+          "wins": 8,
+          "roi": 0.384
+        }
+      }
+    },
+    "Ubardo Casique": {
+      "win_rate": 0.104,
+      "roi": 0.533,
+      "starts": 48,
+      "avg_win_payout": 29.44,
+      "profitable_types": {
+        "MC": {
+          "starts": 24,
+          "wins": 4,
+          "roi": 1.933
+        }
+      }
+    },
+    "Sara Hess": {
+      "win_rate": 0.138,
+      "roi": 0.389,
+      "starts": 65,
+      "avg_win_payout": 20.07,
+      "profitable_types": {
+        "CLM": {
+          "starts": 23,
+          "wins": 4,
+          "roi": 2.0
+        }
+      }
+    },
+    "Jose Ferrer": {
+      "win_rate": 0.206,
+      "roi": 0.499,
+      "starts": 107,
+      "avg_win_payout": 14.58,
+      "profitable_types": {
+        "CLM": {
+          "starts": 23,
+          "wins": 6,
+          "roi": 1.404
+        },
+        "MC": {
+          "starts": 48,
+          "wins": 10,
+          "roi": 0.481
+        },
+        "MSW": {
+          "starts": 15,
+          "wins": 2,
+          "roi": 0.64
+        },
+        "ALW": {
+          "starts": 16,
+          "wins": 4,
+          "roi": 0.088
+        }
+      }
+    },
+    "Alonso Quinonez": {
+      "win_rate": 0.134,
+      "roi": 0.718,
+      "starts": 67,
+      "avg_win_payout": 25.58,
+      "profitable_types": {
+        "CLM": {
+          "starts": 25,
+          "wins": 4,
+          "roi": 1.044
+        },
+        "ALW": {
+          "starts": 19,
+          "wins": 1,
+          "roi": 0.684
+        }
+      }
+    },
+    "Gaddiel Martinez": {
+      "win_rate": 0.164,
+      "roi": 2.198,
+      "starts": 61,
+      "avg_win_payout": 39.02,
+      "profitable_types": {
+        "MC": {
+          "starts": 31,
+          "wins": 6,
+          "roi": 0.474
+        },
+        "CLM": {
+          "starts": 10,
+          "wins": 2,
+          "roi": 13.6
+        }
+      }
+    },
+    "Elijah Greenidge": {
+      "win_rate": 0.162,
+      "roi": 0.446,
+      "starts": 68,
+      "avg_win_payout": 17.87,
+      "profitable_types": {
+        "CLM": {
+          "starts": 18,
+          "wins": 5,
+          "roi": 0.322
+        },
+        "ALW": {
+          "starts": 31,
+          "wins": 2,
+          "roi": 0.687
+        },
+        "MC": {
+          "starts": 11,
+          "wins": 3,
+          "roi": 1.2
+        }
+      }
+    },
+    "Alejandro Gomez": {
+      "win_rate": 0.229,
+      "roi": 2.885,
+      "starts": 48,
+      "avg_win_payout": 33.91,
+      "profitable_types": {
+        "CLM": {
+          "starts": 31,
+          "wins": 7,
+          "roi": 3.752
+        },
+        "ALW": {
+          "starts": 10,
+          "wins": 3,
+          "roi": 2.95
+        }
+      }
+    },
+    "Jose Bracho": {
+      "win_rate": 0.29,
+      "roi": 0.089,
+      "starts": 176,
+      "avg_win_payout": 7.51,
+      "profitable_types": {
+        "CLM": {
+          "starts": 54,
+          "wins": 18,
+          "roi": 1.0
+        },
+        "MC": {
+          "starts": 27,
+          "wins": 9,
+          "roi": 0.43
+        }
+      }
+    },
+    "Luis Rivera": {
+      "win_rate": 0.305,
+      "roi": 0.151,
+      "starts": 233,
+      "avg_win_payout": 7.55,
+      "profitable_types": {
+        "MSW": {
+          "starts": 25,
+          "wins": 12,
+          "roi": 0.104
+        },
+        "CLM": {
+          "starts": 105,
+          "wins": 31,
+          "roi": 0.635
+        },
+        "MC": {
+          "starts": 21,
+          "wins": 6,
+          "roi": 0.248
+        }
+      }
+    },
+    "Juan Paoloni": {
+      "win_rate": 0.28,
+      "roi": 0.092,
+      "starts": 75,
+      "avg_win_payout": 7.8,
+      "profitable_types": {
+        "ALW": {
+          "starts": 39,
+          "wins": 11,
+          "roi": 0.338
+        },
+        "MSW": {
+          "starts": 31,
+          "wins": 9,
+          "roi": 0.184
+        }
+      }
+    },
+    "Maria Schneider": {
+      "win_rate": 0.296,
+      "roi": 0.787,
+      "starts": 54,
+      "avg_win_payout": 12.06,
+      "profitable_types": {
+        "ALW": {
+          "starts": 27,
+          "wins": 6,
+          "roi": 1.07
+        },
+        "MSW": {
+          "starts": 27,
+          "wins": 10,
+          "roi": 0.689
+        }
+      }
+    },
+    "Leo Acuna": {
+      "win_rate": 0.168,
+      "roi": 0.074,
+      "starts": 101,
+      "avg_win_payout": 12.76,
+      "profitable_types": {
+        "MSW": {
+          "starts": 49,
+          "wins": 9,
+          "roi": 0.322
+        }
+      }
+    },
+    "Kevin Banegas": {
+      "win_rate": 0.312,
+      "roi": 0.097,
+      "starts": 157,
+      "avg_win_payout": 7.03,
+      "profitable_types": {
+        "MSW": {
+          "starts": 56,
+          "wins": 22,
+          "roi": 0.218
+        },
+        "ALW": {
+          "starts": 77,
+          "wins": 23,
+          "roi": 0.243
+        }
+      }
+    },
+    "Juan Villagra": {
+      "win_rate": 0.419,
+      "roi": 0.213,
+      "starts": 93,
+      "avg_win_payout": 5.78,
+      "profitable_types": {
+        "ALW": {
+          "starts": 46,
+          "wins": 20,
+          "roi": 0.289
+        },
+        "STK": {
+          "starts": 13,
+          "wins": 6,
+          "roi": 0.446
+        },
+        "MSW": {
+          "starts": 34,
+          "wins": 13,
+          "roi": 0.403
+        }
+      }
+    },
+    "Tomas Baez": {
+      "win_rate": 0.25,
+      "roi": 0.993,
+      "starts": 40,
+      "avg_win_payout": 15.94,
+      "profitable_types": {
+        "ALW": {
+          "starts": 17,
+          "wins": 4,
+          "roi": 1.576
+        },
+        "MSW": {
+          "starts": 23,
+          "wins": 6,
+          "roi": 0.604
+        }
+      }
+    },
+    "Leandro Henrique Espindola De Oliveira": {
+      "win_rate": 0.389,
+      "roi": 0.538,
+      "starts": 113,
+      "avg_win_payout": 7.9,
+      "profitable_types": {
+        "MSW": {
+          "starts": 16,
+          "wins": 6,
+          "roi": 0.969
+        },
+        "ALW": {
+          "starts": 58,
+          "wins": 22,
+          "roi": 0.271
+        },
+        "CLM": {
+          "starts": 35,
+          "wins": 15,
+          "roi": 0.917
+        }
+      }
+    },
+    "Antonio Queiroz": {
+      "win_rate": 0.135,
+      "roi": 0.089,
+      "starts": 74,
+      "avg_win_payout": 16.12,
+      "profitable_types": {
+        "CLM": {
+          "starts": 32,
+          "wins": 6,
+          "roi": 0.719
+        }
+      }
+    },
+    "Joao Enick": {
+      "win_rate": 0.25,
+      "roi": 1.198,
+      "starts": 40,
+      "avg_win_payout": 17.58,
+      "profitable_types": {
+        "ALW": {
+          "starts": 17,
+          "wins": 3,
+          "roi": 0.753
+        },
+        "CLM": {
+          "starts": 14,
+          "wins": 3,
+          "roi": 2.479
+        }
+      }
+    },
+    "Jose Aparecido Da Silva": {
+      "win_rate": 0.268,
+      "roi": 0.346,
+      "starts": 41,
+      "avg_win_payout": 10.04,
+      "profitable_types": {
+        "ALW": {
+          "starts": 15,
+          "wins": 5,
+          "roi": 0.38
+        }
+      }
+    },
+    "Jeriel Catala": {
+      "win_rate": 0.216,
+      "roi": 0.264,
+      "starts": 88,
+      "avg_win_payout": 11.71,
+      "profitable_types": {
+        "CLM": {
+          "starts": 70,
+          "wins": 16,
+          "roi": 0.489
+        }
+      }
+    },
+    "Brandon Guevara": {
+      "win_rate": 0.298,
+      "roi": 0.183,
+      "starts": 47,
+      "avg_win_payout": 7.94,
+      "profitable_types": {
+        "OTH": {
+          "starts": 14,
+          "wins": 4,
+          "roi": 1.093
+        },
+        "MC": {
+          "starts": 11,
+          "wins": 7,
+          "roi": 1.664
+        }
+      }
+    },
+    "Daniel Vergara": {
+      "win_rate": 0.346,
+      "roi": 2.006,
+      "starts": 52,
+      "avg_win_payout": 17.37,
+      "profitable_types": {
+        "CLM": {
+          "starts": 39,
+          "wins": 16,
+          "roi": 2.295
+        },
+        "MC": {
+          "starts": 11,
+          "wins": 2,
+          "roi": 2.436
+        }
+      }
+    },
+    "Adrian Castellanos": {
+      "win_rate": 0.271,
+      "roi": 0.44,
+      "starts": 96,
+      "avg_win_payout": 10.63,
+      "profitable_types": {
+        "MC": {
+          "starts": 31,
+          "wins": 7,
+          "roi": 1.284
+        },
+        "CLM": {
+          "starts": 63,
+          "wins": 19,
+          "roi": 0.133
+        }
+      }
+    },
+    "Silvio Amador": {
+      "win_rate": 0.222,
+      "roi": 0.267,
+      "starts": 54,
+      "avg_win_payout": 11.4,
+      "profitable_types": {
+        "CLM": {
+          "starts": 39,
+          "wins": 10,
+          "roi": 0.762
+        }
+      }
+    },
+    "Floyd Wethey Jr.": {
+      "win_rate": 0.284,
+      "roi": 0.233,
+      "starts": 148,
+      "avg_win_payout": 8.69,
+      "profitable_types": {
+        "MSW": {
+          "starts": 24,
+          "wins": 8,
+          "roi": 1.183
+        },
+        "CLM": {
+          "starts": 33,
+          "wins": 12,
+          "roi": 0.3
+        },
+        "ALW": {
+          "starts": 27,
+          "wins": 8,
+          "roi": 0.522
+        }
+      }
+    },
+    "Alfredo Triana, Jr.": {
+      "win_rate": 0.301,
+      "roi": 1.11,
+      "starts": 83,
+      "avg_win_payout": 14.01,
+      "profitable_types": {
+        "MC": {
+          "starts": 31,
+          "wins": 9,
+          "roi": 0.165
+        },
+        "CLM": {
+          "starts": 25,
+          "wins": 9,
+          "roi": 1.382
+        },
+        "ALW": {
+          "starts": 13,
+          "wins": 4,
+          "roi": 2.869
+        },
+        "MSW": {
+          "starts": 12,
+          "wins": 3,
+          "roi": 1.767
+        }
+      }
+    },
+    "Obed Sanchez": {
+      "win_rate": 0.221,
+      "roi": 0.088,
+      "starts": 68,
+      "avg_win_payout": 9.87,
+      "profitable_types": {
+        "ALW": {
+          "starts": 17,
+          "wins": 5,
+          "roi": 0.524
+        },
+        "CLM": {
+          "starts": 26,
+          "wins": 3,
+          "roi": 0.454
+        }
+      }
+    },
+    "Leandro Goncalves": {
+      "win_rate": 0.246,
+      "roi": 0.162,
+      "starts": 69,
+      "avg_win_payout": 9.44,
+      "profitable_types": {
+        "CLM": {
+          "starts": 25,
+          "wins": 9,
+          "roi": 2.264
+        }
+      }
+    },
+    "Roberto Melo": {
+      "win_rate": 0.196,
+      "roi": 1.041,
+      "starts": 46,
+      "avg_win_payout": 20.87,
+      "profitable_types": {
+        "ALW": {
+          "starts": 22,
+          "wins": 3,
+          "roi": 1.795
+        },
+        "CLM": {
+          "starts": 20,
+          "wins": 6,
+          "roi": 0.72
+        }
+      }
+    },
+    "Ananias Pereda": {
+      "win_rate": 0.267,
+      "roi": 0.872,
+      "starts": 86,
+      "avg_win_payout": 14.0,
+      "profitable_types": {
+        "MSW": {
+          "starts": 11,
+          "wins": 3,
+          "roi": 0.364
+        },
+        "STK": {
+          "starts": 71,
+          "wins": 20,
+          "roi": 1.07
+        }
+      }
+    },
+    "Cristian Rojas Espinosa": {
+      "win_rate": 0.293,
+      "roi": 0.661,
+      "starts": 41,
+      "avg_win_payout": 11.35,
+      "profitable_types": {
+        "STK": {
+          "starts": 35,
+          "wins": 11,
+          "roi": 0.477
+        }
+      }
+    },
+    "Jely Barril Curin": {
+      "win_rate": 0.27,
+      "roi": 0.112,
+      "starts": 74,
+      "avg_win_payout": 8.23,
+      "profitable_types": {
+        "STK": {
+          "starts": 65,
+          "wins": 18,
+          "roi": 0.222
+        }
+      }
+    },
+    "Franklin Gonzalez, Jr.": {
+      "win_rate": 0.21,
+      "roi": 1.215,
+      "starts": 62,
+      "avg_win_payout": 21.12,
+      "profitable_types": {
+        "CLM": {
+          "starts": 40,
+          "wins": 6,
+          "roi": 0.403
+        },
+        "MC": {
+          "starts": 20,
+          "wins": 7,
+          "roi": 3.11
+        }
+      }
+    },
+    "Andy Hernandez": {
+      "win_rate": 0.336,
+      "roi": 0.672,
+      "starts": 110,
+      "avg_win_payout": 9.94,
+      "profitable_types": {
+        "CLM": {
+          "starts": 68,
+          "wins": 22,
+          "roi": 0.625
+        },
+        "MC": {
+          "starts": 25,
+          "wins": 9,
+          "roi": 1.48
+        }
+      }
+    },
+    "Silvestre Gonzalez": {
+      "win_rate": 0.226,
+      "roi": 0.29,
+      "starts": 137,
+      "avg_win_payout": 11.4,
+      "profitable_types": {
+        "CLM": {
+          "starts": 89,
+          "wins": 23,
+          "roi": 0.404
+        },
+        "MSW": {
+          "starts": 13,
+          "wins": 4,
+          "roi": 1.323
+        }
+      }
+    },
+    "Ruben Silvera": {
+      "win_rate": 0.204,
+      "roi": 0.24,
+      "starts": 196,
+      "avg_win_payout": 12.15,
+      "profitable_types": {
+        "MC": {
+          "starts": 97,
+          "wins": 18,
+          "roi": 0.5
+        },
+        "CLM": {
+          "starts": 85,
+          "wins": 19,
+          "roi": 0.066
+        }
+      }
+    },
+    "Roman Cruz": {
+      "win_rate": 0.322,
+      "roi": 0.113,
+      "starts": 143,
+      "avg_win_payout": 6.92,
+      "profitable_types": {
+        "CLM": {
+          "starts": 33,
+          "wins": 8,
+          "roi": 0.782
+        },
+        "MC": {
+          "starts": 41,
+          "wins": 15,
+          "roi": 0.561
+        }
+      }
+    },
+    "Jose Montano": {
+      "win_rate": 0.314,
+      "roi": 0.141,
+      "starts": 51,
+      "avg_win_payout": 7.28,
+      "profitable_types": {
+        "CLM": {
+          "starts": 16,
+          "wins": 4,
+          "roi": 0.225
+        },
+        "MSW": {
+          "starts": 10,
+          "wins": 3,
+          "roi": 1.04
+        }
+      }
+    },
+    "J. Acosta": {
+      "win_rate": 0.233,
+      "roi": 0.095,
+      "starts": 172,
+      "avg_win_payout": 9.42,
+      "profitable_types": {
+        "MC": {
+          "starts": 30,
+          "wins": 6,
+          "roi": 2.26
+        }
+      }
+    },
+    "Fredy Peltroche": {
+      "win_rate": 0.173,
+      "roi": 0.431,
+      "starts": 75,
+      "avg_win_payout": 16.51,
+      "profitable_types": {
+        "ALW": {
+          "starts": 20,
+          "wins": 6,
+          "roi": 2.22
+        },
+        "CLM": {
+          "starts": 22,
+          "wins": 4,
+          "roi": 0.4
+        }
+      }
+    },
+    "Carlos Perez": {
+      "win_rate": 0.158,
+      "roi": 0.064,
+      "starts": 190,
+      "avg_win_payout": 13.48,
+      "profitable_types": {
+        "CLM": {
+          "starts": 53,
+          "wins": 13,
+          "roi": 1.721
+        }
+      }
+    },
+    "Jansen Melancon": {
+      "win_rate": 0.312,
+      "roi": 0.155,
+      "starts": 170,
+      "avg_win_payout": 7.41,
+      "profitable_types": {
+        "MC": {
+          "starts": 58,
+          "wins": 19,
+          "roi": 0.493
+        },
+        "ALW": {
+          "starts": 44,
+          "wins": 13,
+          "roi": 0.255
+        }
+      }
+    },
+    "Vicente Del-Cid": {
+      "win_rate": 0.403,
+      "roi": 0.097,
+      "starts": 325,
+      "avg_win_payout": 5.44,
+      "profitable_types": {
+        "MC": {
+          "starts": 117,
+          "wins": 44,
+          "roi": 0.026
+        },
+        "CLM": {
+          "starts": 83,
+          "wins": 35,
+          "roi": 0.148
+        },
+        "ALW": {
+          "starts": 85,
+          "wins": 37,
+          "roi": 0.278
+        },
+        "MSW": {
+          "starts": 39,
+          "wins": 15,
+          "roi": 0.267
+        }
+      }
+    },
+    "Joel Dominguez": {
+      "win_rate": 0.31,
+      "roi": 0.582,
+      "starts": 171,
+      "avg_win_payout": 10.21,
+      "profitable_types": {
+        "CLM": {
+          "starts": 70,
+          "wins": 24,
+          "roi": 0.886
+        },
+        "ALW": {
+          "starts": 39,
+          "wins": 9,
+          "roi": 0.731
+        },
+        "MC": {
+          "starts": 48,
+          "wins": 17,
+          "roi": 0.319
+        }
+      }
+    },
+    "Julio Ramirez, Jr.": {
+      "win_rate": 0.202,
+      "roi": 0.298,
+      "starts": 89,
+      "avg_win_payout": 12.83,
+      "profitable_types": {
+        "MC": {
+          "starts": 23,
+          "wins": 8,
+          "roi": 0.857
+        },
+        "ALW": {
+          "starts": 13,
+          "wins": 3,
+          "roi": 1.185
+        },
+        "MSW": {
+          "starts": 12,
+          "wins": 2,
+          "roi": 0.375
+        }
+      }
+    },
+    "Alexander Castillo": {
+      "win_rate": 0.159,
+      "roi": 0.494,
+      "starts": 88,
+      "avg_win_payout": 18.79,
+      "profitable_types": {
+        "CLM": {
+          "starts": 37,
+          "wins": 6,
+          "roi": 0.146
+        },
+        "MC": {
+          "starts": 22,
+          "wins": 4,
+          "roi": 1.618
+        }
+      }
+    },
+    "Kevin Roman": {
+      "win_rate": 0.21,
+      "roi": 0.362,
+      "starts": 143,
+      "avg_win_payout": 12.99,
+      "profitable_types": {
+        "ALW": {
+          "starts": 44,
+          "wins": 12,
+          "roi": 1.141
+        },
+        "CLM": {
+          "starts": 59,
+          "wins": 13,
+          "roi": 0.475
+        }
+      }
+    },
+    "Thomas Pompell": {
+      "win_rate": 0.224,
+      "roi": 0.673,
+      "starts": 147,
+      "avg_win_payout": 14.9,
+      "profitable_types": {
+        "ALW": {
+          "starts": 41,
+          "wins": 9,
+          "roi": 0.088
+        },
+        "MC": {
+          "starts": 52,
+          "wins": 10,
+          "roi": 1.094
+        },
+        "CLM": {
+          "starts": 26,
+          "wins": 7,
+          "roi": 1.962
+        }
+      }
+    },
+    "Javier Hernandez": {
+      "win_rate": 0.243,
+      "roi": 2.357,
+      "starts": 74,
+      "avg_win_payout": 27.6,
+      "profitable_types": {
+        "CLM": {
+          "starts": 28,
+          "wins": 6,
+          "roi": 3.021
+        },
+        "MC": {
+          "starts": 19,
+          "wins": 6,
+          "roi": 3.926
+        }
+      }
+    },
+    "Carlos Lozada": {
+      "win_rate": 0.327,
+      "roi": 1.679,
+      "starts": 52,
+      "avg_win_payout": 16.39,
+      "profitable_types": {
+        "MC": {
+          "starts": 16,
+          "wins": 6,
+          "roi": 2.5
+        },
+        "ALW": {
+          "starts": 20,
+          "wins": 5,
+          "roi": 0.355
+        }
+      }
+    },
+    "Jose Rodriguez": {
+      "win_rate": 0.2,
+      "roi": 0.887,
+      "starts": 40,
+      "avg_win_payout": 18.88,
+      "profitable_types": {
+        "CLM": {
+          "starts": 12,
+          "wins": 2,
+          "roi": 0.525
+        }
+      }
+    },
+    "Andres Chavez": {
+      "win_rate": 0.179,
+      "roi": 0.279,
+      "starts": 67,
+      "avg_win_payout": 14.28,
+      "profitable_types": {
+        "ALW": {
+          "starts": 16,
+          "wins": 4,
+          "roi": 2.425
+        },
+        "MC": {
+          "starts": 25,
+          "wins": 4,
+          "roi": 0.044
+        }
+      }
+    },
+    "Sheldon Russell": {
+      "win_rate": 0.359,
+      "roi": 0.109,
+      "starts": 92,
+      "avg_win_payout": 6.18,
+      "profitable_types": {
+        "MC": {
+          "starts": 55,
+          "wins": 22,
+          "roi": 0.311
+        }
+      }
+    },
+    "Forest Boyce": {
+      "win_rate": 0.254,
+      "roi": 0.403,
+      "starts": 71,
+      "avg_win_payout": 11.07,
+      "profitable_types": {
+        "MC": {
+          "starts": 38,
+          "wins": 9,
+          "roi": 0.139
+        }
+      }
+    },
+    "Gerald Rodriguez Sepulveda": {
+      "win_rate": 0.29,
+      "roi": 0.804,
+      "starts": 155,
+      "avg_win_payout": 12.43,
+      "profitable_types": {
+        "STK": {
+          "starts": 138,
+          "wins": 39,
+          "roi": 0.854
+        },
+        "MSW": {
+          "starts": 17,
+          "wins": 6,
+          "roi": 0.806
+        }
+      }
+    },
+    "Bryan Torres": {
+      "win_rate": 0.138,
+      "roi": 0.394,
+      "starts": 80,
+      "avg_win_payout": 20.27,
+      "profitable_types": {
+        "CLM": {
+          "starts": 64,
+          "wins": 9,
+          "roi": 0.422
+        },
+        "MC": {
+          "starts": 16,
+          "wins": 2,
+          "roi": 0.281
+        }
+      }
+    },
+    "Andrew Wolfsont": {
+      "win_rate": 0.218,
+      "roi": 0.172,
+      "starts": 78,
+      "avg_win_payout": 10.75,
+      "profitable_types": {
+        "CLM": {
+          "starts": 45,
+          "wins": 12,
+          "roi": 0.742
+        }
+      }
+    },
+    "Anthony Salgado": {
+      "win_rate": 0.261,
+      "roi": 0.289,
+      "starts": 46,
+      "avg_win_payout": 9.88,
+      "profitable_types": {
+        "CLM": {
+          "starts": 33,
+          "wins": 8,
+          "roi": 0.191
+        }
+      }
+    },
+    "Frankie Pennington": {
+      "win_rate": 0.245,
+      "roi": 0.157,
+      "starts": 106,
+      "avg_win_payout": 9.44,
+      "profitable_types": {
+        "MC": {
+          "starts": 40,
+          "wins": 8,
+          "roi": 0.157
+        },
+        "CLM": {
+          "starts": 47,
+          "wins": 12,
+          "roi": 0.121
+        },
+        "MSW": {
+          "starts": 10,
+          "wins": 4,
+          "roi": 0.24
+        }
+      }
+    },
+    "Luis Ocasio": {
+      "win_rate": 0.215,
+      "roi": 0.306,
+      "starts": 79,
+      "avg_win_payout": 12.14,
+      "profitable_types": {
+        "MC": {
+          "starts": 13,
+          "wins": 5,
+          "roi": 1.077
+        },
+        "CLM": {
+          "starts": 60,
+          "wins": 11,
+          "roi": 0.338
+        }
+      }
+    },
+    "Brian Barraza": {
+      "win_rate": 0.19,
+      "roi": 0.164,
+      "starts": 42,
+      "avg_win_payout": 12.22,
+      "profitable_types": {
+        "OTH": {
+          "starts": 15,
+          "wins": 2,
+          "roi": 1.953
+        }
+      }
+    },
+    "Joe Bravo": {
+      "win_rate": 0.242,
+      "roi": 0.402,
+      "starts": 91,
+      "avg_win_payout": 11.6,
+      "profitable_types": {
+        "CLM": {
+          "starts": 16,
+          "wins": 7,
+          "roi": 1.969
+        }
+      }
+    },
+    "Joseph Rocco, Jr.": {
+      "win_rate": 0.238,
+      "roi": 0.398,
+      "starts": 42,
+      "avg_win_payout": 11.74,
+      "profitable_types": {
+        "MC": {
+          "starts": 25,
+          "wins": 6,
+          "roi": 1.26
+        }
+      }
+    },
+    "Jean Aguilar": {
+      "win_rate": 0.312,
+      "roi": 1.056,
+      "starts": 48,
+      "avg_win_payout": 13.16,
+      "profitable_types": {
+        "CLM": {
+          "starts": 37,
+          "wins": 13,
+          "roi": 1.511
+        }
+      }
+    },
+    "Jean Briceno": {
+      "win_rate": 0.25,
+      "roi": 0.458,
+      "starts": 60,
+      "avg_win_payout": 11.67,
+      "profitable_types": {
+        "ALW": {
+          "starts": 12,
+          "wins": 2,
+          "roi": 0.683
+        },
+        "MC": {
+          "starts": 34,
+          "wins": 8,
+          "roi": 0.674
+        }
+      }
+    },
+    "Jose Gomez": {
+      "win_rate": 0.121,
+      "roi": 0.109,
+      "starts": 58,
+      "avg_win_payout": 18.37,
+      "profitable_types": {
+        "CLM": {
+          "starts": 29,
+          "wins": 4,
+          "roi": 0.689
+        }
+      }
+    },
+    "Jarred Journet": {
+      "win_rate": 0.19,
+      "roi": 2.707,
+      "starts": 42,
+      "avg_win_payout": 38.93,
+      "profitable_types": {
+        "CLM": {
+          "starts": 26,
+          "wins": 6,
+          "roi": 4.508
+        },
+        "MC": {
+          "starts": 10,
+          "wins": 2,
+          "roi": 0.35
+        }
+      }
+    },
+    "Horacio Karamanos": {
+      "win_rate": 0.188,
+      "roi": 0.148,
+      "starts": 96,
+      "avg_win_payout": 12.24,
+      "profitable_types": {
+        "CLM": {
+          "starts": 22,
+          "wins": 6,
+          "roi": 0.323
+        },
+        "MC": {
+          "starts": 47,
+          "wins": 8,
+          "roi": 0.236
+        }
+      }
+    },
+    "Xavier Perez": {
+      "win_rate": 0.275,
+      "roi": 0.749,
+      "starts": 69,
+      "avg_win_payout": 12.71,
+      "profitable_types": {
+        "MC": {
+          "starts": 37,
+          "wins": 10,
+          "roi": 0.281
+        },
+        "CLM": {
+          "starts": 13,
+          "wins": 4,
+          "roi": 1.331
+        }
+      }
+    },
+    "Rodolfo Dores Cabrera": {
+      "win_rate": 0.217,
+      "roi": 0.089,
+      "starts": 46,
+      "avg_win_payout": 10.02,
+      "profitable_types": {
+        "STK": {
+          "starts": 45,
+          "wins": 10,
+          "roi": 0.18
+        }
+      }
+    },
+    "Renzo Rojas": {
+      "win_rate": 0.17,
+      "roi": 2.313,
+      "starts": 47,
+      "avg_win_payout": 38.92,
+      "profitable_types": {
+        "CLM": {
+          "starts": 12,
+          "wins": 2,
+          "roi": 2.858
+        },
+        "MC": {
+          "starts": 24,
+          "wins": 4,
+          "roi": 2.525
+        }
+      }
+    },
+    "Abel Lezcano": {
+      "win_rate": 0.28,
+      "roi": 0.178,
+      "starts": 50,
+      "avg_win_payout": 8.41,
+      "profitable_types": {
+        "MSW": {
+          "starts": 10,
+          "wins": 4,
+          "roi": 1.91
+        },
+        "MC": {
+          "starts": 32,
+          "wins": 7,
+          "roi": 0.031
+        }
+      }
+    },
+    "Martin Valle": {
+      "win_rate": 0.297,
+      "roi": 0.217,
+      "starts": 64,
+      "avg_win_payout": 8.2,
+      "profitable_types": {
+        "STK": {
+          "starts": 12,
+          "wins": 4,
+          "roi": 0.675
+        },
+        "ALW": {
+          "starts": 34,
+          "wins": 8,
+          "roi": 0.082
+        },
+        "MSW": {
+          "starts": 18,
+          "wins": 7,
+          "roi": 0.278
+        }
+      }
+    },
+    "Pablo Carrizo": {
+      "win_rate": 0.255,
+      "roi": 1.402,
+      "starts": 47,
+      "avg_win_payout": 18.82,
+      "profitable_types": {
+        "MSW": {
+          "starts": 22,
+          "wins": 3,
+          "roi": 1.327
+        },
+        "ALW": {
+          "starts": 23,
+          "wins": 8,
+          "roi": 1.504
+        }
+      }
+    },
+    "Ignacio Valdivia": {
+      "win_rate": 0.296,
+      "roi": 0.381,
+      "starts": 54,
+      "avg_win_payout": 9.32,
+      "profitable_types": {
+        "STK": {
+          "starts": 47,
+          "wins": 16,
+          "roi": 0.651
+        }
+      }
+    },
+    "Adam Bowman": {
+      "win_rate": 0.163,
+      "roi": 2.367,
+      "starts": 49,
+      "avg_win_payout": 41.25,
+      "profitable_types": {
+        "CLM": {
+          "starts": 37,
+          "wins": 6,
+          "roi": 3.241
+        }
+      }
+    },
+    "Inoel Beato": {
+      "win_rate": 0.19,
+      "roi": 0.119,
+      "starts": 63,
+      "avg_win_payout": 11.75,
+      "profitable_types": {
+        "CLM": {
+          "starts": 33,
+          "wins": 9,
+          "roi": 0.933
+        }
+      }
+    },
+    "Jose Villagran": {
+      "win_rate": 0.256,
+      "roi": 0.781,
+      "starts": 43,
+      "avg_win_payout": 13.93,
+      "profitable_types": {
+        "MSW": {
+          "starts": 14,
+          "wins": 3,
+          "roi": 1.057
+        },
+        "STK": {
+          "starts": 29,
+          "wins": 8,
+          "roi": 0.821
+        }
+      }
+    },
+    "Carlos Urbina": {
+      "win_rate": 0.255,
+      "roi": 0.553,
+      "starts": 51,
+      "avg_win_payout": 12.18,
+      "profitable_types": {
+        "STK": {
+          "starts": 46,
+          "wins": 12,
+          "roi": 0.648
+        }
+      }
+    },
+    "Wilfredo Corujo": {
+      "win_rate": 0.104,
+      "roi": 0.502,
+      "starts": 48,
+      "avg_win_payout": 28.84,
+      "profitable_types": {
+        "MC": {
+          "starts": 15,
+          "wins": 3,
+          "roi": 2.58
+        }
+      }
+    },
+    "David Cora": {
+      "win_rate": 0.333,
+      "roi": 0.629,
+      "starts": 72,
+      "avg_win_payout": 9.78,
+      "profitable_types": {
+        "CLM": {
+          "starts": 39,
+          "wins": 13,
+          "roi": 0.551
+        },
+        "MC": {
+          "starts": 23,
+          "wins": 7,
+          "roi": 0.643
+        }
+      }
+    },
+    "Ramon Vazquez": {
+      "win_rate": 0.386,
+      "roi": 0.225,
+      "starts": 101,
+      "avg_win_payout": 6.35,
+      "profitable_types": {
+        "CLM": {
+          "starts": 22,
+          "wins": 14,
+          "roi": 0.714
+        },
+        "MC": {
+          "starts": 33,
+          "wins": 12,
+          "roi": 0.394
+        },
+        "MSW": {
+          "starts": 12,
+          "wins": 4,
+          "roi": 0.658
+        }
+      }
+    },
+    "Jose Vega": {
+      "win_rate": 0.209,
+      "roi": 0.3,
+      "starts": 43,
+      "avg_win_payout": 12.42,
+      "profitable_types": {
+        "CLM": {
+          "starts": 12,
+          "wins": 4,
+          "roi": 1.6
+        },
+        "MC": {
+          "starts": 19,
+          "wins": 4,
+          "roi": 0.074
+        }
+      }
+    },
+    "Mario Delgado": {
+      "win_rate": 0.224,
+      "roi": 0.2,
+      "starts": 58,
+      "avg_win_payout": 10.71,
+      "profitable_types": {
+        "CLM": {
+          "starts": 12,
+          "wins": 4,
+          "roi": 0.442
+        },
+        "MC": {
+          "starts": 15,
+          "wins": 6,
+          "roi": 2.393
+        }
+      }
+    },
+    "Cody Smith": {
+      "win_rate": 0.226,
+      "roi": 0.053,
+      "starts": 53,
+      "avg_win_payout": 9.3,
+      "profitable_types": {
+        "OTH": {
+          "starts": 30,
+          "wins": 7,
+          "roi": 0.45
+        }
+      }
+    },
+    "Cristian Esqueda": {
+      "win_rate": 0.279,
+      "roi": 0.316,
+      "starts": 43,
+      "avg_win_payout": 9.43,
+      "profitable_types": {
+        "MC": {
+          "starts": 11,
+          "wins": 4,
+          "roi": 0.918
+        }
+      }
+    },
+    "Juan Belisario": {
+      "win_rate": 0.307,
+      "roi": 0.22,
+      "starts": 137,
+      "avg_win_payout": 7.96,
+      "profitable_types": {
+        "CLM": {
+          "starts": 50,
+          "wins": 17,
+          "roi": 0.274
+        },
+        "ALW": {
+          "starts": 50,
+          "wins": 16,
+          "roi": 0.164
+        },
+        "MC": {
+          "starts": 29,
+          "wins": 7,
+          "roi": 0.403
+        }
+      }
+    },
+    "Ernesto Valdez-Jiminez": {
+      "win_rate": 0.232,
+      "roi": 0.681,
+      "starts": 95,
+      "avg_win_payout": 14.52,
+      "profitable_types": {
+        "MC": {
+          "starts": 28,
+          "wins": 4,
+          "roi": 0.232
+        },
+        "MSW": {
+          "starts": 16,
+          "wins": 2,
+          "roi": 0.519
+        },
+        "ALW": {
+          "starts": 26,
+          "wins": 13,
+          "roi": 2.419
+        }
+      }
+    },
+    "Iram Diego": {
+      "win_rate": 0.19,
+      "roi": 0.355,
+      "starts": 84,
+      "avg_win_payout": 14.22,
+      "profitable_types": {
+        "MC": {
+          "starts": 28,
+          "wins": 4,
+          "roi": 0.693
+        },
+        "CLM": {
+          "starts": 24,
+          "wins": 8,
+          "roi": 0.708
+        }
+      }
+    },
+    "Luis Quinonez": {
+      "win_rate": 0.233,
+      "roi": 0.496,
+      "starts": 60,
+      "avg_win_payout": 12.82,
+      "profitable_types": {
+        "CLM": {
+          "starts": 13,
+          "wins": 2,
+          "roi": 0.308
+        },
+        "MC": {
+          "starts": 20,
+          "wins": 6,
+          "roi": 0.495
+        },
+        "MSW": {
+          "starts": 11,
+          "wins": 2,
+          "roi": 0.073
+        }
+      }
+    },
+    "Jose Alvarez": {
+      "win_rate": 0.274,
+      "roi": 0.61,
+      "starts": 84,
+      "avg_win_payout": 11.76,
+      "profitable_types": {
+        "MSW": {
+          "starts": 16,
+          "wins": 4,
+          "roi": 0.162
+        },
+        "MC": {
+          "starts": 19,
+          "wins": 6,
+          "roi": 0.932
+        }
+      }
+    },
+    "Leonel Reyes": {
+      "win_rate": 0.188,
+      "roi": 0.253,
+      "starts": 64,
+      "avg_win_payout": 13.37,
+      "profitable_types": {
+        "MC": {
+          "starts": 33,
+          "wins": 6,
+          "roi": 0.903
+        }
+      }
+    },
+    "Umberto Rispoli": {
+      "win_rate": 0.312,
+      "roi": 0.162,
+      "starts": 96,
+      "avg_win_payout": 7.44,
+      "profitable_types": {
+        "MSW": {
+          "starts": 12,
+          "wins": 5,
+          "roi": 0.442
+        }
+      }
+    },
+    "Alejandro Maureira": {
+      "win_rate": 0.431,
+      "roi": 0.463,
+      "starts": 51,
+      "avg_win_payout": 6.78,
+      "profitable_types": {
+        "STK": {
+          "starts": 44,
+          "wins": 20,
+          "roi": 0.577
+        }
+      }
+    }
+  },
+  "rules": [
+    "1. Check if any horse in the race has a VALUE JOCKEY (positive ROI in our database)",
+    "2. Check if 3+ expert sources pick that horse (consensus confirmation)",
+    "3. Compare expert consensus probability vs actual tote board odds",
+    "4. If model probability > tote implied probability by 15%+, BET",
+    "5. Focus on WIN bets ($2-5) for lower takeout (15-17% vs 20-25% for exotics)",
+    "6. Maximum 1 bet per race, 8 bets per day",
+    "7. Skip races where no value horse has expert consensus support"
+  ],
+  "expert_consensus_weights": {
+    "6_of_6": 0.45,
+    "5_of_6": 0.35,
+    "4_of_6": 0.25,
+    "3_of_6": 0.18,
+    "2_of_6": 0.12,
+    "1_of_6": 0.08
+  }
+}
